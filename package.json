@@ -1,0 +1,38 @@
+{
+  "name": "symfony-react-edition",
+  "version": "0.1.0",
+  "description": "Symfony React Edition",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "symfony",
+    "react",
+    "jsx",
+    "reactjs",
+    "server-side",
+    "rendering",
+    "isomorphic"
+  ],
+  "author": {
+    "name": "Nacho Martín",
+    "email": "nacho@limenius.com",
+    "url": "http://nacho-martin.com/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "jquery": "^2.2.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-on-rails": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.1",
+    "expose-loader": "^0.7.1"
+  }
+}
