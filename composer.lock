@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1b97e5a240e769e4a7afa9b8c4de1849",
-    "content-hash": "d6693c8d3ad436468f9258f22a5a49b0",
+    "hash": "9c452de5486c0733872348b85a21fd66",
+    "content-hash": "4da5e87e40b93d946dbe9d3c24a0e88f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -950,6 +950,42 @@
             "time": "2015-10-14 12:51:02"
         },
         {
+            "name": "nacmartin/phpexecjs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nacmartin/phpexecjs.git",
+                "reference": "8875e2bff9b6241ffb16825fe5460b3dd678673d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/8875e2bff9b6241ffb16825fe5460b3dd678673d",
+                "reference": "8875e2bff9b6241ffb16825fe5460b3dd678673d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nacmartin\\PhpExecJs": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nacho",
+                    "email": "nacho@limenius.com"
+                }
+            ],
+            "description": "Run JavaScript code from PHP",
+            "support": {
+                "source": "https://github.com/nacmartin/phpexecjs/tree/master",
+                "issues": "https://github.com/nacmartin/phpexecjs/issues"
+            },
+            "time": "2016-01-27 19:00:21"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "1.1.5",
             "source": {
@@ -1748,7 +1784,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/36c2961def4c5df511abe2a64b5d58e62a3a932c",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/5b5970364e3f780d12b417d45b2694fdaba51828",
                 "reference": "36c2961def4c5df511abe2a64b5d58e62a3a932c",
                 "shasum": ""
             },
@@ -2043,9 +2079,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/symfony": 20
+        "symfony/symfony": 20,
+        "nacmartin/phpexecjs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
