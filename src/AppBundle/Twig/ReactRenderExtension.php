@@ -15,7 +15,7 @@ class ReactRenderExtension extends \Twig_Extension
     {
         $phpexecjs = new PhpExecJs();
         $phpexecjs->createContextFromFile(dirname(__FILE__).'/../../../server-bundle.js');
-        return json_decode(json_decode($phpexecjs->evalJs("console.log(JSON.stringify(ReactOnRails.serverRenderReactComponent({name: '".$options['name']."'})))")))->html;
+        return json_decode($phpexecjs->evalJs("console.log(ReactOnRails.serverRenderReactComponent({name: '".$options['name']."'}))"))->html;
     }
 
     public function getName()
