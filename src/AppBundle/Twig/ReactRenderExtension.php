@@ -8,8 +8,7 @@ class ReactRenderExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('reactServerSide', array($this, 'reactServerSideRender')),
-        );
+            new \Twig_SimpleFunction('reactServerSide', array($this, 'reactServerSideRender'), array('is_safe' => array('html'))));
     }
 
     public function reactServerSideRender($options)
