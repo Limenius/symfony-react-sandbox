@@ -1,25 +1,35 @@
+// Webpack configuration for server bundle
+
 const webpack = require('webpack');
+const path = require('path');
+
+const devBuild = process.env.NODE_ENV !== 'production';
+const nodeEnv = devBuild ? 'development' : 'production';
 
 module.exports = {
-    entry: [
-            './hola.js'
-    ],
-    target: 'node',
-    output: {
-        filename: "server-bundle.js"
-    },
-    module: {
-        loaders: [
-            { 
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015']
-                },
-                cacheDirectory: true
-            }
-        ]
-    }
-}
 
+    // the project dir
+    context: __dirname,
+    entry: [
+        'babel-polyfill',
+        './client/HelloWorld/startup/serverRegistration'
+        ],
+        output: {
+            filename: 'server-bundle.js',
+        },
+        resolve: {
+            extensions: ['', '.js', '.jsx'],
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: JSON.stringify(nodeEnv),
+                },
+        }),
+        ],
+        module: {
+            loaders: [
+                { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+                ],
+            },
+        };
