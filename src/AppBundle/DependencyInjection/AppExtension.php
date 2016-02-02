@@ -16,5 +16,6 @@ class AppExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
         $loader->load('twig.xml');
+        $loader->load('services.xml');
     }
 }

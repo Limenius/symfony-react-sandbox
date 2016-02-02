@@ -17,8 +17,9 @@ class ReactRenderExtension extends \Twig_Extension
         $phpexecjs = new PhpExecJs();
         $serverBundle = file_get_contents(dirname(__FILE__).'/../../../server-bundle.js');
         $phpexecjs->createContext($this->consolePolyfill()."\n".$serverBundle);
+        $propsString = isset($options['props']) ? $options['props'] : '';
         //TODO: needs error checking
-        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName)), true);
+        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString)), true);
         return $result['html'].$result['consoleReplayScript'];
     }
 
@@ -39,11 +40,11 @@ JS;
         return $console;
     }
 
-    public function wrap($name)
+    public function wrap($name, $propsString)
     {
         $wrapperJs = <<<JS
 (function() {
-  var props = '';
+  var props = $propsString;
   return ReactOnRails.serverRenderReactComponent({
     name: '$name',
     domNodeId: '',

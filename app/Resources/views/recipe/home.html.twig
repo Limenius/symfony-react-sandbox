@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ react_component('RecipesApp') }}
+{{ react_component('RecipesApp', {'props': recipes}) }}
 {% endblock %}
 
 {% block stylesheets %}

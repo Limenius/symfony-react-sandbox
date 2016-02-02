@@ -3,7 +3,7 @@ import React from 'react';
 import Recipes from '../containers/Recipes';
 
 export default (props) => {
-  return (
-    <Recipes {...props} />
-  );
+    return (
+        <Recipes {...props} />
+    );
 };

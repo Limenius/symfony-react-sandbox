@@ -10,16 +10,6 @@ class RecipeCollection
     public $recipes;
 
     /**
-     * @var integer
-     */
-    public $offset;
-
-    /**
-     * @var integer
-     */
-    public $limit;
-
-    /**
      * @param Recipe[]  $recipes
      * @param integer $offset
      * @param integer $limit

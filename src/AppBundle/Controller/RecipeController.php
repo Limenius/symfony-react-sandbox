@@ -14,8 +14,9 @@ class RecipeController extends Controller
      */
     public function homeAction(Request $request)
     {
+        $serializer = $this->get('serializer');
         return $this->render('recipe/home.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'recipes' => $serializer->serialize($this->get('recipe.manager')->findAll(), 'json')
         ]);
     }
 }
