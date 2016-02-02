@@ -2,6 +2,7 @@
 
 namespace AppBundle\Twig;
 use Nacmartin\PhpExecJs\PhpExecJs;
+use AppBundle\Exception\EvalJsError;
 
 class ReactRenderExtension extends \Twig_Extension
 {
@@ -11,13 +12,14 @@ class ReactRenderExtension extends \Twig_Extension
             new \Twig_SimpleFunction('react_component', array($this, 'reactServerSideRender'), array('is_safe' => array('html'))));
     }
 
-    public function reactServerSideRender($name, $options = array())
+    public function reactServerSideRender($componentName, $options = array())
     {
         $phpexecjs = new PhpExecJs();
         $serverBundle = file_get_contents(dirname(__FILE__).'/../../../server-bundle.js');
         $phpexecjs->createContext($this->consolePolyfill()."\n".$serverBundle);
         //TODO: needs error checking
-        return json_decode($phpexecjs->evalJs($this->wrap($name)), true)['html'];
+        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName)), true);
+        return $result['html'].$result['consoleReplayScript'];
     }
 
     public function consolePolyfill()

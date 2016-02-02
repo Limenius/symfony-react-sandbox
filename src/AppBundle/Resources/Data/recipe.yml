@@ -1,0 +1,13 @@
+recipes:
+    -
+        name: 'Ratatouille'
+        tags: ['vegetarian', 'French']
+    -
+        name: 'Falafel'
+        tags: ['vegetarian', 'Arab']
+    -
+        name: 'Paella'
+        tags: ['rice', 'Spanish']
+    -
+        name: 'Sushi'
+        tags: ['rice', 'Japanese']

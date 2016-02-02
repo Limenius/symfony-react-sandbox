@@ -12,7 +12,7 @@ module.exports = {
     context: __dirname,
     entry: [
         'babel-polyfill',
-        './client/HelloWorld/startup/serverRegistration'
+        './client/Recipes/startup/serverRegistration'
         ],
         output: {
             filename: 'server-bundle.js',
