@@ -7,10 +7,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div id="react-container">{% spaceless %}{% block body %}{% endblock %}{% endspaceless%}</div>
         {% block javascripts %}
-        <script src="{{ asset('assets/build/vendor.bundle.js') }}"></script>
-        <script src="{{ asset('assets/build/app.js') }}"></script>
+        <script src="{{ asset('assets/build/client-bundle.js') }}"></script>
         {% endblock %}
     </body>
 </html>

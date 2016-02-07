@@ -12,7 +12,6 @@ export default (props) => {
     let error;
     let redirectLocation;
     let routeProps;
-    var loc = '/';
   
     // See https://github.com/rackt/react-router/blob/master/docs/guides/advanced/ServerRendering.md
     match({ routes, location: props.location }, (_error, _redirectLocation, _routeProps) => {
@@ -21,7 +20,7 @@ export default (props) => {
         routeProps = _routeProps;
     });
   
-    // This tell react_on_rails to skip server rendering any HTML. Note, client rendering
+    // Skip server rendering any HTML. Note, client rendering
     // will handle the redirect. What's key is that we don't try to render.
     // Critical to return the Object properties to match this { error, redirectLocation }
     if (error || redirectLocation) {

@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Nacmartin\PhpExecJs\PhpExecJs;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RecipeController extends Controller
 {
@@ -35,5 +35,14 @@ class RecipeController extends Controller
                  'location' => $request->getRequestUri()
                 ], 'json')
         ]);
+    }
+
+    /**
+     * @Route("/api/recipes", name="api_recipes")
+     */
+    public function apiRecipesAction(Request $request)
+    {
+        $serializer = $this->get('serializer');
+        return new JsonResponse($this->get('recipe.manager')->findAll()->recipes);
     }
 }
