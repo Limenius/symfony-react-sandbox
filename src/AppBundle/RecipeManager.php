@@ -29,4 +29,8 @@ class RecipeManager
         return $this->recipeCollection;
     }
 
+    public function findOneBySlug($slug)
+    {
+        return $this->recipeCollection->findOneBySlug($slug);
+    }
 }

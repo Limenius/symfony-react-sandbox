@@ -1,13 +1,17 @@
 recipes:
     -
         name: 'Ratatouille'
+        slug: 'ratatouille'
         tags: ['vegetarian', 'French']
     -
         name: 'Falafel'
+        slug: 'falafel'
         tags: ['vegetarian', 'Arab']
     -
         name: 'Paella'
+        slug: 'paella'
         tags: ['rice', 'Spanish']
     -
         name: 'Sushi'
+        slug: 'sushi'
         tags: ['rice', 'Japanese']

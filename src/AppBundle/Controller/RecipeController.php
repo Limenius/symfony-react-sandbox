@@ -16,7 +16,24 @@ class RecipeController extends Controller
     {
         $serializer = $this->get('serializer');
         return $this->render('recipe/home.html.twig', [
-            'recipes' => $serializer->serialize($this->get('recipe.manager')->findAll(), 'json')
+            'props' => $serializer->serialize(
+                ['recipes' => $this->get('recipe.manager')->findAll()->recipes,
+                 'location' => $request->getRequestUri()
+                ], 'json')
+        ]);
+    }
+
+    /**
+     * @Route("/recipe/{slug}", name="recipe")
+     */
+    public function recipeAction($slug, Request $request)
+    {
+        $serializer = $this->get('serializer');
+        return $this->render('recipe/recipe.html.twig', [
+            'props' => $serializer->serialize(
+                ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
+                 'location' => $request->getRequestUri()
+                ], 'json')
         ]);
     }
 }

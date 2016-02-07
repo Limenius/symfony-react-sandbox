@@ -20,4 +20,14 @@ class RecipeCollection
         $this->offset = $offset;
         $this->limit = $limit;
     }
+
+    public function findOneBySlug($slug)
+    {
+        foreach ($this->recipes as $recipe) {
+            if ($recipe->slug == $slug) {
+                return $recipe;
+            }
+        }
+        return null;
+    }
 }

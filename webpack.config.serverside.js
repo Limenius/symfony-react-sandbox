@@ -10,6 +10,7 @@ module.exports = {
 
     // the project dir
     context: __dirname,
+    devtool: 'sourcemap',
     entry: [
         'babel-polyfill',
         './client/Recipes/startup/serverRegistration'

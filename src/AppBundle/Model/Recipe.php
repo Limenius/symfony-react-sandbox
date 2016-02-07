@@ -10,6 +10,11 @@ class Recipe
     public $name;
 
     /**
+     * @var string
+     */
+    public $slug;
+
+    /**
      * @var array
      */
     public $tags = array();

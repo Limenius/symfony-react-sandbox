@@ -36,6 +36,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "es5-shim": "^4.4.1",
     "expose-loader": "^0.7.1",
+    "history": "^1.17.0",
     "imports-loader": "^0.6.5",
     "jquery": "^2.1.4",
     "jquery-ujs": "^1.1.0-1",
@@ -45,6 +46,7 @@
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
     "react-on-rails": "2.0.2",
+    "react-router": "^1.0.3",
     "webpack": "^1.12.8"
   },
   "devDependencies": {
@@ -67,6 +69,5 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack-dev-server": "^1.12.1"
-      
   }
 }
