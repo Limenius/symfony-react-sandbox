@@ -39081,7 +39081,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Recipe).call(this, props, context));
 	
-	        _this.state = { recipe: _this.props.recipe };
+	        _this.state = { recipe: _this.props.params.recipe };
 	        return _this;
 	    }
 	
@@ -39091,7 +39091,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_Recipe2.default, { recipe: this.state.recipe })
+	                _react2.default.createElement(_Recipe2.default, { name: this.state.recipe.name })
 	            );
 	        }
 	    }]);

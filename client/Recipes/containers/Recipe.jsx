@@ -9,12 +9,12 @@ export default class Recipe extends React.Component {
 
         // How to set initial state in ES6 class syntax
         // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-        this.state = { recipe: this.props.recipe };
+        this.state = { recipe: this.props.params.recipe };
     }
     render() {
         return (
             <div>
-              <RecipeWidget recipe={this.state.recipe}/>
+              <RecipeWidget name={this.state.recipe.name}/>
             </div>
         );
     }

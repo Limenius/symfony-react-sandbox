@@ -18,6 +18,7 @@ class RecipeManager
         foreach($recipesArray as $recipeArray) {
             $recipe = new Recipe();
             $recipe->name = $recipeArray['name'];
+            $recipe->slug = $recipeArray['slug'];
             $recipe->tags = $recipeArray['tags'];
             $recipes[] = $recipe;
         }
