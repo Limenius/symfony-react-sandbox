@@ -3,17 +3,16 @@ import React from 'react';
 
 import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
-import { Router } from 'react-router'
+import { Router, Route } from 'react-router'
 import { createHistory, useBasename } from 'history';
 
-const history = useBasename(createHistory)({
-    basename: window.BaseUrl + ''
-})
+const history = createHistory();
 
-const routes = [
-    { path: '/', component: Recipes },
-    { path: 'recipe/:slug', component: Recipe }
-];
+const routes = (
+  <Route path="/" component={Recipes}>
+    <Route path="recipe/:slug" component={Recipe}/>
+  </Route>
+);
 
 
 export default (props) => {
