@@ -20,7 +20,7 @@ class ReactRenderExtension extends \Twig_Extension
         $propsString = isset($options['props']) ? $options['props'] : '';
         //TODO: needs error checking
         $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString)), true);
-        $str = '<div class="js-react-on-rails-component" style="display:none" data-component-name="RecipesApp" data-props="'.htmlspecialchars($propsString).'" data-trace="false" data-expect-turbolinks="true" data-dom-id="HOLA-AMIGOS"></div>';
+        $str = '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="false" data-dom-id="HOLA-AMIGOS"></div>';
         $str .='<div id="HOLA-AMIGOS">'.$result['html'].$result['consoleReplayScript'].'</div>';
         return $str;
     }

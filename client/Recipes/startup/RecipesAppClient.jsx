@@ -4,7 +4,11 @@ import React from 'react';
 import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
 import { Router } from 'react-router'
-import { browserHistory } from 'react-router';
+import { createHistory, useBasename } from 'history';
+
+const history = useBasename(createHistory)({
+    basename: window.BaseUrl + ''
+})
 
 const routes = [
     { path: '/', component: Recipes },
@@ -20,6 +24,6 @@ export default (props) => {
         return <Component {...compProps} />
     };
     return (
-        <Router createElement={createElement} history={browserHistory} children={routes} {...props}/>
+        <Router createElement={createElement} history={history} children={routes} {...props}/>
     );
 };
