@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Exception;
+namespace Limenius\ReactBundle\Exception;
 
 class EvalJsError extends \RuntimeException
 {

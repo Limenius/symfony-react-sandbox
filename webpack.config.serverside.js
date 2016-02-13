@@ -15,7 +15,7 @@ module.exports = {
         './client/Recipes/startup/serverRegistration'
         ],
     output: {
-        filename: 'server-bundle.js',
+        filename: 'app/Resources/webpack/server-bundle.js',
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],

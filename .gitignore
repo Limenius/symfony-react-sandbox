@@ -16,3 +16,5 @@
 /web/bundles/
 /web/assets/
 /node_modules/
+/app/Resources/webpack/*
+!/app/Resources/webpack/.gitkeep
