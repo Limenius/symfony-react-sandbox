@@ -6,12 +6,13 @@ import Recipe from '../containers/Recipe';
 import { Router, Route } from 'react-router'
 import { createHistory, useBasename } from 'history';
 
-const history = createHistory();
+var history = createHistory();
 
 const routes = (
-  <Route path="/" component={Recipes}>
-    <Route path="recipe/:slug" component={Recipe}/>
-  </Route>
+    <div>
+        <Route path="/" component={Recipes}></Route>
+        <Route path="/recipe/:slug" component={Recipe}/>
+    </div>
 );
 
 

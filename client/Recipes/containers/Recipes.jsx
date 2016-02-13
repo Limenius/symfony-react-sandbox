@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import RecipeList from '../components/RecipeList';
+import { Link } from 'react-router'
 import _ from 'lodash';
 import $ from 'jquery';
 
@@ -11,13 +12,37 @@ export default class Recipes extends React.Component {
             // How to set initial state in ES6 class syntax
             // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
             this.state = { recipes: this.props.params.recipes };
+        } else {
+            this.state = { 
+                recipes: null,
+                loading: true
+            };
+        }
+    }
+    componentWillMount() {
+        if (this.state.loading) {
+            $.get('/api/recipes', (data) => {
+                this.setState({
+                    recipes : data,
+                    loading: false
+                })
+            });
         }
     }
     render() {
-        return (
-            <div>
-              <RecipeList recipes={this.state.recipes}/>
-            </div>
-        );
+        if (this.state.loading) {
+            return (
+                <div>
+                Loading...
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                  <Link to='/'>Recipes</Link>
+                  <RecipeList recipes={this.state.recipes}/>
+                </div>
+            );
+        }
     }
 }

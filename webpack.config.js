@@ -13,10 +13,17 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx'],
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            _: "lodash",
+            $: "jquery",
+            "jQuery"              : "jquery",
+            "window.jQuery"       : "jquery",
+        })
+    ],
     module: {
         loaders: [
-            { test: require.resolve('jquery'), loader: 'expose?jQuery' },
-            { test: require.resolve('jquery'), loader: 'expose?$' },
+            { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }
         ],
     }

@@ -45,4 +45,13 @@ class RecipeController extends Controller
         $serializer = $this->get('serializer');
         return new JsonResponse($this->get('recipe.manager')->findAll()->recipes);
     }
+
+    /**
+     * @Route("/api/recipes/{slug}", name="api_recipe")
+     */
+    public function apiRecipeAction($slug, Request $request)
+    {
+        $serializer = $this->get('serializer');
+        return new JsonResponse($this->get('recipe.manager')->findOneBySlug($slug));
+    }
 }
