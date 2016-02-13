@@ -23,8 +23,11 @@ class ReactRenderer
         $serverBundle = file_get_contents($this->serverBundlePath);
         $phpexecjs->createContext($this->consolePolyfill()."\n".$serverBundle);
         $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString, $uuid)), true);
+        //throw new \Exception(var_export($result, true));
+        if ($result['hasErrors']) {
+            $this->LogErrors($result['consoleReplayScript']);
+        }
         return $result['html'].$result['consoleReplayScript'];
-
     }
 
     protected function consolePolyfill()
@@ -50,7 +53,7 @@ JS;
 (function() {
   var props = $propsString;
   return ReactOnRails.serverRenderReactComponent({
-    name: '$name',
+    name: 'o$name',
     domNodeId: '$uuid',
     props: props,
     trace: false,
@@ -59,5 +62,16 @@ JS;
 })()
 JS;
         return $wrapperJs;
+    }
+
+    protected function logErrors($consoleReplay)
+    {
+        $lines = explode("\n", $consoleReplay);
+        $usefulLines = array_slice($lines, 2, count($lines) - 4);
+        foreach ($usefulLines as $line) {
+            if (preg_match ('/console\.error\.apply\(console, \["\[SERVER\] (?P<msg>.*)"\]\);/' , $line, $matches)) {
+                $this->logger->warning($matches['msg']);
+            }
+        }
     }
 }
