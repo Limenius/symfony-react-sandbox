@@ -53,19 +53,45 @@ class ReactRenderExtension extends \Twig_Extension
         $uuid = 'sfreact-'.uniqid();
         $propsString = isset($options['props']) ? $options['props'] : '';
         $str = '';
-        if ($this->renderClientSide) {
-            $str .= '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="'.($this->trace ? 'true' : 'false').'" data-dom-id="'.$uuid.'"></div>';
+        $trace = $this->shouldTrace($options);
+        if ($this->shouldRenderClientSide($options)) {
+            $str .= '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="'.($trace ? 'true' : 'false').'" data-dom-id="'.$uuid.'"></div>';
         }
         $str .= '<div id="'.$uuid.'">';
-        if ($this->renderServerSide) {
+        if ($this->shouldRenderServerSide($options)) {
 
-            $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid, $this->trace);
+            $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid, $trace);
             $str .= $serverSideStr;
         }
         $str .= '</div>';
         return $str;
     }
 
+    public function shouldRenderServerSide($options) {
+        if (isset($options['rendering'])) {
+            if (in_array($options['rendering'], ['server_side', 'both'])) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return $this->renderServerSide;
+    }
+
+    protected function shouldTrace($options) {
+        return (isset($options['trace']) ? $options['trace'] : $this->trace);
+    }
+
+    public function shouldRenderClientSide($options) {
+        if (isset($options['rendering'])) {
+            if (in_array($options['rendering'], ['client_side', 'both'])) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return $this->renderClientSide;
+    }
 
     public function getName()
     {
