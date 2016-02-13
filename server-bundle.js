@@ -26631,18 +26631,37 @@
 	var RecipeList = function (_React$Component) {
 	    _inherits(RecipeList, _React$Component);
 
-	    function RecipeList() {
+	    function RecipeList(props, context) {
 	        _classCallCheck(this, RecipeList);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(RecipeList).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RecipeList).call(this, props, context));
+
+	        _this.filterTextInput = null;
+
+	        _this.state = {
+	            recipes: _this.props.recipes,
+	            filterText: ''
+	        };
+	        return _this;
 	    }
 
 	    _createClass(RecipeList, [{
+	        key: 'onChangeSearch',
+	        value: function onChangeSearch() {
+	            this.setState({ filterText: this.filterTextInput.value });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var recipeNodes = this.props.recipes.map(function (recipe, idx) {
+	            var _this2 = this;
+
+	            var recipeNodes = [];
+	            this.state.recipes.forEach(function (recipe, idx) {
+	                if (_this2.state.filterText != '' && recipe.name.toLowerCase().indexOf(_this2.state.filterText) === -1) {
+	                    return;
+	                }
 	                var link = '/recipe/' + recipe.slug;
-	                return _react2.default.createElement(
+	                recipeNodes.push(_react2.default.createElement(
 	                    'div',
 	                    { key: idx },
 	                    _react2.default.createElement(
@@ -26650,11 +26669,31 @@
 	                        { to: link },
 	                        _react2.default.createElement(_Recipe2.default, { key: idx, recipe: recipe, id: idx })
 	                    )
-	                );
+	                ));
 	            });
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'search-box', className: 'pull-right' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.filterText, placeholder: 'Search for...', ref: function ref(c) {
+	                                _this2.filterTextInput = c;
+	                            }, onChange: this.onChangeSearch.bind(this) }),
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'input-group-btn' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { className: 'btn btn-default', type: 'button' },
+	                                'Go!'
+	                            )
+	                        )
+	                    )
+	                ),
 	                _react2.default.createElement(
 	                    'h2',
 	                    null,

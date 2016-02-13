@@ -8,9 +8,13 @@ body {
 .main-container {
   padding: 40px 15px;
 
-  .recipe-body {
-    a p {
-        text-decoration: none;
-    }
+  a .recipe-body {
+      text-decoration: none;
+      color: black;
   }
+
+}
+#search-box {
+    width: 300px;
+    margin-top: 20px;
 }
