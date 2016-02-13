@@ -4,12 +4,14 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var extractSCSS = new ExtractTextPlugin('stylesheets/[name].css');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = {
+const devBuild = process.env.NODE_ENV !== 'production';
+const nodeEnv = devBuild ? 'development' : 'production';
+
+
+var config = {
     entry: [
-        'babel-polyfill',
         './client/Recipes/startup/clientRegistration'
     ],
-    devtool: 'sourcemap',
     output: {
         path: "./web/assets/build/",
         publicPath: "/assets/build/",
@@ -28,7 +30,12 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from: './client/img', to: './img' },
-        ])
+        ]),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(nodeEnv),
+            },
+        }),
     ],
     module: {
         loaders: [
@@ -43,3 +50,14 @@ module.exports = {
     }
 }
 
+if (devBuild) {
+    console.log('Webpack dev build');
+    config.devtool = 'eval-source-map';
+} else {
+    config.plugins.push(
+        new webpack.optimize.DedupePlugin()
+    );
+    console.log('Webpack production build');
+}
+
+module.exports = config;
