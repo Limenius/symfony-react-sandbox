@@ -71,7 +71,7 @@ swiftmailer:
     spool:     { type: memory }
 
 limenius_react:
-    default_rendering: "only_serverside"
+    default_rendering: "both"
     serverside_rendering:
         fail_loud: false
         trace: false

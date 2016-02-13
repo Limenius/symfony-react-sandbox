@@ -17,12 +17,14 @@ class ReactRenderExtension extends \Twig_Extension
      * 
      * @param ReactRenderer $renderer 
      * @param string $defaultRendering 
+     * @param boolean $trace 
      * @access public
      * @return void
      */
-    public function __construct(ReactRenderer $renderer, $defaultRendering)
+    public function __construct(ReactRenderer $renderer, $defaultRendering, $trace = false)
     {
         $this->renderer = $renderer;
+        $this->trace = $trace;
 
         switch ($defaultRendering) {
         case 'only_serverside':
@@ -52,15 +54,15 @@ class ReactRenderExtension extends \Twig_Extension
         $propsString = isset($options['props']) ? $options['props'] : '';
         $str = '';
         if ($this->renderClientSide) {
-            $str .= '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="true" data-dom-id="'.$uuid.'"></div>';
+            $str .= '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="'.($this->trace ? 'true' : 'false').'" data-dom-id="'.$uuid.'"></div>';
         }
         $str .= '<div id="'.$uuid.'">';
         if ($this->renderServerSide) {
 
-            $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid);
+            $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid, $this->trace);
             $str .= $serverSideStr;
         }
-        $str .= '</div';
+        $str .= '</div>';
         return $str;
     }
 

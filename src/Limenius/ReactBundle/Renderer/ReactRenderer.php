@@ -25,11 +25,11 @@ class ReactRenderer
         $this->serverBundlePath = $serverBundlePath;
     }
 
-    public function render($componentName, $propsString, $uuid)
+    public function render($componentName, $propsString, $uuid, $trace)
     {
         $serverBundle = file_get_contents($this->serverBundlePath);
         $this->phpExecJs->createContext($this->consolePolyfill()."\n".$serverBundle);
-        $result = json_decode($this->phpExecJs->evalJs($this->wrap($componentName, $propsString, $uuid)), true);
+        $result = json_decode($this->phpExecJs->evalJs($this->wrap($componentName, $propsString, $uuid, $trace)), true);
         if ($result['hasErrors']) {
             $this->LogErrors($result['consoleReplayScript']);
             if ($this->failLoud) {
@@ -56,8 +56,9 @@ JS;
         return $console;
     }
 
-    protected function wrap($name, $propsString, $uuid)
+    protected function wrap($name, $propsString, $uuid, $trace)
     {
+        $traceStr = $trace ? 'true' : 'false';
         $wrapperJs = <<<JS
 (function() {
   var props = $propsString;
@@ -65,7 +66,7 @@ JS;
     name: '$name',
     domNodeId: '$uuid',
     props: props,
-    trace: false,
+    trace: $traceStr,
     location: ''
   });
 })()

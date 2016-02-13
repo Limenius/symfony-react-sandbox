@@ -25,7 +25,7 @@ class LimeniusReactExtension extends Extension
 
         $container->setParameter('limenius_react.default_rendering', $config['default_rendering']);
         $container->setParameter('limenius_react.fail_loud', $config['serverside_rendering']['fail_loud']);
-        //throw new \Exception($config['serverside_rendering']['fail_loud'] ? 'tr': 'f');
+        $container->setParameter('limenius_react.trace', $config['serverside_rendering']['trace']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
