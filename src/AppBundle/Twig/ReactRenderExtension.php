@@ -19,9 +19,10 @@ class ReactRenderExtension extends \Twig_Extension
         $phpexecjs->createContext($this->consolePolyfill()."\n".$serverBundle);
         $propsString = isset($options['props']) ? $options['props'] : '';
         //TODO: needs error checking
-        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString)), true);
-        $str = '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="false" data-dom-id="HOLA-AMIGOS"></div>';
-        $str .='<div id="HOLA-AMIGOS">'.$result['html'].$result['consoleReplayScript'].'</div>';
+        $uuid = 'sfreact-'.uniqid();
+        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString, $uuid)), true);
+        $str = '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="false" data-dom-id="'.$uuid.'"></div>';
+        $str .='<div id="'.$uuid.'">'.$result['html'].$result['consoleReplayScript'].'</div>';
         return $str;
     }
 
@@ -42,14 +43,14 @@ JS;
         return $console;
     }
 
-    public function wrap($name, $propsString)
+    public function wrap($name, $propsString, $uuid)
     {
         $wrapperJs = <<<JS
 (function() {
   var props = $propsString;
   return ReactOnRails.serverRenderReactComponent({
     name: '$name',
-    domNodeId: 'HOLA-AMIGOS',
+    domNodeId: '$uuid',
     props: props,
     trace: false,
     location: ''
