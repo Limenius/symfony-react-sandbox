@@ -8,9 +8,10 @@ export default class Recipe extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        // How to set initial state in ES6 class syntax
-        // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-        if (!this.props.params.recipe) {
+        //We check it there is no recipe (only client side)
+        //Or our slug doesn't match the recipe that we received server-side
+        if (!this.props.params.recipe || (this.props.params.slug && this.props.params.slug != this.props.params.recipe.slug)) {
+            console.log("load");
             this.state = { 
                 recipe: null,
                 loading: true
