@@ -7,22 +7,27 @@ use Nacmartin\PhpExecJs\PhpExecJs;
 class ReactRenderer
 {
     protected $logger;
-    protected $execJs;
+    protected $phpExecJs;
     protected $serverBundlePath;
 
-    public function __construct($logger, PhpExecJs $execJs, $serverBundlePath)
+    public function __construct($logger, PhpExecJs $execJs, $serverBundlePath, $failLoud = false)
     {
         $this->logger = $logger;
-        $this->execJs = $execJs;
+        $this->phpExecJs = $execJs;
+        $this->serverBundlePath = $serverBundlePath;
+    }
+
+    public function setServerBundlePath($serverBundlePath)
+    {
         $this->serverBundlePath = $serverBundlePath;
     }
 
     public function render($componentName, $propsString, $uuid)
     {
-        $phpexecjs = new PhpExecJs();
         $serverBundle = file_get_contents($this->serverBundlePath);
-        $phpexecjs->createContext($this->consolePolyfill()."\n".$serverBundle);
-        $result = json_decode($phpexecjs->evalJs($this->wrap($componentName, $propsString, $uuid)), true);
+        throw new \Exception($this->serverBundlePath);
+        $this->phpExecJs->createContext($this->consolePolyfill()."\n".$serverBundle);
+        $result = json_decode($this->phpExecJs->evalJs($this->wrap($componentName, $propsString, $uuid)), true);
         //throw new \Exception(var_export($result, true));
         if ($result['hasErrors']) {
             $this->LogErrors($result['consoleReplayScript']);

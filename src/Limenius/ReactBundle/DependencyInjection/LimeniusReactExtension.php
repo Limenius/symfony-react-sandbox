@@ -22,10 +22,26 @@ class LimeniusReactExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('limenius_react.default_rendering', $config['default_rendering']);
-
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
         $loader->load('twig.xml');
+
+        $container->setParameter('limenius_react.default_rendering', $config['default_rendering']);
+        $container->setParameter('limenius_react.fail_loud', $config['serverside_rendering']['fail_loud']);
+
+        if ($nodeBinaryPath = $config['serverside_rendering']['node_binary_path']) {
+            $container
+                ->getDefinition('limenius_react.phpexecjs')
+                ->addArgument($nodeBinaryPath)
+                ;
+        }
+        if ($serverBundlePath = $config['serverside_rendering']['server_bundle_path']) {
+            $container
+                ->getDefinition('limenius_react.react_renderer')
+                ->addMethodCall('setServerBundlePath', array($serverBundlePath))
+                ;
+
+        }
+
     }
 }

@@ -72,8 +72,8 @@ swiftmailer:
 
 limenius_react:
     default_rendering: "both"
-    fail_loud: false
     serverside_rendering:
-      trace: false
-      node_binary_path: null
-      server_bundle_location: null
+        fail_loud: false
+        trace: false
+        node_binary_path: null
+        server_bundle_path: null
