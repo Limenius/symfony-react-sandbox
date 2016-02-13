@@ -26577,9 +26577,13 @@
 	                    'div',
 	                    null,
 	                    _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/' },
-	                        'Recipes'
+	                        'ol',
+	                        { className: 'breadcrumb' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            { clas: 'active' },
+	                            'Recipes'
+	                        )
 	                    ),
 	                    _react2.default.createElement(_RecipeList2.default, { recipes: this.state.recipes })
 	                );
@@ -26641,18 +26645,21 @@
 	                return _react2.default.createElement(
 	                    'div',
 	                    { key: idx },
-	                    _react2.default.createElement(_Recipe2.default, { key: idx, name: recipe.name, id: idx }),
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
 	                        { to: link },
-	                        recipe.name
+	                        _react2.default.createElement(_Recipe2.default, { key: idx, recipe: recipe, id: idx })
 	                    )
 	                );
 	            });
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'container' },
-	                'List of recipes:',
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'List of recipes'
+	                ),
 	                recipeNodes
 	            );
 	        }
@@ -26702,9 +26709,34 @@
 	            var imgsrc = "http://lorempixel.com/400/200/food/" + this.props.id;
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "container" },
-	                _react2.default.createElement("img", { src: imgsrc }),
-	                this.props.name
+	                null,
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    this.props.recipe.name
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "thumbnail" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-md-3" },
+	                            _react2.default.createElement("img", { src: imgsrc, className: "img-responsive" })
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-md-9" },
+	                            _react2.default.createElement(
+	                                "p",
+	                                { className: "recipe-body" },
+	                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat, dui sit amet eleifend volutpat, ante ligula interdum justo, at cursus urna est interdum enim. Ut suscipit elit enim, sed eleifend nunc mollis eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris euismod ipsum eu auctor vulputate. Praesent consectetur eros in libero fermentum, sed viverra nulla venenatis. Nullam eu rhoncus magna. Ut rutrum ut ex sit amet blandit. Fusce semper vel elit id mattis. Vestibulum sed urna a quam ultrices ultrices."
+	                            )
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -53339,13 +53371,24 @@
 	                    'div',
 	                    null,
 	                    _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { to: '/' },
-	                        'Recipes'
+	                        'ol',
+	                        { className: 'breadcrumb' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { to: '/' },
+	                                'Recipes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: 'active' },
+	                            this.state.recipe.name
+	                        )
 	                    ),
-	                    ' > ',
-	                    this.state.recipe.name,
-	                    _react2.default.createElement(_Recipe2.default, { name: this.state.recipe.name })
+	                    _react2.default.createElement(_Recipe2.default, { recipe: this.state.recipe })
 	                );
 	            }
 	        }

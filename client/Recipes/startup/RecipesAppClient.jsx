@@ -1,3 +1,5 @@
+require("../../sass/layout.scss");
+
 import ReactDOM from 'react-dom';
 import React from 'react';
 
@@ -5,6 +7,7 @@ import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
 import { Router, Route } from 'react-router'
 import { createHistory, useBasename } from 'history';
+
 
 var history = createHistory();
 

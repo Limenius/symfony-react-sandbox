@@ -1,0 +1,16 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+body {
+  padding-top: 50px;
+}
+
+.main-container {
+  padding: 40px 15px;
+
+  .recipe-body {
+    a p {
+        text-decoration: none;
+    }
+  }
+}

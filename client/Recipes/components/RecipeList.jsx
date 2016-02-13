@@ -9,14 +9,15 @@ export default class RecipeList extends React.Component {
             var link = '/recipe/' + recipe.slug;
             return (
                 <div key={idx}>
-                <Recipe key={idx} name={recipe.name} id={idx}/>
-                <Link to={link}>{recipe.name}</Link>
+                    <Link to={link}>
+                        <Recipe key={idx} recipe={recipe} id={idx}/>
+                    </Link>
                 </div>
             );
         });
         return (
             <div className="container">
-                List of recipes:
+                <h2>List of recipes</h2>
                 {recipeNodes}
             </div>
         );

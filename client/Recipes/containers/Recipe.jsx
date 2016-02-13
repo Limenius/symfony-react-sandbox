@@ -39,8 +39,11 @@ export default class Recipe extends React.Component {
         } else {
             return (
                 <div>
-                  <Link to='/'>Recipes</Link> > {this.state.recipe.name}
-                  <RecipeWidget name={this.state.recipe.name}/>
+                    <ol className="breadcrumb">
+                    <li><Link to='/'>Recipes</Link></li>
+                    <li className="active">{this.state.recipe.name}</li>
+                    </ol>
+                    <RecipeWidget recipe={this.state.recipe}/>
                 </div>
             );
         }

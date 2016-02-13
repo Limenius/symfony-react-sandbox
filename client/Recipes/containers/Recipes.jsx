@@ -39,8 +39,10 @@ export default class Recipes extends React.Component {
         } else {
             return (
                 <div>
-                  <Link to='/'>Recipes</Link>
-                  <RecipeList recipes={this.state.recipes}/>
+                    <ol className="breadcrumb">
+                        <li clas="active">Recipes</li>
+                    </ol>
+                    <RecipeList recipes={this.state.recipes}/>
                 </div>
             );
         }
