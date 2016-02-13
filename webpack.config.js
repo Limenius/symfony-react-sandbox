@@ -11,6 +11,7 @@ module.exports = {
     devtool: 'sourcemap',
     output: {
         path: "./web/assets/build/",
+        publicPath: "/assets/build/",
         filename: 'client-bundle.js',
     },
     resolve: {

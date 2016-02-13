@@ -6,6 +6,11 @@ framework:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
         strict_requirements: true
     profiler: { only_exceptions: false }
+    assets:
+        packages:
+            webpack:
+                base_urls:
+                    - "%assets_base_url%"
 
 web_profiler:
     toolbar: true
@@ -33,3 +38,4 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
