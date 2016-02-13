@@ -19,7 +19,7 @@ class RecipeManager
             $recipe = new Recipe();
             $recipe->name = $recipeArray['name'];
             $recipe->slug = $recipeArray['slug'];
-            $recipe->tags = $recipeArray['tags'];
+            $recipe->image = $recipeArray['image'];
             $recipes[] = $recipe;
         }
         $this->recipeCollection = new RecipeCollection($recipes);

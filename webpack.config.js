@@ -2,6 +2,7 @@ const webpack = require('webpack');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var extractSCSS = new ExtractTextPlugin('stylesheets/[name].css');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -24,7 +25,10 @@ module.exports = {
             $: "jquery",
             "jQuery"              : "jquery",
             "window.jQuery"       : "jquery",
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: './client/img', to: './img' },
+        ])
     ],
     module: {
         loaders: [

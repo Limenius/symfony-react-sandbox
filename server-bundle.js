@@ -26713,7 +26713,7 @@
 /* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -26743,35 +26743,35 @@
 	    }
 
 	    _createClass(Recipe, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
-	            var imgsrc = "http://lorempixel.com/400/200/food/" + this.props.id;
+	            var imgsrc = '/assets/build/img/' + this.props.recipe.image;
 	            return _react2.default.createElement(
-	                "div",
+	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    "h3",
+	                    'h3',
 	                    null,
 	                    this.props.recipe.name
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "thumbnail" },
+	                    'div',
+	                    { className: 'thumbnail' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "row" },
+	                        'div',
+	                        { className: 'row' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-md-3" },
-	                            _react2.default.createElement("img", { src: imgsrc, className: "img-responsive" })
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement('img', { src: imgsrc, className: 'img-responsive' })
 	                        ),
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "col-md-9" },
+	                            'div',
+	                            { className: 'col-md-9' },
 	                            _react2.default.createElement(
-	                                "p",
-	                                { className: "recipe-body" },
-	                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat, dui sit amet eleifend volutpat, ante ligula interdum justo, at cursus urna est interdum enim. Ut suscipit elit enim, sed eleifend nunc mollis eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris euismod ipsum eu auctor vulputate. Praesent consectetur eros in libero fermentum, sed viverra nulla venenatis. Nullam eu rhoncus magna. Ut rutrum ut ex sit amet blandit. Fusce semper vel elit id mattis. Vestibulum sed urna a quam ultrices ultrices."
+	                                'p',
+	                                { className: 'recipe-body' },
+	                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat, dui sit amet eleifend volutpat, ante ligula interdum justo, at cursus urna est interdum enim. Ut suscipit elit enim, sed eleifend nunc mollis eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris euismod ipsum eu auctor vulputate. Praesent consectetur eros in libero fermentum, sed viverra nulla venenatis. Nullam eu rhoncus magna. Ut rutrum ut ex sit amet blandit. Fusce semper vel elit id mattis. Vestibulum sed urna a quam ultrices ultrices.'
 	                            )
 	                        )
 	                    )

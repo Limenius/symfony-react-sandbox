@@ -15,7 +15,7 @@ class Recipe
     public $slug;
 
     /**
-     * @var array
+     * @var string
      */
-    public $tags = array();
+    public $image;
 }
