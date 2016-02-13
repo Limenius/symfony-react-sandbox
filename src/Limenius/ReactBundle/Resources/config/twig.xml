@@ -7,6 +7,7 @@
     <services>
         <service id="limenius_react.render_extension" class="Limenius\ReactBundle\Twig\ReactRenderExtension">
             <argument type="service" id="limenius_react.react_renderer" />
+            <argument>%limenius_react.default_rendering%</argument>
             <tag name="twig.extension" />
         </service>
     </services>

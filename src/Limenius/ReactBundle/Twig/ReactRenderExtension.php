@@ -9,34 +9,57 @@ use Limenius\ReactBundle\Renderer\ReactRenderer;
 class ReactRenderExtension extends \Twig_Extension
 {
     private $renderer;
+    protected $renderServerSide = false;
+    protected $renderClientSide = false;
 
     /**
      * Constructor
      * 
      * @param ReactRenderer $renderer 
+     * @param string $defaultRendering 
      * @access public
      * @return void
      */
-    public function __construct(ReactRenderer $renderer)
+    public function __construct(ReactRenderer $renderer, $defaultRendering)
     {
         $this->renderer = $renderer;
+
+        switch ($defaultRendering) {
+        case 'only_serverside':
+            $this->renderClientSide = false;
+            $this->renderServerSide = true;
+            break;
+        case 'only_clientside':
+            $this->renderClientSide = true;
+            $this->renderServerSide = false;
+            break;
+        case 'both':
+            $this->renderClientSide = true;
+            $this->renderServerSide = true;
+            break;
+        }
     }
 
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('react_component', array($this, 'reactServerSideRender'), array('is_safe' => array('html'))));
+            new \Twig_SimpleFunction('react_component', array($this, 'reactRenderComponent'), array('is_safe' => array('html'))));
     }
 
-    public function reactServerSideRender($componentName, $options = array())
+    public function reactRenderComponent($componentName, $options = array())
     {
         $uuid = 'sfreact-'.uniqid();
         $propsString = isset($options['props']) ? $options['props'] : '';
-        $str = '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="true" data-dom-id="'.$uuid.'"></div>';
+        $str = '';
+        if ($this->renderClientSide) {
+            $str .= '<div class="js-react-on-rails-component" style="display:none" data-component-name="'.$componentName.'" data-props="'.htmlspecialchars($propsString).'" data-trace="true" data-dom-id="'.$uuid.'"></div>';
+        }
         $str .= '<div id="'.$uuid.'">';
+        if ($this->renderServerSide) {
 
-        $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid);
-        $str .= $serverSideStr;
+            $serverSideStr = $this->renderer->render($componentName, $propsString, $uuid);
+            $str .= $serverSideStr;
+        }
         $str .= '</div';
         return $str;
     }

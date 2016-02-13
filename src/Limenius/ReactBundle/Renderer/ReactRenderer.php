@@ -53,7 +53,7 @@ JS;
 (function() {
   var props = $propsString;
   return ReactOnRails.serverRenderReactComponent({
-    name: 'o$name',
+    name: '$name',
     domNodeId: '$uuid',
     props: props,
     trace: false,
