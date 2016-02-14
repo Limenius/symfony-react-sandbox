@@ -8,7 +8,7 @@ It is also a fully functional Symfony application that you can use as skeleton f
 It has three main areas of interest:
 
 * The server-side code under `src/` and `app/config` configuration.
-* The client-side code under `client/`.
+* The JavaScript and CSS (SCSS) code under `client/`.
 * The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
 Note that you won't need to run an external node server to do server-side renering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs).
@@ -62,6 +62,15 @@ This is vital for some applications for SEO purposes, but also is great for quic
 
 You can configure ReactBundle to have server-side, client-side or both. See the bundle documentation for more information.
 
+How it works
+============
+
+When you render a React Component in a Twig template with `{{ react_component('RecipesApp', {'props': props}) }}` with client and server-side rendering enabled (this is the default setting), ReactBundle will render a `<div>` that will serve as container of the component.
+
+Inside of it, the bundle will place all the HTML code that results of evaluating your component. It will do so by calling `PhpExecJs` and retrieving the outcome.
+
+When your client-side JavaScript runs, React will find this `<div>` tag and will recognize it as the result of rendering a component. It won't render it again (unless the evaluation of your client-side code differs), but it will take control of it, and, depending on the actions performes by the user, it will re-render it dynamically.
+
 Walkthrough
 ===========
 
@@ -103,9 +112,9 @@ Here we import our root component and expose it. The same goes for the client-si
     
     ReactOnRails.register({ RecipesApp });
 
+#### JavaScript code organisation for isomorphic apps
 Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes without no surprises, in the server side you will probably have to play a bit with `react-router` in order to make it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/Recipes/startup/serverRegistration.jsx` and `client/Recipes/startup/clientRegistration.jsx`.
 
-### JavaScript code organisation for isomorphic apps
 
 Configuration for Hot-Reloading
 ===============================
