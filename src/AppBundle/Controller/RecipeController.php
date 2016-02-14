@@ -39,6 +39,8 @@ class RecipeController extends Controller
 
     /**
      * @Route("/api/recipes", name="api_recipes")
+     *
+     * Needed for client-side navigation after initial page load
      */
     public function apiRecipesAction(Request $request)
     {
@@ -48,6 +50,8 @@ class RecipeController extends Controller
 
     /**
      * @Route("/api/recipes/{slug}", name="api_recipe")
+     *
+     * Needed for client-side navigation after initial page load
      */
     public function apiRecipeAction($slug, Request $request)
     {

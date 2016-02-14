@@ -1,7 +1,7 @@
 {
-  "name": "symfony-react-edition",
+  "name": "symfony-react-sandbox",
   "version": "0.1.0",
-  "description": "Symfony React Edition",
+  "description": "Symfony React Sandbox",
   "main": "index.js",
   "directories": {
     "test": "tests"

@@ -1,68 +1,146 @@
-Symfony Standard Edition
-========================
+Symfony React Sandbox
+=====================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+It is also a fully functional Symfony application that you can use as skeleton for new projects.
 
-What's inside?
---------------
+It has three main areas of interest:
 
-The Symfony Standard Edition is configured with the following defaults:
+* The server-side code under `src/` and `app/config` configuration.
+* The client-side code under `client/`.
+* The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
-  * An AppBundle you can use to start coding;
+Note that you won't need to run an external node server to do server-side renering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs).
 
-  * Twig as the only configured template engine;
 
-  * Doctrine ORM/DBAL;
+How to run it
+=============
 
-  * Swiftmailer;
+Requirements: you need a recent version of node, like `v5.5.0`, and Webpack installed (you can install it with `npm install -g webpack`.
 
-  * Annotations enabled for everything.
+    git clone git://github.com/Limenius/symfony-react-sandbox.git
+    composer install
+    npm install
 
-It comes pre-configured with the following bundles:
+And then, run a live server with Webpack hot-reloading of assets:
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+* Building the server-side react Webpack bundle.
+    
+    webpack --config webpack.config.serverside.js --watch
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+* And, In a different terminal/screen/tmux, the hot-reloading webpack server for the client assets:
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+    webpack-dev-server --progress --colors --config webpack.config.js
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+* Also, you may want to run the Symfony server:
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+    bin/console symfony:server:run
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+After this, visit [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+Why Webpack?
+===========
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+Webpack is used to generate two separate JavaScript bundles (that share some code). One is meant for its inclusion as context for the server-side rendering. The second will caontain your client-side frontend code. Given this, we can write Twig code to render react components like, for instance:
 
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
+    {{ react_component('RecipesApp', {'props': props}) }}
 
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
+And it will be rendered both client and server-side.
 
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
+We have provided what we think are sensible defaults for both bundles, and also for the package.json dependencies, like bootstrap and such. Feel free to adapt them to your needs.
 
-Enjoy!
+Please note that if you are copying `webpack.config.js` or `webpack.config.server.js` to your project it is very likely that you will need also `.babelrc` to have Babel presets (used to transform React JSX and modern JavaScript to plain old JavaScript)
 
-[1]:  https://symfony.com/doc/3.0/book/installation.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.0/book/doctrine.html
-[8]:  https://symfony.com/doc/3.0/book/templating.html
-[9]:  https://symfony.com/doc/3.0/book/security.html
-[10]: https://symfony.com/doc/3.0/cookbook/email.html
-[11]: https://symfony.com/doc/3.0/cookbook/logging/monolog.html
-[13]: https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/index.html
+Why Server-Side rendering?
+==========================
+
+If you enable server-side rendering along with client-side rendering of components (this is the default) your React components will be rendered directly as HTML by Twig and then, when the client-side code is run, React will identify the already rendered HTML and it won't render it again until is needed. Instead, it will silently take control over it and re-render it only when it is needed.
+
+This is vital for some applications for SEO purposes, but also is great for quick page-loads and to provide the content to users with JavaScript disabled (if there is any left, but it is a nice-to-have).
+
+Walkthrough
+===========
+
+We have set-up a simple application. A recipes page. In the actions of the controller under `src/AppBundle/Controller/RecipeController.php` you will find two types of actions. 
+
+### Actions that render Twig templates.
+
+These actions retrieve the recipes that will be shown in the page and pass them as a JSON string to template.
+
+In the Twig templates under `/app/Resouces/views/recipe/` you will find templates with code like tthis one:
+
+    {{ react_component('RecipesApp', {'props': props}) }}
+
+This Twig function, provided by [React Bundle](https://github.com/limenius/ReactBundle), will render the React component `RecipesApp` in server and client modes.
+
+### Actions that render JSON responses.
+
+These actions act as an API and will be used by the client-side React code to retrieve data as needed when navigating to other pages without reloading the pages.
+
+To simplify things, we don't use FOSRestBundle here, but feel free to use it to build your API.
+
+### Globally expose your React components
+
+In order to make your React components accessible to React Bundle, you need to register them. We are using for this purpose the npm package of the React On Rails, (that can be used outside the Ruby world).
+
+Take a look at the `client/Recipes/startup/serverRegistration.jsx` and `client/Recipes/startup/clientRegistration.jsx` entries:
+
+Server side:
+
+    import ReactOnRails from 'react-on-rails';
+    import RecipesApp from './RecipesAppServer';
+    
+    ReactOnRails.register({ RecipesApp });
+
+Here we import our root component and expose it. The same goes for the client-side part:
+
+    import ReactOnRails from 'react-on-rails';
+    import RecipesApp from './RecipesAppClient';
+    
+    ReactOnRails.register({ RecipesApp });
+
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes without no surprises, in the server side you will probably have to play a bit with `react-router` in order to make it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/Recipes/startup/serverRegistration.jsx` and `client/Recipes/startup/clientRegistration.jsx`.
+
+### JavaScript code organisation for isomorphic apps
+
+Configuration for Hot-Reloading
+===============================
+
+In the development environment is nice to have Webpack with hot-reloading. This means that you run a Webpack server that serves your assets and, if you change something on them, Webpack makes your server reload the page automatically. To run the hot-reloading server run Webpack with:
+
+    webpack --config webpack.config.serverside.js --watch
+
+And also, in `/app/configuration/config_dev.yml`, add these options in the `framework` section:
+
+    framework:
+        # ...
+        assets:
+            packages:
+                webpack:
+                    base_urls:
+                        - "%assets_base_url%"
+
+And, in `paramters.yml` add an `assets_base_url` entry:
+
+    parameters:
+        # ...
+        assets_base_url: 'http://localhost:8080'
+
+This allows us to use the Webpack server when loading assets in Twig, like:
+
+    <link href="{{asset('assets/build/stylesheets/main.css', 'webpack')}}" rel="stylesheet">
+
+or
+
+    <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
+
+And in dev mode Symfony will load these assets from `http://localhost:8080`.
+    
+
+
+Credits
+=======
+
+This project is inspired by the great [React on Rails](https://github.com/shakacode/react_on_rails#), and also uses its JavaScript package.

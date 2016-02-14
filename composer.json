@@ -1,8 +1,15 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "limenius/symofny-react-sandbox",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "authors": [
+        {
+            "name": "Nacho Martín",
+            "email": "nacho@limenius.com",
+            "homepage": "http://nacho-martin.com",
+        },
+    ],
+    "description": "Symfony React Sandbox, where to explore the integration with React and isomorphic or universal react rendering in Symfony and have profit with Webpack",
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
