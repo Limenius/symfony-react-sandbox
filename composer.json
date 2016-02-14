@@ -21,7 +21,7 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "nacmartin/phpexecjs": "dev-master"
+        "limenius/react-bundle": "^0.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -64,11 +64,5 @@
             "dev-master": "3.1-dev"
         }
     },
-    "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/nacmartin/phpexecjs"
-        }
-    ]
+    "minimum-stability": "dev"
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c452de5486c0733872348b85a21fd66",
-    "content-hash": "4da5e87e40b93d946dbe9d3c24a0e88f",
+    "hash": "8b39bf7589a9dd5bf334d491e9523c3f",
+    "content-hash": "c0b0d7354c827278a3f33be1b4ddbe35",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -873,6 +873,47 @@
             "time": "2014-01-12 16:20:24"
         },
         {
+            "name": "limenius/react-bundle",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Limenius/ReactBundle.git",
+                "reference": "97ce08169f86d8303ea6b561f6cf4ef4f50b8803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/97ce08169f86d8303ea6b561f6cf4ef4f50b8803",
+                "reference": "97ce08169f86d8303ea6b561f6cf4ef4f50b8803",
+                "shasum": ""
+            },
+            "require": {
+                "nacmartin/phpexecjs": "^0.8.0",
+                "symfony/process": "~2.7|~3.0"
+            },
+            "type": "symofny-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Limenius\\ReactBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nacho",
+                    "email": "nacho@limenius.com"
+                }
+            ],
+            "description": "Client and Server-side react rendering in a Symfony Bundle",
+            "keywords": [
+                "isomorphic",
+                "react"
+            ],
+            "time": "2016-02-14 00:16:50"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.17.2",
             "source": {
@@ -951,17 +992,20 @@
         },
         {
             "name": "nacmartin/phpexecjs",
-            "version": "dev-master",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nacmartin/phpexecjs.git",
-                "reference": "8875e2bff9b6241ffb16825fe5460b3dd678673d"
+                "reference": "9d79cfc114786bea41b302363be5e514a3e00c77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/8875e2bff9b6241ffb16825fe5460b3dd678673d",
-                "reference": "8875e2bff9b6241ffb16825fe5460b3dd678673d",
+                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/9d79cfc114786bea41b302363be5e514a3e00c77",
+                "reference": "9d79cfc114786bea41b302363be5e514a3e00c77",
                 "shasum": ""
+            },
+            "require": {
+                "symfony/process": "^3.0"
             },
             "type": "library",
             "autoload": {
@@ -969,6 +1013,7 @@
                     "Nacmartin\\PhpExecJs": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -979,11 +1024,7 @@
                 }
             ],
             "description": "Run JavaScript code from PHP",
-            "support": {
-                "source": "https://github.com/nacmartin/phpexecjs/tree/master",
-                "issues": "https://github.com/nacmartin/phpexecjs/issues"
-            },
-            "time": "2016-01-27 19:00:21"
+            "time": "2016-02-13 18:40:38"
         },
         {
             "name": "paragonie/random_compat",
@@ -1784,7 +1825,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/5b5970364e3f780d12b417d45b2694fdaba51828",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2d75718e6b0eb7168f772a01fbcdb6e5c01c1418",
                 "reference": "36c2961def4c5df511abe2a64b5d58e62a3a932c",
                 "shasum": ""
             },
@@ -2081,8 +2122,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/symfony": 20,
-        "nacmartin/phpexecjs": 20
+        "symfony/symfony": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
