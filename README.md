@@ -3,6 +3,8 @@ Symfony React Sandbox
 
 This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup.
 
+You can see this example live at http://symfony-react.limenius.com/
+
 It is also a fully functional Symfony application that you can use as skeleton for new projects.
 
 It has three main areas of interest:
@@ -19,7 +21,8 @@ How to run it
 
 Requirements: you need a recent version of node, like `v5.5.0`, and Webpack installed (you can install it with `npm install -g webpack`.
 
-    git clone git://github.com/Limenius/symfony-react-sandbox.git
+    git clone https://github.com/Limenius/symfony-react-sandbox.git
+    cd symfony-react-sandbox
     composer install
     npm install
 
