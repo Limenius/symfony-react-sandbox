@@ -60,6 +60,8 @@ If you enable server-side rendering along with client-side rendering of componen
 
 This is vital for some applications for SEO purposes, but also is great for quick page-loads and to provide the content to users with JavaScript disabled (if there is any left, but it is a nice-to-have).
 
+You can configure ReactBundle to have server-side, client-side or both. See the bundle documentation for more information.
+
 Walkthrough
 ===========
 

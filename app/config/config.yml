@@ -70,10 +70,19 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# These are the default configuration options for the React Bundle
 limenius_react:
+    # Other options are "only-serverside" and "only-clientside"
     default_rendering: "both"
     serverside_rendering:
+        # In case of error in server-side rendering, throw exception
         fail_loud: false
+        # Replay every console.log message produced during server-side rendering
+        # in the JavaScript console
+        # Note that if enabled it will throw a (harmless) React warning
         trace: false
+        # Location of the node binary. Defaults to the result of running `env node`
         node_binary_path: null
+        # Location of the server bundle, that contains React and React on Rails.
+        # null will default to `app/Resources/webpack/server-bundle.js`
         server_bundle_path: null
