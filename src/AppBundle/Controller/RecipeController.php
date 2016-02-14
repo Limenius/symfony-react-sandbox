@@ -29,6 +29,9 @@ class RecipeController extends Controller
     public function recipeAction($slug, Request $request)
     {
         $serializer = $this->get('serializer');
+        if (!$recipe = $this->get('recipe.manager')->findOneBySlug($slug)) {
+            throw $this->createNotFoundException('The recipe does not exist');
+        }
         return $this->render('recipe/recipe.html.twig', [
             'props' => $serializer->serialize(
                 ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
