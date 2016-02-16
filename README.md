@@ -125,7 +125,7 @@ Configuration for Hot-Reloading
 
 In the development environment it is nice to have Webpack with hot-reloading. This means that you run a Webpack server that serves your assets and, if you change something on them, Webpack makes your server reload the page automatically. To run the hot-reloading server run Webpack with:
 
-    webpack --config webpack.config.serverside.js --watch
+    webpack-dev-server --progress --colors --config webpack.config.js
 
 And also, in `/app/configuration/config_dev.yml`, add these options in the `framework` section:
 

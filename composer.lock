@@ -702,12 +702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "788143dc0313c7522820ebf6057f73881e7190a3"
+                "reference": "9b4c50e81ec03c34805b95e7d1cfafba500557ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/788143dc0313c7522820ebf6057f73881e7190a3",
-                "reference": "788143dc0313c7522820ebf6057f73881e7190a3",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9b4c50e81ec03c34805b95e7d1cfafba500557ef",
+                "reference": "9b4c50e81ec03c34805b95e7d1cfafba500557ef",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +773,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-01-26 22:00:55"
+            "time": "2016-02-16 05:03:11"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -881,21 +881,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.8.0",
+            "version": "v0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "97ce08169f86d8303ea6b561f6cf4ef4f50b8803"
+                "reference": "633213f04381a32caf235015e4a6d49ac9857c1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/97ce08169f86d8303ea6b561f6cf4ef4f50b8803",
-                "reference": "97ce08169f86d8303ea6b561f6cf4ef4f50b8803",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/633213f04381a32caf235015e4a6d49ac9857c1c",
+                "reference": "633213f04381a32caf235015e4a6d49ac9857c1c",
                 "shasum": ""
             },
             "require": {
-                "nacmartin/phpexecjs": "^0.8.0",
-                "symfony/process": "~2.7|~3.0"
+                "nacmartin/phpexecjs": "^0.8.2"
             },
             "type": "symofny-bundle",
             "autoload": {
@@ -918,7 +917,7 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2016-02-14 00:16:50"
+            "time": "2016-02-15 20:19:48"
         },
         {
             "name": "monolog/monolog",
@@ -1000,20 +999,20 @@
         },
         {
             "name": "nacmartin/phpexecjs",
-            "version": "v0.8.1",
+            "version": "v0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nacmartin/phpexecjs.git",
-                "reference": "fb1b891a85d91432b455f74816452df79d00b0ad"
+                "reference": "31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/fb1b891a85d91432b455f74816452df79d00b0ad",
-                "reference": "fb1b891a85d91432b455f74816452df79d00b0ad",
+                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc",
+                "reference": "31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc",
                 "shasum": ""
             },
             "require": {
-                "symfony/process": "^3.0"
+                "symfony/process": "~2.3|~3.0"
             },
             "type": "library",
             "autoload": {
@@ -1032,7 +1031,7 @@
                 }
             ],
             "description": "Run JavaScript code from PHP",
-            "time": "2016-02-14 16:09:51"
+            "time": "2016-02-15 19:36:16"
         },
         {
             "name": "paragonie/random_compat",
@@ -1181,12 +1180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847"
+                "reference": "c4c5caff48a2f3b17e3cc988e2b9d7a785779f39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/2c167426fc24f9de116345195bc1697a748ee847",
-                "reference": "2c167426fc24f9de116345195bc1697a748ee847",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/c4c5caff48a2f3b17e3cc988e2b9d7a785779f39",
+                "reference": "c4c5caff48a2f3b17e3cc988e2b9d7a785779f39",
                 "shasum": ""
             },
             "require": {
@@ -1225,7 +1224,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-02-12 16:21:30"
+            "time": "2016-02-16 07:20:15"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1451,17 +1450,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
-                "reference": "66b0bb4abda229bc073eff6bbc8f2685bdaac165"
+                "reference": "3392ea0037a4bf9230b81363145776e4fdce66a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/66b0bb4abda229bc073eff6bbc8f2685bdaac165",
-                "reference": "66b0bb4abda229bc073eff6bbc8f2685bdaac165",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3392ea0037a4bf9230b81363145776e4fdce66a9",
+                "reference": "3392ea0037a4bf9230b81363145776e4fdce66a9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3|~3.0"
+            },
+            "suggest": {
+                "ext-intl": "For best performance"
             },
             "type": "library",
             "extra": {
@@ -1498,7 +1500,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-01-20 09:13:37"
+            "time": "2016-02-15 04:08:08"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1789,12 +1791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "7848a463b2c8cbccfe4683dbece1a3298f39fff6"
+                "reference": "6e0d0850f46e4858dd890dcea8efc9c9ba5db274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/7848a463b2c8cbccfe4683dbece1a3298f39fff6",
-                "reference": "7848a463b2c8cbccfe4683dbece1a3298f39fff6",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6e0d0850f46e4858dd890dcea8efc9c9ba5db274",
+                "reference": "6e0d0850f46e4858dd890dcea8efc9c9ba5db274",
                 "shasum": ""
             },
             "require": {
@@ -1914,7 +1916,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-02-14 10:16:17"
+            "time": "2016-02-16 08:48:00"
         },
         {
             "name": "twig/twig",
@@ -2086,62 +2088,6 @@
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
             "time": "2016-01-21 09:24:53"
-        },
-        {
-            "name": "symfony/polyfill-apcu",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-apcu.git",
-                "reference": "d1911e6caeb4b6a4c8e2d5c46b978a66b3745e4c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/d1911e6caeb4b6a4c8e2d5c46b978a66b3745e4c",
-                "reference": "d1911e6caeb4b6a4c8e2d5c46b978a66b3745e4c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting apcu_* functions to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "apcu",
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2016-01-20 09:13:37"
         }
     ],
     "aliases": [],
