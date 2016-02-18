@@ -19,7 +19,7 @@ Note that you won't need to run an external node server to do server-side render
 How to run it
 =============
 
-Requirements: you need a recent version of node, like `v5.5.0`, and Webpack installed (you can install it with `npm install -g webpack`.
+Requirements: you need a recent version of node, like `v5.5.0`, and Webpack installed (you can install it with `npm install -g webpack webpack-dev-server`.
 
     git clone https://github.com/Limenius/symfony-react-sandbox.git
     cd symfony-react-sandbox
