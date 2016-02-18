@@ -38,7 +38,7 @@ And then, run a live server with Webpack hot-reloading of assets:
 
 * Also, you may want to run the Symfony server:
 
-    bin/console symfony:server:run
+    bin/console server:start
 
 After this, visit [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
