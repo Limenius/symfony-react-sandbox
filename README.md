@@ -65,6 +65,8 @@ This is vital for some applications for SEO purposes, but also is great for quic
 
 You can configure ReactBundle to have server-side, client-side or both. See the bundle documentation for more information.
 
+
+
 How it works
 ============
 
@@ -152,7 +154,12 @@ or
     <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
 
 And in dev mode Symfony will load these assets from `http://localhost:8080`.
-    
+
+Performance with Server-Side rendering
+======================================
+
+Server-side rendering should be used in applications where you can cache the resulting HTML using Varnish or something similar. Otherwise, as for every request the server bundle containing React must be copied either to a file (if your runtime is node.js) or via memcpy (if you have the V8Js PHP extension enabled) and re-interpreted, this can have an overhead. Note that it would be theoretically possible to precompile the server bundle in the V8Js object, but as after every request it is destroyed, due to the stateless nature of most PHP applications, this is not possible in practice. Thus the components that cannot be cached are best rendered client-side.
+
 Credits
 =======
 
