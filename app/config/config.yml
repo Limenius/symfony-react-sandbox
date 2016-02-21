@@ -75,7 +75,7 @@ swiftmailer:
 # These are the default configuration options for the React Bundle
 limenius_react:
     # Other options are "only_serverside" and "only_clientside"
-    default_rendering: "only_serverside"
+    default_rendering: "both"
     serverside_rendering:
         # In case of error in server-side rendering, throw exception
         fail_loud: false
