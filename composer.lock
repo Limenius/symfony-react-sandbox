@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a46f89d3d336165ab857b29b15f0b433",
-    "content-hash": "d291a1b83259b728edb781273b116f94",
+    "hash": "b9806ad9a5c28081600219bdeed7bb6d",
+    "content-hash": "3ab99e8da0b9940d5e97a0ccefc1e62c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -289,12 +289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6"
+                "reference": "61e1f860a304c3fb6961ecbec36927b5f20b71c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/625dd63568e386e11c01022c22e50adc2a8a7af6",
-                "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/61e1f860a304c3fb6961ecbec36927b5f20b71c6",
+                "reference": "61e1f860a304c3fb6961ecbec36927b5f20b71c6",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-23 14:29:18"
+            "time": "2016-02-19 14:48:59"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -702,12 +702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "9b4c50e81ec03c34805b95e7d1cfafba500557ef"
+                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9b4c50e81ec03c34805b95e7d1cfafba500557ef",
-                "reference": "9b4c50e81ec03c34805b95e7d1cfafba500557ef",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
+                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +773,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-02-16 05:03:11"
+            "time": "2016-02-21 13:44:07"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -881,20 +881,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.8.1",
+            "version": "v0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "633213f04381a32caf235015e4a6d49ac9857c1c"
+                "reference": "1161f0b6dec6ffb30d21c320af316059820babf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/633213f04381a32caf235015e4a6d49ac9857c1c",
-                "reference": "633213f04381a32caf235015e4a6d49ac9857c1c",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/1161f0b6dec6ffb30d21c320af316059820babf1",
+                "reference": "1161f0b6dec6ffb30d21c320af316059820babf1",
                 "shasum": ""
             },
             "require": {
-                "nacmartin/phpexecjs": "^0.8.2"
+                "nacmartin/phpexecjs": "^0.8.4"
             },
             "type": "symofny-bundle",
             "autoload": {
@@ -917,7 +917,7 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2016-02-15 20:19:48"
+            "time": "2016-02-21 19:03:45"
         },
         {
             "name": "monolog/monolog",
@@ -999,16 +999,16 @@
         },
         {
             "name": "nacmartin/phpexecjs",
-            "version": "v0.8.2",
+            "version": "v0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nacmartin/phpexecjs.git",
-                "reference": "31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc"
+                "reference": "2ecac1af90c3cd8fdc404a6b573f08e7c12294af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc",
-                "reference": "31fed9c1cd3ca3f78d31cc4326af2c1c77428fbc",
+                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/2ecac1af90c3cd8fdc404a6b573f08e7c12294af",
+                "reference": "2ecac1af90c3cd8fdc404a6b573f08e7c12294af",
                 "shasum": ""
             },
             "require": {
@@ -1031,7 +1031,7 @@
                 }
             ],
             "description": "Run JavaScript code from PHP",
-            "time": "2016-02-15 19:36:16"
+            "time": "2016-02-21 18:57:21"
         },
         {
             "name": "paragonie/random_compat",
@@ -1791,12 +1791,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6e0d0850f46e4858dd890dcea8efc9c9ba5db274"
+                "reference": "08137051bf82a33a8e361ce52e7be39ba5920c10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6e0d0850f46e4858dd890dcea8efc9c9ba5db274",
-                "reference": "6e0d0850f46e4858dd890dcea8efc9c9ba5db274",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/08137051bf82a33a8e361ce52e7be39ba5920c10",
+                "reference": "08137051bf82a33a8e361ce52e7be39ba5920c10",
                 "shasum": ""
             },
             "require": {
@@ -1916,7 +1916,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-02-16 08:48:00"
+            "time": "2016-02-20 16:29:28"
         },
         {
             "name": "twig/twig",

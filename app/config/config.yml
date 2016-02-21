@@ -74,8 +74,8 @@ swiftmailer:
 
 # These are the default configuration options for the React Bundle
 limenius_react:
-    # Other options are "only-serverside" and "only-clientside"
-    default_rendering: "both"
+    # Other options are "only_serverside" and "only_clientside"
+    default_rendering: "only_serverside"
     serverside_rendering:
         # In case of error in server-side rendering, throw exception
         fail_loud: false
@@ -83,8 +83,6 @@ limenius_react:
         # in the JavaScript console
         # Note that if enabled it will throw a (harmless) React warning
         trace: false
-        # Location of the node binary. Defaults to the result of running `env node`
-        node_binary_path: null
         # Location of the server bundle, that contains React and React on Rails.
         # null will default to `app/Resources/webpack/server-bundle.js`
         server_bundle_path: null
