@@ -3,16 +3,17 @@ import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
 import { Router, match, RoutingContext } from 'react-router'
 
-const routes = [
-    { path: '/', component: Recipes },
-    { path: 'recipe/:slug', component: Recipe }
-];
 
 export default (props) => {
     let error;
     let redirectLocation;
     let routeProps;
   
+    const routes = [
+        { path: props.baseUrl, component: Recipes },
+        { path: props.baseUrl + 'recipe/:slug', component: Recipe }
+        ];
+
     // See https://github.com/rackt/react-router/blob/master/docs/guides/advanced/ServerRendering.md
     match({ routes, location: props.location }, (_error, _redirectLocation, _routeProps) => {
         error = _error;

@@ -13,8 +13,9 @@ var history = createHistory();
 
 const routes = (
     <div>
-        <Route path="/" component={Recipes}></Route>
-        <Route path="/recipe/:slug" component={Recipe}/>
+        // set a base url to '/' or maybe '/app_dev.php'
+        <Route path={window.baseUrl} component={Recipes}></Route>
+        <Route path={window.baseUrl+"recipe/:slug"} component={Recipe}/>
     </div>
 );
 
