@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b9806ad9a5c28081600219bdeed7bb6d",
-    "content-hash": "3ab99e8da0b9940d5e97a0ccefc1e62c",
+    "hash": "41223d4d22e92e6e8ed403f367eeddc5",
+    "content-hash": "6a25a4cbede5428982ab945d157e4702",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -360,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "e9c2ccf573b59b7cea566390f34254fed3c20ed9"
+                "reference": "50df90cc00cbfa5790ac243a42c6d8c5362712c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/e9c2ccf573b59b7cea566390f34254fed3c20ed9",
-                "reference": "e9c2ccf573b59b7cea566390f34254fed3c20ed9",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/50df90cc00cbfa5790ac243a42c6d8c5362712c8",
+                "reference": "50df90cc00cbfa5790ac243a42c6d8c5362712c8",
                 "shasum": ""
             },
             "require": {
@@ -431,7 +431,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2016-01-10 17:21:44"
+            "time": "2016-02-23 16:11:51"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -702,12 +702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f"
+                "reference": "4b45183dbddd30083b2552913f070c909348d333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
-                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/4b45183dbddd30083b2552913f070c909348d333",
+                "reference": "4b45183dbddd30083b2552913f070c909348d333",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +773,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-02-21 13:44:07"
+            "time": "2016-02-23 16:15:24"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1080,52 +1080,6 @@
                 "random"
             ],
             "time": "2016-02-06 03:52:05"
-        },
-        {
-            "name": "psr/cache",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/cache.git",
-                "reference": "9e66031f41fbbdda45ee11e93c45d480ccba3eb3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/9e66031f41fbbdda45ee11e93c45d480ccba3eb3",
-                "reference": "9e66031f41fbbdda45ee11e93c45d480ccba3eb3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Cache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for caching libraries",
-            "keywords": [
-                "cache",
-                "psr",
-                "psr-6"
-            ],
-            "time": "2015-12-11 02:52:07"
         },
         {
             "name": "psr/log",
@@ -1787,22 +1741,21 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "dev-master",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "08137051bf82a33a8e361ce52e7be39ba5920c10"
+                "reference": "6782cfa01159afbaa0ab083c262677941f00b388"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/08137051bf82a33a8e361ce52e7be39ba5920c10",
-                "reference": "08137051bf82a33a8e361ce52e7be39ba5920c10",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6782cfa01159afbaa0ab083c262677941f00b388",
+                "reference": "6782cfa01159afbaa0ab083c262677941f00b388",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.4",
                 "php": ">=5.5.9",
-                "psr/cache": "~1.0",
                 "psr/log": "~1.0",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/polyfill-mbstring": "~1.0",
@@ -1817,7 +1770,6 @@
             "replace": {
                 "symfony/asset": "self.version",
                 "symfony/browser-kit": "self.version",
-                "symfony/cache": "self.version",
                 "symfony/class-loader": "self.version",
                 "symfony/config": "self.version",
                 "symfony/console": "self.version",
@@ -1862,8 +1814,6 @@
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
-                "cache/integration-tests": "dev-master",
-                "doctrine/cache": "~1.6",
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.4",
                 "doctrine/doctrine-bundle": "~1.4",
@@ -1878,7 +1828,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1916,7 +1866,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-02-20 16:29:28"
+            "time": "2016-02-23 15:16:06"
         },
         {
             "name": "twig/twig",
@@ -2092,9 +2042,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "symfony/symfony": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
