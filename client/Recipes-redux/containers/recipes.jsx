@@ -5,14 +5,15 @@ import RecipeList from '../components/RecipeList';
 
 class Recipes extends React.Component {
     componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch(Actions.fetchRecipes());
+        if (!this.props.recipes) {
+            const { dispatch } = this.props;
+            dispatch(Actions.fetchRecipes());
+        }
     }
   render() {
     const { store } = this.props;
-    console.log(this.props);
 
-    if (this.props.fetching) {
+    if (this.props.fetching || !this.props.recipes) {
         return (
             <div>
             Loading...

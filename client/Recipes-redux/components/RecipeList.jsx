@@ -7,7 +7,6 @@ export default class RecipeList extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        console.log(this.props);
         this.state = {
             recipes: this.props.recipes,
             filterText: ''

@@ -1,6 +1,8 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
+import _ from 'lodash';
+
 // See
 // https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
 // This is not actually used for this simple example, but you'd probably want to use this
@@ -16,12 +18,18 @@ const loggerMiddleware = createLogger({
 });
 
 export default function configureStore(props, browserHistory) {
+
+    // This is how we get initial props from Symfony into redux.
+    const { recipes, recipe } = props;
     const { recipesState } = initialStates;
 
-    // Redux expects to initialize the store using an Object, not an Immutable.Map
+    // Redux expects to initialize the store using an Object
     const initialState = {
-      recipesStore: recipesState
+        recipesState: _.extend(recipesState, {
+            recipe: recipe, recipes: recipes
+        }),
     };
+
     const reduxRouterMiddleWare = routerMiddleware(browserHistory)
     const store = createStore(
         reducers,

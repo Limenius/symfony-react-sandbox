@@ -14,9 +14,7 @@ import ReactDOM from 'react-dom';
 // This is how you get props from the Rails view into the redux store.
 // This code here binds your smart component to the redux store.
 var mainNode = (props) => {
-    console.log(browserHistory);
   const store = configureStore(props, browserHistory);
-  console.log(store);
   const reactComponent = (
     <Provider store={store}>
       <Router history={browserHistory}>
@@ -27,12 +25,5 @@ var mainNode = (props) => {
   return reactComponent;
 };
 
-// TODO:
-
-
-const target = document.getElementById('react-container');
-
-
-ReactDOM.render(mainNode({}), target);
 
 export default mainNode;
