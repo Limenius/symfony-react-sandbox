@@ -16,12 +16,13 @@ class RecipeController extends Controller
     {
         $serializer = $this->get('serializer');
         return $this->render('recipe/home.html.twig', [
-            'props' => $serializer->serialize(
+            // We pass an array as props
+            'props' => $serializer->normalize(
                 ['recipes' => $this->get('recipe.manager')->findAll()->recipes,
                 // '/' or maybe '/app_dev.php/', so the React Router knows about the root
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
-                ], 'json')
+                ])
         ]);
     }
 
@@ -35,6 +36,7 @@ class RecipeController extends Controller
             throw $this->createNotFoundException('The recipe does not exist');
         }
         return $this->render('recipe/recipe.html.twig', [
+            // A JSON string also works
             'props' => $serializer->serialize(
                 ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
                  'baseUrl' => $this->generateUrl('homepage'),

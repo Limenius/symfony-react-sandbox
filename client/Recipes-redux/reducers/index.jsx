@@ -4,9 +4,10 @@ import { combineReducers }  from 'redux';
 
 // Combine all reducers you may have here
 export default combineReducers({
-  recipes: recipesReducer,
+    recipes: recipesReducer,
+
 });
 
 export const initialStates = {
-  recipesState,
+    recipesState,
 };

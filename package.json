@@ -27,7 +27,7 @@
   "dependencies": {
     "babel": "^6.3.26",
     "history": "^1.17.0",
-    "i": "^0.3.4",
+    "immutable": "^3.7.6",
     "jquery": "^2.1.4",
     "jquery-ujs": "^1.1.0-1",
     "loader-utils": "^0.2.11",
@@ -35,7 +35,7 @@
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
-    "react-on-rails": "2.0.2",
+    "react-on-rails": "4.0.0",
     "react-router": "^2.0.0",
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",

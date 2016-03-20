@@ -1,12 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-require("../../sass/layout.scss");
 
 import configureStore from '../store/recipesStore';
 import Recipes from '../containers/recipes';
 import configureRoutes from '../routes';
-import { Router, browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { match, RouterContext } from 'react-router'
 import ReactOnRails from 'react-on-rails';
 
 // See documentation for https://github.com/reactjs/react-redux.
@@ -15,11 +13,26 @@ import ReactOnRails from 'react-on-rails';
 var mainNode = (props) => {
     const store = ReactOnRails.getStore('recipesStore');
 
+    var routes = configureRoutes(store);
+    const { location, baseUrl } = store.getState().recipes;
+
+    let error;
+    let redirectLocation;
+    let routeProps;
+
+    // See https://github.com/reactjs/react-router/blob/master/docs/guides/ServerRendering.md
+    match({ routes, location: props.location }, (_error, _redirectLocation, _routeProps) => {
+        error = _error;
+        redirectLocation = _redirectLocation;
+        routeProps = _routeProps;
+    });
+    if (error || redirectLocation) {
+        return { error, redirectLocation };
+    }
+
     const reactComponent = (
         <Provider store={store}>
-            <Router history={browserHistory}>
-                {configureRoutes(store)}
-            </Router>
+            <RouterContext {...routeProps}/>
         </Provider>
     );
     return reactComponent;

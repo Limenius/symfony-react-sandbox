@@ -2,4 +2,8 @@
 
 {% block body %}
 {{ react_component('RecipesApp', {'props': props}) }}
+{# redux example:
+{{ redux_store('recipesStore', props) }}
+{{ react_component('RecipesApp') }}
+#}
 {% endblock %}

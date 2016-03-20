@@ -11,6 +11,8 @@ const nodeEnv = devBuild ? 'development' : 'production';
 var config = {
     entry: [
         './client/Recipes/startup/clientRegistration'
+        // or './client/Recipes-redux/startup/clientRegistration'
+
     ],
     output: {
         path: "./web/assets/build/",

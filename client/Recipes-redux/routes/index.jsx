@@ -3,9 +3,11 @@ import React from 'react';
 import Recipes from '../containers/recipes';
 import Recipe from '../containers/recipe';
 
-export default (
-   <div>
-   <Route path={window.baseUrl} component={Recipes}></Route>
-   <Route path={window.baseUrl+"recipe/:slug"} component={Recipe}/>
-   </div>
-);
+export default function configureRoutes(store) {
+    const { baseUrl } = store.getState().recipes;
+    return (
+    <div>
+    <Route path={baseUrl} component={Recipes}></Route>
+    <Route path={baseUrl+"recipe/:slug"} component={Recipe}/>
+    </div>);
+};

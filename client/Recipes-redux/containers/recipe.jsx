@@ -19,32 +19,31 @@ class Recipe extends React.Component {
         !this.props.recipe ||
         // or the recipe we have is not the one we should have
         this.props.recipe.slug != this.props.params.slug) {
-          return (
-              <div>
-              Loading...
-              </div>
-          );
-      } else {
-          return (
-          <div>
-              <ol className="breadcrumb">
-              <li><Link to='/'>Recipes</Link></li>
-              <li className="active">{this.props.recipe.name}</li>
-              </ol>
-              <RecipeWidget recipe={this.props.recipe}/>
-          </div>
-              )
-      }
+            return (
+                <div>
+                Loading...
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                <ol className="breadcrumb">
+                <li><Link to='/'>Recipes</Link></li>
+                <li className="active">{this.props.recipe.name}</li>
+                </ol>
+                <RecipeWidget recipe={this.props.recipe}/>
+                </div>);
+        }
     }
 
     render() {
-      const { store } = this.props;
+        const { store } = this.props;
 
-      return (
-          <div>
-          {this.getRecipe()}
-          </div>
-      );
+        return (
+            <div>
+            {this.getRecipe()}
+            </div>
+        );
     }
 }
 

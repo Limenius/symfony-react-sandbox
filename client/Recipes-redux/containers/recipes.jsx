@@ -1,4 +1,4 @@
-import React              from 'react';
+import React from 'react';
 import Actions from '../actions/recipesActions';
 import { connect } from 'react-redux';
 import RecipeList from '../components/RecipeList';
@@ -10,26 +10,26 @@ class Recipes extends React.Component {
             dispatch(Actions.fetchRecipes());
         }
     }
-  render() {
-    const { store } = this.props;
+    render() {
+        const { store } = this.props;
 
-    if (this.props.fetching || !this.props.recipes) {
-        return (
-            <div>
-            Loading...
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <ol className="breadcrumb">
-                    <li clas="active">Recipes</li>
-                </ol>
-                <RecipeList recipes={this.props.recipes}/>
-            </div>
-        );
+        if (this.props.fetching || !this.props.recipes) {
+            return (
+                <div>
+                Loading...
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <ol className="breadcrumb">
+                        <li clas="active">Recipes</li>
+                    </ol>
+                    <RecipeList recipes={this.props.recipes}/>
+                </div>
+            );
+        }
     }
-  }
 }
 
 const mapStateToProps = (state) => {
