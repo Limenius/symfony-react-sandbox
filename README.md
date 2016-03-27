@@ -155,6 +155,14 @@ or
 
 And in dev mode Symfony will load these assets from `http://localhost:8080`.
 
+Redux example
+=============
+
+There is a working example using Redux at `client/Recipes-redux/`. To run it do the following:
+
+* Change the entry point of the webpack configuration files to use the Redux example [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.serverside.js#L15) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.js#L14).
+* [Update the views to use the Redux Twig tag](https://github.com/Limenius/symfony-react-sandbox/blob/416161b3a8375dd0b280ddf4c065ece820da518a/app/Resources/views/recipe/home.html.twig#L5).
+
 Performance with Server-Side rendering
 ======================================
 
