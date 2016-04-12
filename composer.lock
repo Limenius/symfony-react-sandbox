@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17316bd7758a9105d969f6b1d8d20548",
-    "content-hash": "0aef9df53dd86458c5e7898c7012d3a1",
+    "hash": "a44e5043d1fcb423ab7b0e32823559b6",
+    "content-hash": "9814880928b125df9f40ff0aaf094ef0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -876,16 +876,16 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.8.3",
+            "version": "v0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "2e71747247c41669a367bd308f3a1458fa9c765e"
+                "reference": "6341c9f1c2dd3489641564056f87de85847b8d6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/2e71747247c41669a367bd308f3a1458fa9c765e",
-                "reference": "2e71747247c41669a367bd308f3a1458fa9c765e",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/6341c9f1c2dd3489641564056f87de85847b8d6a",
+                "reference": "6341c9f1c2dd3489641564056f87de85847b8d6a",
                 "shasum": ""
             },
             "require": {
@@ -912,7 +912,7 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2016-03-20 20:51:36"
+            "time": "2016-04-12 18:50:13"
         },
         {
             "name": "monolog/monolog",

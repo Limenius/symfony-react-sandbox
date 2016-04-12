@@ -28,7 +28,7 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "limenius/react-bundle": "0.8.3"
+        "limenius/react-bundle": "^0.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
