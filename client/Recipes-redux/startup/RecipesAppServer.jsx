@@ -21,7 +21,7 @@ var mainNode = (props) => {
     let routeProps;
 
     // See https://github.com/reactjs/react-router/blob/master/docs/guides/ServerRendering.md
-    match({ routes, location: props.location }, (_error, _redirectLocation, _routeProps) => {
+    match({ routes, location: location }, (_error, _redirectLocation, _routeProps) => {
         error = _error;
         redirectLocation = _redirectLocation;
         routeProps = _routeProps;

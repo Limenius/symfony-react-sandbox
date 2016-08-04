@@ -5,11 +5,10 @@ import React from 'react';
 
 import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
-import { Router, Route } from 'react-router'
-import { createHistory, useBasename } from 'history';
+import { Router, Route, browserHistory } from 'react-router'
+import { useBasename } from 'history';
 
 
-var history = createHistory();
 
 const routes = (
     <div>
@@ -28,6 +27,6 @@ export default (props) => {
         return <Component {...compProps} />
     };
     return (
-        <Router createElement={createElement} history={history} children={routes} {...props}/>
+        <Router createElement={createElement} history={browserHistory} children={routes} {...props}/>
     );
 };
