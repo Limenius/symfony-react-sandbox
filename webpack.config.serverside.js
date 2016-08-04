@@ -12,7 +12,7 @@ module.exports = {
     context: __dirname,
     entry: [
         './client/Recipes/startup/serverRegistration'
-        // or './client/Recipes-redux/startup/serverRegistration'
+        //'./client/Recipes-redux/startup/serverRegistration'
         ],
     output: {
         filename: 'app/Resources/webpack/server-bundle.js',
@@ -27,15 +27,15 @@ module.exports = {
             },
         }),
         new webpack.ProvidePlugin({
-            _: "lodash",
-            $: "jquery",
-            "jQuery"              : "jquery",
-            "window.jQuery"       : "jquery",
+            _: 'lodash',
+            $: 'jquery',
+            'jQuery'              : 'jquery',
+            'window.jQuery'       : 'jquery',
         })
     ],
     module: {
         loaders: [
-            { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
+            { test: require.resolve('jquery'), loader: 'expose?$!expose?jQuery' },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
         ],
     },

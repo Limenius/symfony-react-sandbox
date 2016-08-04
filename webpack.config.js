@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSCSS = new ExtractTextPlugin('stylesheets/[name].css');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -11,12 +11,12 @@ const nodeEnv = devBuild ? 'development' : 'production';
 var config = {
     entry: [
         './client/Recipes/startup/clientRegistration'
-        // or './client/Recipes-redux/startup/clientRegistration'
+        //'./client/Recipes-redux/startup/clientRegistration'
 
     ],
     output: {
-        path: "./web/assets/build/",
-        publicPath: "/assets/build/",
+        path: './web/assets/build/',
+        publicPath: '/assets/build/',
         filename: 'client-bundle.js',
     },
     resolve: {
@@ -25,10 +25,10 @@ var config = {
     plugins: [
         extractSCSS,
         new webpack.ProvidePlugin({
-            _: "lodash",
-            $: "jquery",
-            "jQuery"              : "jquery",
-            "window.jQuery"       : "jquery",
+            _: 'lodash',
+            $: 'jquery',
+            'jQuery'              : 'jquery',
+            'window.jQuery'       : 'jquery',
         }),
         new CopyWebpackPlugin([
             { from: './client/img', to: './img' },
@@ -41,7 +41,7 @@ var config = {
     ],
     module: {
         loaders: [
-            { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
+            { test: require.resolve('jquery'), loader: 'expose?$!expose?jQuery' },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
             {test: /\.scss$/i, loader: extractSCSS.extract(['css','sass'])},
             {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},

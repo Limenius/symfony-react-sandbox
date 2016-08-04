@@ -40,7 +40,7 @@ export default class Recipes extends React.Component {
             return (
                 <div>
                     <ol className="breadcrumb">
-                        <li clas="active">Recipes</li>
+                        <li className="active">Recipes</li>
                     </ol>
                     <RecipeList recipes={this.state.recipes}/>
                 </div>
