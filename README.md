@@ -42,6 +42,8 @@ And then, run a live server with Webpack hot-reloading of assets:
 
 After this, visit [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
+(If you don't see the images, you may want to run `webpack` alone once, the first time, to copy them to `web/`).
+
 
 Why Webpack?
 ===========
