@@ -3,7 +3,6 @@ import Recipe from '../components/Recipe';
 import { Link } from 'react-router'
 // Simple example of a React "dumb" component
 export default class RecipeList extends React.Component {
-    filterTextInput = null;
 
     constructor(props, context) {
         super(props, context);

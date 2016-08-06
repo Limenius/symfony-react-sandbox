@@ -6,9 +6,6 @@ import React from 'react';
 import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
 import { Router, Route, browserHistory } from 'react-router'
-import { useBasename } from 'history';
-
-
 
 const routes = (
     <div>

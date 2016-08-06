@@ -55,7 +55,7 @@ var config = {
 
 if (devBuild) {
     console.log('Webpack dev build');
-    config.devtool = 'eval-source-map';
+    config.devtool = '#eval-source-map';
 } else {
     config.plugins.push(
         new webpack.optimize.DedupePlugin()
