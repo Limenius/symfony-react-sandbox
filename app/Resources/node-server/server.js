@@ -1,7 +1,7 @@
 var net = require('net');
 var fs = require('fs');
 
-var bundlePath = '/Users/nacho/Proyectos/sfreact/sandbox-dev/symfony-react-sandbox/app/Resources/webpack/';
+var bundlePath = '../webpack/';
 var bundleFileName = 'server-bundle.js';
 
 var currentArg;
