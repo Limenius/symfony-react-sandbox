@@ -165,10 +165,14 @@ There is a working example using Redux at `client/Recipes-redux/`. To run it do 
 * Change the entry point of the webpack configuration files to use the Redux example [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.serverside.js#L15) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.js#L14).
 * [Update the views to use the Redux Twig tag](https://github.com/Limenius/symfony-react-sandbox/blob/416161b3a8375dd0b280ddf4c065ece820da518a/app/Resources/views/recipe/home.html.twig#L5).
 
-Performance with Server-Side rendering
-======================================
+Server side rendering modes
+===========================
 
-Server-side rendering should be used in applications where you can cache the resulting HTML using Varnish or something similar. Otherwise, as for every request the server bundle containing React must be copied either to a file (if your runtime is node.js) or via memcpy (if you have the V8Js PHP extension enabled) and re-interpreted, this can have an overhead. Note that it would be theoretically possible to precompile the server bundle in the V8Js object, but as after every request it is destroyed, due to the stateless nature of most PHP applications, this is not possible in practice. Thus the components that cannot be cached are best rendered client-side.
+* Using [PhpExecJs](https://github.com/nacmartin/phpexecjs) to auto-detect a JavaScript environment (call node.js via terminal command or use V8Js PHP) and run JavaScript code through it. This is more friendly for development, as every time you change your code it will have effect immediatly, but it is also more slow, because for every request the server bundle containing React must be copied either to a file (if your runtime is node.js) or via memcpy (if you have the V8Js PHP extension enabled) and re-interpreted. It is more **suited for development**, or in environments where you can cache everything.
+
+* Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. This is faster but introduces more operational complexity (you have to keep the node server running). For this reason it is more **suited for production**.
+
+Check [the annotated configuration](https://github.com/Limenius/symfony-react-sandbox/blob/master/app/config/config.yml) how to do set these options.
 
 Credits
 =======
