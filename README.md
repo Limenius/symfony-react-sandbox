@@ -24,7 +24,7 @@ Requirements: you need a recent version of node, like `v5.5.0`, and Webpack inst
     git clone https://github.com/Limenius/symfony-react-sandbox.git
     cd symfony-react-sandbox
     composer install
-    npm install
+    npm install # or yarn install if you use yarn
 
 And then, run a live server with Webpack hot-reloading of assets:
 
