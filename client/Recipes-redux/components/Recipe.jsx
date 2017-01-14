@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 export default class Recipe extends React.Component {
 
     render() {
-        var imgsrc = '/assets/build/img/'+this.props.recipe.image;
+        var imgsrc = '/images/'+this.props.recipe.image;
         return (
             <div>
                 <h3>{this.props.recipe.name}</h3>

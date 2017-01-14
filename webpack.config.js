@@ -30,9 +30,6 @@ var config = {
             'jQuery'              : 'jquery',
             'window.jQuery'       : 'jquery',
         }),
-        new CopyWebpackPlugin([
-            { from: './client/img', to: './img' },
-        ]),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(nodeEnv),
