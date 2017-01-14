@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ redux_store('recipesStore', props) }}
+{{ react_component('RecipesApp') }}
+{% endblock %}

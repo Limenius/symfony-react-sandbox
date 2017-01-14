@@ -22,7 +22,7 @@ export default class RecipeList extends React.Component {
             if (this.state.filterText != '' && recipe.name.toLowerCase().indexOf(this.state.filterText) === -1) {
                 return;
             }
-            var link = '/recipe/' + recipe.slug;
+            var link = '/redux/recipe/' + recipe.slug;
             recipeNodes.push(
                 <div key={idx}>
                     <Link to={link}>

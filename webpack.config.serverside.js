@@ -10,12 +10,13 @@ module.exports = {
 
     // the project dir
     context: __dirname,
-    entry: [
-        './client/Recipes/startup/serverRegistration'
-        //'./client/Recipes-redux/startup/serverRegistration'
-        ],
+    entry: {
+        'server-bundle' : './client/Recipes/startup/serverRegistration',
+        //'server-bundle' : './client/Recipes-redux/startup/serverRegistration'
+        },
     output: {
-        filename: 'app/Resources/webpack/server-bundle.js',
+        path: './app/Resources/webpack/',
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],

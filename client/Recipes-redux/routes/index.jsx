@@ -4,7 +4,7 @@ import Recipes from '../containers/recipes';
 import Recipe from '../containers/recipe';
 
 export default function configureRoutes(store) {
-    const { baseUrl } = store.getState().recipes;
+    const baseUrl = store.getState().recipes.baseUrl + 'redux/';
     return (
     <div>
     <Route path={baseUrl} component={Recipes}></Route>

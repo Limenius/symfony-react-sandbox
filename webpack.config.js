@@ -9,15 +9,14 @@ const nodeEnv = devBuild ? 'development' : 'production';
 
 
 var config = {
-    entry: [
-        './client/Recipes/startup/clientRegistration'
-        //'./client/Recipes-redux/startup/clientRegistration'
-
-    ],
+    entry: {
+        'client-bundle': './client/Recipes/startup/clientRegistration',
+        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
+    },
     output: {
         path: './web/assets/build/',
         publicPath: '/assets/build/',
-        filename: 'client-bundle.js',
+        filename: '[name].js',
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],

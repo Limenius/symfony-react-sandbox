@@ -46,6 +46,42 @@ class RecipeController extends Controller
     }
 
     /**
+     * @Route("/redux/", name="homepage_redux")
+     */
+    public function homeReduxAction(Request $request)
+    {
+        $serializer = $this->get('serializer');
+        return $this->render('recipe-redux/home.html.twig', [
+            // We pass an array as props
+            'props' => $serializer->normalize(
+                ['recipes' => $this->get('recipe.manager')->findAll()->recipes,
+                // '/' or maybe '/app_dev.php/', so the React Router knows about the root
+                 'baseUrl' => $this->generateUrl('homepage'),
+                 'location' => $request->getRequestUri()
+                ])
+        ]);
+    }
+
+    /**
+     * @Route("/redux/recipe/{slug}", name="recipe_redux")
+     */
+    public function recipeReduxAction($slug, Request $request)
+    {
+        $serializer = $this->get('serializer');
+        if (!$recipe = $this->get('recipe.manager')->findOneBySlug($slug)) {
+            throw $this->createNotFoundException('The recipe does not exist');
+        }
+        return $this->render('recipe-redux/recipe.html.twig', [
+            // A JSON string also works
+            'props' => $serializer->serialize(
+                ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
+                 'baseUrl' => $this->generateUrl('homepage'),
+                 'location' => $request->getRequestUri()
+                ], 'json')
+        ]);
+    }
+
+    /**
      * @Route("/api/recipes", name="api_recipes")
      *
      * Needed for client-side navigation after initial page load

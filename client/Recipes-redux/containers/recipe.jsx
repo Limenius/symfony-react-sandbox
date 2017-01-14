@@ -28,7 +28,7 @@ class Recipe extends React.Component {
             return (
                 <div>
                 <ol className="breadcrumb">
-                <li><Link to='/'>Recipes</Link></li>
+                    <li><Link to='/redux/'>Recipes</Link></li>
                 <li className="active">{this.props.recipe.name}</li>
                 </ol>
                 <RecipeWidget recipe={this.props.recipe}/>
