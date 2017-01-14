@@ -11,8 +11,7 @@ module.exports = {
     // the project dir
     context: __dirname,
     entry: {
-        'server-bundle' : './client/Recipes/startup/serverRegistration',
-        //'server-bundle' : './client/Recipes-redux/startup/serverRegistration'
+        'server-bundle' : './client/common/serverRegistration',
         },
     output: {
         path: './app/Resources/webpack/',

@@ -11,7 +11,7 @@
 
     <title>Symfony React</title>
     {% block stylesheets %}
-        <link href="{{asset('assets/build/stylesheets/main.css', 'webpack')}}" rel="stylesheet">
+        <link href="{{asset('assets/build/stylesheets/client-bundle.css', 'webpack')}}" rel="stylesheet">
     {% endblock %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -53,7 +53,7 @@
         {% if app.environment == "dev" %}
             <script src="{{ asset('webpack-dev-server.js', 'webpack') }}"></script>
         {% endif %}
-        {% if redux %}
+        {% if redux is defined and redux %}
         <script src="{{ asset('assets/build/client-bundle-redux.js', 'webpack') }}"></script>
         {% else %}
         <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
