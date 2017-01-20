@@ -1,13 +1,13 @@
-import React from 'react';
-import Actions from '../actions/recipesActions';
-import { connect } from 'react-redux';
-import RecipeList from '../components/RecipeList';
+import React from 'react'
+import Actions from '../actions/recipesActions'
+import { connect } from 'react-redux'
+import RecipeList from '../components/RecipeList'
 
 class Recipes extends React.Component {
     componentDidMount() {
         if (!this.props.recipes) {
-            const { dispatch } = this.props;
-            dispatch(Actions.fetchRecipes());
+            const { dispatch } = this.props
+            dispatch(Actions.fetchRecipes())
         }
     }
     render() {
@@ -17,7 +17,7 @@ class Recipes extends React.Component {
                 <div>
                 Loading...
                 </div>
-            );
+            )
         } else {
             return (
                 <div>
@@ -26,17 +26,17 @@ class Recipes extends React.Component {
                     </ol>
                     <RecipeList recipes={this.props.recipes} baseUrl={this.props.baseUrl}/>
                 </div>
-            );
+            )
         }
     }
 }
 
 const mapStateToProps = (state) => (
     {
-        recipes: state.recipes.recipes,
-        fetching: state.recipes.fetching,
-        baseUrl: state.recipes.baseUrl,
+        recipes: state.recipesState.recipes,
+        fetching: state.recipesState.fetching,
+        baseUrl: state.recipesState.baseUrl,
     }
-);
+)
 
-export default connect(mapStateToProps)(Recipes);
+export default connect(mapStateToProps)(Recipes)

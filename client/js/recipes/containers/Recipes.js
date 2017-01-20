@@ -1,24 +1,22 @@
-import React, { PropTypes } from 'react';
-import RecipeList from '../components/RecipeList';
-import { Link } from 'react-router'
-import _ from 'lodash';
-import $ from 'jquery';
+import React from 'react'
+import RecipeList from '../components/RecipeList'
+import $ from 'jquery'
 
 // Simple example of a React "smart" component
 export default class Recipes extends React.Component {
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
         if (this.props.recipes) {
             this.state = {
                 recipes: this.props.recipes,
                 loading: false,
-            };
+            }
         } else {
             this.state = {
                 recipes: null,
                 loading: true
-            };
+            }
         }
     }
 
@@ -29,7 +27,7 @@ export default class Recipes extends React.Component {
                     recipes : data,
                     loading: false
                 })
-            });
+            })
         }
     }
 
@@ -39,7 +37,7 @@ export default class Recipes extends React.Component {
                 <div>
                 Loading...
                 </div>
-            );
+            )
         } else {
             return (
                 <div>
@@ -48,7 +46,7 @@ export default class Recipes extends React.Component {
                     </ol>
                     <RecipeList recipes={this.state.recipes} baseUrl={this.props.baseUrl}/>
                 </div>
-            );
+            )
         }
     }
 }

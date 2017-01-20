@@ -1,8 +1,7 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
+import React from 'react'
 
-import Recipes from '../containers/Recipes';
-import Recipe from '../containers/Recipe';
+import Recipes from '../containers/Recipes'
+import Recipe from '../containers/Recipe'
 import { BrowserRouter, Match } from 'react-router'
 
 export default (initialProps) => {
@@ -15,5 +14,5 @@ export default (initialProps) => {
                 }}></Match>
             </div>
         </BrowserRouter>
-    );
-};
+    )
+}

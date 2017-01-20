@@ -3,6 +3,6 @@ const Constants = {
     RECIPES_RECEIVED: 'RECIPES_RECEIVED',
     RECIPE_FETCHING: 'RECIPE_FETCHING',
     RECIPE_RECEIVED: 'RECIPE_RECEIVED',
-};
+}
 
-export default Constants;
+export default Constants

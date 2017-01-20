@@ -1,14 +1,14 @@
-import React              from 'react';
-import Actions from '../actions/recipesActions';
-import { connect } from 'react-redux';
-import RecipeWidget from '../components/Recipe';
-import { Link } from 'react-router';
+import React              from 'react'
+import Actions from '../actions/recipesActions'
+import { connect } from 'react-redux'
+import RecipeWidget from '../components/Recipe'
+import { Link } from 'react-router'
 
 class Recipe extends React.Component {
     componentDidMount() {
         if ( !this.props.recipe || this.props.recipe.slug != this.props.params.slug) {
-            const { dispatch } = this.props;
-            dispatch(Actions.fetchRecipe(this.props.params.slug));
+            const { dispatch } = this.props
+            dispatch(Actions.fetchRecipe(this.props.params.slug))
         }
     }
 
@@ -23,7 +23,7 @@ class Recipe extends React.Component {
                 <div>
                 Loading...
                 </div>
-            );
+            )
         } else {
             return (
                 <div>
@@ -32,7 +32,7 @@ class Recipe extends React.Component {
                         <li className="active">{this.props.recipe.name}</li>
                     </ol>
                     <RecipeWidget recipe={this.props.recipe}/>
-                </div>);
+                </div>)
         }
     }
 
@@ -41,17 +41,16 @@ class Recipe extends React.Component {
             <div>
                 {this.getRecipe()}
             </div>
-        );
+        )
     }
 }
 
 const mapStateToProps = (state) => (
     {
-        recipe: state.recipes.recipe,
-        fetching: state.recipes.fetching,
-        baseUrl: state.recipes.baseUrl,
-        state: state, 
+        recipe: state.recipesState.recipe,
+        fetching: state.recipesState.fetching,
+        baseUrl: state.recipesState.baseUrl,
     }
-);
+)
 
-export default connect(mapStateToProps)(Recipe);
+export default connect(mapStateToProps)(Recipe)

@@ -1,2 +1,2 @@
-require('./recipes/startup/clientRegistration');
-require('./recipes-redux/startup/clientRegistration');
+import './recipes/startup/clientRegistration'
+import './recipes-redux/startup/clientRegistration'

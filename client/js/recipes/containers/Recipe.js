@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
-import RecipeWidget from '../components/Recipe';
-import _ from 'lodash';
+import React from 'react'
+import RecipeWidget from '../components/Recipe'
 import { Link } from 'react-router'
 
 // Simple example of a React "smart" component
 export default class Recipe extends React.Component {
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
 
         //We check it there is no recipe (only client side)
         //Or our slug doesn't match the recipe that we received server-side
@@ -15,12 +14,12 @@ export default class Recipe extends React.Component {
             this.state = {
                 recipe: null,
                 loading: true
-            };
+            }
         } else {
             this.state = {
                 recipe: this.props.recipe,
                 loading: false
-            };
+            }
         }
     }
     componentWillMount() {
@@ -30,7 +29,7 @@ export default class Recipe extends React.Component {
                     recipe : data,
                     loading: false
                 })
-            });
+            })
         }
     }
     render() {
@@ -39,7 +38,7 @@ export default class Recipe extends React.Component {
                 <div>
                 Loading...
                 </div>
-            );
+            )
         } else {
             return (
                 <div>
@@ -49,7 +48,7 @@ export default class Recipe extends React.Component {
                     </ol>
                     <RecipeWidget recipe={this.state.recipe}/>
                 </div>
-            );
+            )
         }
     }
 }

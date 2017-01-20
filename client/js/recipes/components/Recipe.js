@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react'
 
 export default class Recipe extends React.Component {
 
     render() {
-        var imgsrc = '/images/'+this.props.recipe.image;
+        const imgsrc = '/images/'+this.props.recipe.image
         return (
             <div>
                 <h3>{this.props.recipe.name}</h3>
@@ -20,6 +20,6 @@ export default class Recipe extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }

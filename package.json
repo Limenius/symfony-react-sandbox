@@ -9,8 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-serverside": "webpack --config webpack.config.serverside.js --watch",
-
-    "webpack-dev": "webpack-dev-server --progress --colors --config webpack.config.js"
+    "webpack-dev": "webpack-dev-server --progress --colors --config webpack.config.js",
+    "lint": "eslint client/js"
   },
   "keywords": [
     "symfony",
@@ -45,6 +45,7 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -52,6 +53,9 @@
     "babel-preset-react": "^6.16.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
+    "eslint": "^3.13.1",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-plugin-react": "^6.9.0",
     "exports-loader": "^0.6.3",
     "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "^1.0.1",
