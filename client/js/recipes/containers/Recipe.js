@@ -24,7 +24,9 @@ export default class Recipe extends React.Component {
     }
     componentWillMount() {
         if (this.state.loading) {
-            $.get(this.props.baseUrl + 'api/recipes/'+this.props.params.slug, (data) => {
+            fetch(this.props.baseUrl + 'api/recipes/' + this.props.params.slug).then((response) => {
+                return response.json()
+            }).then((data) => {
                 this.setState({
                     recipe : data,
                     loading: false

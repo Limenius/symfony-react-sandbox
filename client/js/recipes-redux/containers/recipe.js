@@ -8,7 +8,7 @@ class Recipe extends React.Component {
     componentDidMount() {
         if ( !this.props.recipe || this.props.recipe.slug != this.props.params.slug) {
             const { dispatch } = this.props
-            dispatch(Actions.fetchRecipe(this.props.params.slug))
+            dispatch(Actions.fetchRecipe(this.props.params.slug, this.props.baseUrl))
         }
     }
 

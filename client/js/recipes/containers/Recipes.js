@@ -1,6 +1,5 @@
 import React from 'react'
 import RecipeList from '../components/RecipeList'
-import $ from 'jquery'
 
 // Simple example of a React "smart" component
 export default class Recipes extends React.Component {
@@ -22,7 +21,9 @@ export default class Recipes extends React.Component {
 
     componentWillMount() {
         if (this.state.loading) {
-            $.get(this.props.baseUrl+'api/recipes', (data) => {
+            fetch(this.props.baseUrl + 'api/recipes').then((response) => {
+                return response.json()
+            }).then((data) => {
                 this.setState({
                     recipes : data,
                     loading: false

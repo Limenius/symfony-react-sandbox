@@ -7,7 +7,7 @@ class Recipes extends React.Component {
     componentDidMount() {
         if (!this.props.recipes) {
             const { dispatch } = this.props
-            dispatch(Actions.fetchRecipes())
+            dispatch(Actions.fetchRecipes(this.props.baseUrl))
         }
     }
     render() {

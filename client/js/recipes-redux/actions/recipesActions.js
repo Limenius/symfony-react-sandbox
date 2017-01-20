@@ -1,11 +1,13 @@
 import Constants from '../constants/recipesConstants'
 
 const Actions = {
-    fetchRecipes: () => {
+    fetchRecipes: (baseUrl) => {
         return dispatch => {
             dispatch({ type: Constants.RECIPES_FETCHING })
 
-            $.get('/api/recipes', (data) => {
+            fetch(baseUrl + 'api/recipes').then((response) => {
+                return response.json()
+            }).then((data) => {
                 dispatch({
                     type: Constants.RECIPES_RECEIVED,
                     recipes: data
@@ -13,11 +15,14 @@ const Actions = {
             })
         }
     },
-    fetchRecipe: (slug) => {
+
+    fetchRecipe: (slug, baseUrl) => {
         return dispatch => {
             dispatch({ type: Constants.RECIPE_FETCHING })
 
-            $.get('/api/recipes/'+slug, (data) => {
+            fetch(baseUrl + 'api/recipes/' + slug).then((response) => {
+                return response.json()
+            }).then((data) => {
                 dispatch({
                     type: Constants.RECIPE_RECEIVED,
                     recipe: data

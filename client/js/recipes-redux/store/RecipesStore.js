@@ -17,12 +17,7 @@ export default function configureStore(props) {
 
     // Redux expects to initialize the store using an Object
     const initialState = {
-        recipesState: { ...recipesState,
-            recipe,
-            recipes,
-            baseUrl,
-            location,
-        },
+        recipesState: { ...recipesState, recipe, recipes, baseUrl, location },
     }
 
     // use devtools if we are in a browser and the extension is enabled

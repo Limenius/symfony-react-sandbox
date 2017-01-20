@@ -10,8 +10,8 @@ const nodeEnv = devBuild ? 'development' : 'production'
 
 const config = {
     entry: {
-        'client-bundle': [ 'babel-polyfill', './client/js/clientEntryPoint.js' ],
-        //        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
+        // Add polyfills
+        'client-bundle': [ 'babel-polyfill', 'whatwg-fetch', './client/js/clientEntryPoint.js' ],
     },
     output: {
         path: path.resolve(__dirname, 'web/assets/build/'),
@@ -23,6 +23,7 @@ const config = {
     },
     plugins: [
         extractSCSS,
+        // Provide jQuery and lodash to every module (remove if you don't need these)
         new webpack.ProvidePlugin({
             _: 'lodash',
             $: 'jquery',
@@ -37,6 +38,7 @@ const config = {
     ],
     module: {
         rules: [
+            // Expose webpacks jQuery to the browser so we can reuse this instance e.g. to chain loaded plugins
             { test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery' },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.scss$/i, loader: extractSCSS.extract([ 'css-loader','sass-loader' ]) },
