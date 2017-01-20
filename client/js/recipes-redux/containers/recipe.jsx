@@ -27,28 +27,31 @@ class Recipe extends React.Component {
         } else {
             return (
                 <div>
-                <ol className="breadcrumb">
-                    <li><Link to='/redux/'>Recipes</Link></li>
-                <li className="active">{this.props.recipe.name}</li>
-                </ol>
-                <RecipeWidget recipe={this.props.recipe}/>
+                    <ol className="breadcrumb">
+                        <li><Link to={this.props.baseUrl + 'redux/'}>Recipes</Link></li>
+                        <li className="active">{this.props.recipe.name}</li>
+                    </ol>
+                    <RecipeWidget recipe={this.props.recipe}/>
                 </div>);
         }
     }
 
     render() {
-        const { store } = this.props;
-
         return (
             <div>
-            {this.getRecipe()}
+                {this.getRecipe()}
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return state.recipes;
-};
+const mapStateToProps = (state) => (
+    {
+        recipe: state.recipes.recipe,
+        fetching: state.recipes.fetching,
+        baseUrl: state.recipes.baseUrl,
+        state: state, 
+    }
+);
 
 export default connect(mapStateToProps)(Recipe);
