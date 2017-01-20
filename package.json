@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-serverside": "webpack --config webpack.config.serverside.js --watch",
-    "webpack-dev": "webpack-dev-server --progress --colors --config webpack.config.js --port 8080",
+    "webpack-dev": "webpack-dev-server --hot --inline --progress --colors --config webpack.config.js --port 8080",
     "lint": "eslint client/js"
   },
   "keywords": [

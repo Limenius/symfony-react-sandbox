@@ -46,13 +46,6 @@
 
 
     {% block javascripts %}
-        <script>
-        {# set a base url to '/' or maybe '/app_dev.php' #}
-        window.baseUrl = '{{ path('homepage') }}';
-        </script>
-        {% if app.environment == "dev" %}
-            <script src="{{ asset('webpack-dev-server.js', 'webpack') }}"></script>
-        {% endif %}
         <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
     {% endblock %}
   </body>

@@ -130,23 +130,38 @@ Configuration for Hot-Reloading
 
 In the development environment it is nice to have Webpack with hot-reloading. This means that you run a Webpack server that serves your assets and, if you change something on them, Webpack makes your server reload the page automatically. To run the hot-reloading server run Webpack with:
 
-    webpack-dev-server --progress --colors --config webpack.config.js
+    webpack-dev-server --inline --hot --progress --colors --config webpack.config.js --port 8080
 
-And also, in `/app/configuration/config_dev.yml`, add these options in the `framework` section:
-
-    framework:
-        # ...
-        assets:
-            packages:
-                webpack:
-                    base_urls:
-                        - "%assets_base_url%"
+Or simply `yarn webpack-dev`
 
 And, in `paramters.yml` add an `assets_base_url` entry:
 
     parameters:
         # ...
-        assets_base_url: 'http://localhost:8080'
+        use_webpack_sev_server: true
+ 
+So you can set this parameter to false in production.
+
+Then, note that we have modified `app/AppKernel.php` to make use of this parameter conditionally (credits to @weaverryan for this idea):
+
+    public function registerContainerConfiguration(LoaderInterface $loader)
+    {
+        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(function($container) {
+            if ($container->getParameter('use_webpack_dev_server')) {
+                $container->loadFromExtension('framework', [
+                    'assets' => [
+                        'packages' => [
+                            'webpack' => [
+                                'base_url' => 'http://localhost:8080'
+                            ]
+                        ]
+                    ]
+                ]);
+            }
+        });
+    }
+
 
 This allows us to use the Webpack server when loading assets in Twig, like:
 
@@ -156,7 +171,7 @@ or
 
     <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
 
-And in dev mode Symfony will load these assets from `http://localhost:8080`.
+And if the parameter is enabled, Symfony will load these assets from `http://localhost:8080`.
 
 Redux example
 =============

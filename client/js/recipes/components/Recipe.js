@@ -3,14 +3,13 @@ import React from 'react'
 export default class Recipe extends React.Component {
 
     render() {
-        const imgsrc = '/images/'+this.props.recipe.image
         return (
             <div>
                 <h3>{this.props.recipe.name}</h3>
                 <div className="thumbnail">
                     <div className="row">
                         <div className="col-md-3">
-                            <img src={imgsrc} className="img-responsive"/>
+                            <img src={'/images/'+this.props.recipe.image} className="img-responsive"/>
                         </div>
                         <div className="col-md-9">
                         <p className="recipe-body">

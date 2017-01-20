@@ -1,7 +1,6 @@
 import React from 'react'
-import Recipe from '../components/Recipe'
+import Recipe from './Recipe'
 import { Link } from 'react-router'
-
 // Simple example of a React "dumb" component
 export default class RecipeList extends React.Component {
 
