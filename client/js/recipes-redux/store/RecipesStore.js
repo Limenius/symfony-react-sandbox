@@ -26,12 +26,15 @@ export default function configureStore(props) {
         }),
     }
 
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    // use devtools if we are in a browser and the extension is enabled
+    let composeEnhancers = typeof(window) !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
     const store = createStore(
         reducers,
         initialState,
-        composeEnhancers(applyMiddleware(thunkMiddleware))
+        composeEnhancers(
+            applyMiddleware(thunkMiddleware)
+        )
     )
     return store
 }

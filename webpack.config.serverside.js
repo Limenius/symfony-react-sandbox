@@ -1,10 +1,9 @@
 // Webpack configuration for server bundle
 
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
 
-const devBuild = process.env.NODE_ENV !== 'production';
-const nodeEnv = devBuild ? 'development' : 'production';
+const devBuild = process.env.NODE_ENV !== 'production'
+const nodeEnv = devBuild ? 'development' : 'production'
 
 module.exports = {
 
@@ -12,13 +11,13 @@ module.exports = {
     context: __dirname,
     entry: {
         'server-bundle' : './client/js/serverRegistration.js',
-        },
+    },
     output: {
         path: './app/Resources/webpack/',
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: [ '.js', '.jsx' ],
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -35,8 +34,8 @@ module.exports = {
     ],
     module: {
         loaders: [
-            { test: require.resolve('jquery'), loader: 'expose?$!expose?jQuery' },
+            { test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery' },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
         ],
     },
-};
+}
