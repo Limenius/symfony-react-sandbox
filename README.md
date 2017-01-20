@@ -176,7 +176,9 @@ And if the parameter is enabled, Symfony will load these assets from `http://loc
 Redux example
 =============
 
-There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`:
+There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`.
+
+Note that the presentational components of both versions are shared, as they don't know about Redux.
 
 Server side rendering modes
 ===========================
