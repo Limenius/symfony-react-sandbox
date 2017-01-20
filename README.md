@@ -32,9 +32,13 @@ And then, run a live server with Webpack hot-reloading of assets:
     
     webpack --config webpack.config.serverside.js --watch
 
+or simply `npm run webpack-serverside`
+
 * And, In a different terminal/screen/tmux, the hot-reloading webpack server for the client assets:
 
     webpack-dev-server --progress --colors --config webpack.config.js
+
+or simply `npm run webpack-dev`
 
 * Also, you may want to run the Symfony server:
 
@@ -100,7 +104,7 @@ To simplify things we don't use FOSRestBundle here, but feel free to use it to b
 
 In order to make your React components accessible to ReactBundle, you need to register them. We are using for this purpose the npm package of the React On Rails, (that can be used outside the Ruby world).
 
-Take a look at the `client/Recipes/startup/serverRegistration.jsx` and `client/Recipes/startup/clientRegistration.jsx` entries:
+Take a look at the `client/js/serverRegistration.js` and `client/js/clientEntryPoint.js` entries:
 
 Server side:
 
@@ -116,9 +120,9 @@ Here we import our root component and expose it. The same goes for the client-si
     
     ReactOnRails.register({ RecipesApp });
 
-#### JavaScript code organisation for isomorphic apps
+#### JavaScript code organization for isomorphic apps
 
-Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/Recipes/startup/serverRegistration.jsx` and `client/Recipes/startup/clientRegistration.jsx`.
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/js/recipes/serverRegistration.jsx` and `client/js/clientEntryPoint.jsx`.
 
 
 Configuration for Hot-Reloading
@@ -157,10 +161,7 @@ And in dev mode Symfony will load these assets from `http://localhost:8080`.
 Redux example
 =============
 
-There is a working example using Redux at `client/Recipes-redux/`. To run it do the following:
-
-* Change the entry point of the webpack configuration files to use the Redux example [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.serverside.js#L15) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/ab27564a9a74a2cb0e2dcaec8af833ac51836159/webpack.config.js#L14).
-* [Update the views to use the Redux Twig tag](https://github.com/Limenius/symfony-react-sandbox/blob/416161b3a8375dd0b280ddf4c065ece820da518a/app/Resources/views/recipe/home.html.twig#L5).
+There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`:
 
 Server side rendering modes
 ===========================
@@ -174,4 +175,4 @@ Check [the annotated configuration](https://github.com/Limenius/symfony-react-sa
 Credits
 =======
 
-This project is heavily inspired by the great [React on Rails](https://github.com/shakacode/react_on_rails#), and also makes use its JavaScript package.
+This project is heavily inspired by the great [React on Rails](https://github.com/shakacode/react_on_rails#), and also makes use of its JavaScript package.
