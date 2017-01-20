@@ -10,7 +10,7 @@ const nodeEnv = devBuild ? 'development' : 'production'
 
 const config = {
     entry: {
-        'client-bundle': './client/js/clientEntryPoint.js',
+        'client-bundle': [ 'babel-polyfill', './client/js/clientEntryPoint.js' ],
         //        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
     },
     output: {
