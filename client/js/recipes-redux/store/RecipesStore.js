@@ -9,7 +9,7 @@ import reducers from '../reducers';
 import { initialStates } from '../reducers';
 
 
-export default function configureStore(props, browserHistory) {
+export default function configureStore(props) {
 
     // This is how we get initial props from Symfony into redux.
     const { recipes, recipe, baseUrl, location } = props;
