@@ -1,8 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 require('../../../sass/layout.scss')
-
-import configureRoutes from '../routes'
+import Root from '../containers/root'
 import { BrowserRouter } from 'react-router'
 import ReactOnRails from 'react-on-rails'
 
@@ -15,7 +14,7 @@ const mainNode = () => {
     const reactComponent = (
         <Provider store={store}>
             <BrowserRouter>
-                {configureRoutes(store)}
+                <Root/>
             </BrowserRouter>
         </Provider>
     )

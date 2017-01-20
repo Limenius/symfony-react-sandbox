@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import configureRoutes from '../routes'
+import Root from '../containers/root'
 import { ServerRouter, createServerRenderContext } from 'react-router'
 import ReactOnRails from 'react-on-rails'
 
@@ -17,7 +17,7 @@ const mainNode = () => {
     const reactComponent = (
         <Provider store={store}>
             <ServerRouter location={location} context={context}>
-                {configureRoutes(store)}
+                <Root/>
             </ServerRouter>
         </Provider>
     )
