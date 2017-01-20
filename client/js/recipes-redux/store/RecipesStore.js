@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import _ from 'lodash'
 
 // See
@@ -15,6 +15,7 @@ export default function configureStore(props) {
     const { recipes, recipe, baseUrl, location } = props
     const { recipesState } = initialStates
 
+
     // Redux expects to initialize the store using an Object
     const initialState = {
         recipesState: _.extend(recipesState, {
@@ -25,10 +26,12 @@ export default function configureStore(props) {
         }),
     }
 
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
     const store = createStore(
         reducers,
         initialState,
-        applyMiddleware(thunkMiddleware),
+        composeEnhancers(applyMiddleware(thunkMiddleware))
     )
     return store
 }
