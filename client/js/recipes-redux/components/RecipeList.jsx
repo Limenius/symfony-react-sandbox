@@ -35,9 +35,6 @@ export default class RecipeList extends React.Component {
                 <div id="search-box" className="pull-right">
                     <div className="input-group">
                         <input type="text" className="form-control" value={this.state.filterText} placeholder="Search for..." onChange={this.onChangeSearch.bind(this)}/>
-                        <span className="input-group-btn">
-                            <button className="btn btn-default" type="button">Go!</button>
-                        </span>
                     </div>
                 </div>
                 <h2>List of recipes</h2>
