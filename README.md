@@ -187,7 +187,7 @@ Server side rendering modes
 
 * Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. This is faster but introduces more operational complexity (you have to keep the node server running). For this reason it is more **suited for production**.
 
-Check [the annotated configuration](https://github.com/Limenius/symfony-react-sandbox/blob/master/app/config/config.yml) how to do set these options.
+Check [the annotated configuration](https://github.com/Limenius/symfony-react-sandbox/blob/master/app/config/config.yml) how to set these options.
 
 Credits
 =======
