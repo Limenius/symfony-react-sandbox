@@ -6,7 +6,6 @@ import configureStore from '../store/recipesStore';
 import Recipes from '../containers/recipes';
 import configureRoutes from '../routes';
 import { Router, browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ReactOnRails from 'react-on-rails';
 
 // See documentation for https://github.com/reactjs/react-redux.

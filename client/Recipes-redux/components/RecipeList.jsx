@@ -3,7 +3,6 @@ import Recipe from './Recipe';
 import { Link } from 'react-router'
 // Simple example of a React "dumb" component
 export default class RecipeList extends React.Component {
-    filterTextInput = null;
 
     constructor(props, context) {
         super(props, context);
@@ -12,8 +11,8 @@ export default class RecipeList extends React.Component {
             filterText: ''
         };
     }
-    onChangeSearch() {
-        this.setState({filterText: this.filterTextInput.value});
+    onChangeSearch(evt) {
+        this.setState({filterText: evt.target.value});
     }
 
     render() {
@@ -35,7 +34,7 @@ export default class RecipeList extends React.Component {
             <div className="container">
                 <div id="search-box" className="pull-right">
                     <div className="input-group">
-                        <input type="text" className="form-control" value={this.state.filterText} placeholder="Search for..." ref={(c) => {this.filterTextInput = c;}} onChange={this.onChangeSearch.bind(this)}/>
+                        <input type="text" className="form-control" value={this.state.filterText} placeholder="Search for..." onChange={this.onChangeSearch.bind(this)}/>
                         <span className="input-group-btn">
                             <button className="btn btn-default" type="button">Go!</button>
                         </span>

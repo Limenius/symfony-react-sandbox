@@ -11,7 +11,7 @@ const nodeEnv = devBuild ? 'development' : 'production';
 var config = {
     entry: {
         'client-bundle': './client/Recipes/startup/clientRegistration',
-        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
+        //        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
     },
     output: {
         path: './web/assets/build/',

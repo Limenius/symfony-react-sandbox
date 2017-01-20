@@ -4,7 +4,7 @@ export const initialState = {
     recipes: null,
     recipe: null,
     fetching: false,
-    baeUrl: '/',
+    baseUrl: '/',
     location: '/',
 };
 

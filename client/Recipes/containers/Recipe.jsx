@@ -10,18 +10,22 @@ export default class Recipe extends React.Component {
 
         //We check it there is no recipe (only client side)
         //Or our slug doesn't match the recipe that we received server-side
-        if (!this.props.params.recipe || (this.props.params.slug && this.props.params.slug != this.props.params.recipe.slug)) {
-            this.state = { 
+        //
+        if (!this.props.recipe || (this.props.params.slug && this.props.params.slug != this.props.recipe.slug)) {
+            this.state = {
                 recipe: null,
                 loading: true
             };
         } else {
-            this.state = { recipe: this.props.params.recipe };
+            this.state = {
+                recipe: this.props.recipe,
+                loading: false
+            };
         }
     }
     componentWillMount() {
         if (this.state.loading) {
-            $.get('/api/recipes/'+this.props.params.slug, (data) => {
+            $.get(this.props.baseUrl + 'api/recipes/'+this.props.params.slug, (data) => {
                 this.setState({
                     recipe : data,
                     loading: false
@@ -40,7 +44,7 @@ export default class Recipe extends React.Component {
             return (
                 <div>
                     <ol className="breadcrumb">
-                    <li><Link to="/">Recipes</Link></li>
+                    <li><Link to={this.props.baseUrl}>Recipes</Link></li>
                     <li className="active">{this.state.recipe.name}</li>
                     </ol>
                     <RecipeWidget recipe={this.state.recipe}/>

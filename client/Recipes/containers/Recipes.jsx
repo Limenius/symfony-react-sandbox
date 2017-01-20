@@ -6,22 +6,25 @@ import $ from 'jquery';
 
 // Simple example of a React "smart" component
 export default class Recipes extends React.Component {
+
     constructor(props, context) {
         super(props, context);
-        if (this.props.params.recipes) {
-            // How to set initial state in ES6 class syntax
-            // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-            this.state = { recipes: this.props.params.recipes };
+        if (this.props.recipes) {
+            this.state = {
+                recipes: this.props.recipes,
+                loading: false,
+            };
         } else {
-            this.state = { 
+            this.state = {
                 recipes: null,
                 loading: true
             };
         }
     }
+
     componentWillMount() {
         if (this.state.loading) {
-            $.get('/api/recipes', (data) => {
+            $.get(this.props.baseUrl+'api/recipes', (data) => {
                 this.setState({
                     recipes : data,
                     loading: false
@@ -29,6 +32,7 @@ export default class Recipes extends React.Component {
             });
         }
     }
+
     render() {
         if (this.state.loading) {
             return (
@@ -42,7 +46,7 @@ export default class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeList recipes={this.state.recipes}/>
+                    <RecipeList recipes={this.state.recipes} baseUrl={this.props.baseUrl}/>
                 </div>
             );
         }
