@@ -11,7 +11,6 @@ class Recipes extends React.Component {
         }
     }
     render() {
-        const { store } = this.props;
 
         if (this.props.fetching || !this.props.recipes) {
             return (
@@ -25,15 +24,19 @@ class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeList recipes={this.props.recipes}/>
+                    <RecipeList recipes={this.props.recipes} baseUrl={this.props.baseUrl}/>
                 </div>
             );
         }
     }
 }
 
-const mapStateToProps = (state) => {
-    return state.recipes;
-};
+const mapStateToProps = (state) => (
+    {
+        recipes: state.recipes.recipes,
+        fetching: state.recipes.fetching,
+        baseUrl: state.recipes.baseUrl,
+    }
+);
 
 export default connect(mapStateToProps)(Recipes);

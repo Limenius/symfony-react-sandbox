@@ -10,7 +10,7 @@ const nodeEnv = devBuild ? 'development' : 'production';
 
 var config = {
     entry: {
-        'client-bundle': './client/Recipes/startup/clientRegistration',
+        'client-bundle': './client/js/clientEntryPoint.js',
         //        'client-bundle-redux' : './client/Recipes-redux/startup/clientRegistration'
     },
     output: {

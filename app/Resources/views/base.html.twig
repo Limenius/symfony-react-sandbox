@@ -53,11 +53,7 @@
         {% if app.environment == "dev" %}
             <script src="{{ asset('webpack-dev-server.js', 'webpack') }}"></script>
         {% endif %}
-        {% if redux is defined and redux %}
-        <script src="{{ asset('assets/build/client-bundle-redux.js', 'webpack') }}"></script>
-        {% else %}
         <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
-        {% endif %}
     {% endblock %}
   </body>
 </html>

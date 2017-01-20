@@ -11,7 +11,7 @@ module.exports = {
     // the project dir
     context: __dirname,
     entry: {
-        'server-bundle' : './client/common/serverRegistration',
+        'server-bundle' : './client/js/serverRegistration.js',
         },
     output: {
         path: './app/Resources/webpack/',

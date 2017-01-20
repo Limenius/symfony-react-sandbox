@@ -1,21 +1,18 @@
-require('../../sass/layout.scss');
-
-import ReactDOM from 'react-dom';
 import React from 'react';
-
 import Recipes from '../containers/Recipes';
 import Recipe from '../containers/Recipe';
-import { BrowserRouter, Match, Link } from 'react-router'
+import { ServerRouter, Match, createServerRenderContext } from 'react-router'
 
 export default (initialProps) => {
+    const context = createServerRenderContext();
     return (
-        <BrowserRouter >
+        <ServerRouter location={initialProps.location} context={context} >
             <div>
                 <Match pattern={initialProps.baseUrl + 'recipe/:slug'} render={(props) => <Recipe {...initialProps} {...props} />}/>
                 <Match pattern={initialProps.baseUrl} exactly render={(props) => {
                     return ( <Recipes {...initialProps} {...props} />)
                 }}></Match>
             </div>
-        </BrowserRouter>
+        </ServerRouter>
     );
 };
