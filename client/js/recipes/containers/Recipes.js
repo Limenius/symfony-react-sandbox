@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipeList from '../components/RecipeList'
+import RecipeList from '../../common/components/RecipeList'
 
 // Simple example of a React "smart" component
 export default class Recipes extends React.Component {
@@ -45,7 +45,7 @@ export default class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeList recipes={this.state.recipes} baseUrl={this.props.baseUrl}/>
+                    <RecipeList recipes={this.state.recipes} routePrefix={this.props.baseUrl}/>
                 </div>
             )
         }

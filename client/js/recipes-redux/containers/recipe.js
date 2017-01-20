@@ -1,7 +1,7 @@
 import React              from 'react'
 import Actions from '../actions/recipesActions'
 import { connect } from 'react-redux'
-import RecipeWidget from '../components/Recipe'
+import RecipeWidget from '../../common/components/Recipe'
 import { Link } from 'react-router'
 
 class Recipe extends React.Component {

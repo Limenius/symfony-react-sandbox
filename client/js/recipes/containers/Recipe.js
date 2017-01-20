@@ -1,5 +1,5 @@
 import React from 'react'
-import RecipeWidget from '../components/Recipe'
+import RecipeWidget from '../../common/components/Recipe'
 import { Link } from 'react-router'
 
 // Simple example of a React "smart" component

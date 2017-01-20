@@ -7,21 +7,21 @@ export default class RecipeList extends React.Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            recipes: this.props.recipes,
             filterText: ''
         }
     }
+
     onChangeSearch(evt) {
         this.setState({ filterText: evt.target.value })
     }
 
     render() {
         let recipeNodes = []
-        this.state.recipes.forEach((recipe, idx)  => {
+        this.props.recipes.forEach((recipe, idx)  => {
             if (this.state.filterText != '' && recipe.name.toLowerCase().indexOf(this.state.filterText) === -1) {
                 return
             }
-            const link = this.props.baseUrl + 'redux/recipe/' + recipe.slug
+            const link = this.props.routePrefix + 'recipe/' + recipe.slug
             recipeNodes.push(
                 <div key={idx}>
                     <Link to={link}>
