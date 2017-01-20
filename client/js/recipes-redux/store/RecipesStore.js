@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import _ from 'lodash'
 
 // See
 // https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
@@ -18,12 +17,12 @@ export default function configureStore(props) {
 
     // Redux expects to initialize the store using an Object
     const initialState = {
-        recipesState: _.extend(recipesState, {
-            recipe: recipe,
-            recipes: recipes,
-            baseUrl: baseUrl,
-            location: location,
-        }),
+        recipesState: { ...recipesState,
+            recipe,
+            recipes,
+            baseUrl,
+            location,
+        },
     }
 
     // use devtools if we are in a browser and the extension is enabled
