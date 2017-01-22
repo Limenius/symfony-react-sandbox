@@ -18,3 +18,5 @@
 /node_modules/
 /app/Resources/webpack/*
 !/app/Resources/webpack/.gitkeep
+composer-dev.json
+composer-dev.lock
