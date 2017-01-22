@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const path = require('path')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -22,6 +24,7 @@ const config = {
         extensions: [ '.js', '.jsx' ],
     },
     plugins: [
+        new CaseSensitivePathsPlugin(),
         extractSCSS,
         // Provide jQuery and lodash to every module (remove if you don't need these)
         new webpack.ProvidePlugin({

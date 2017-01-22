@@ -1,7 +1,7 @@
 import ReactOnRails from 'react-on-rails'
 import RecipesApp from './recipes/startup/RecipesAppServer'
 import RecipesAppRedux from './recipes-redux/startup/RecipesAppServer'
-import configureStore from './recipes-redux/store/recipesStore'
+import configureStore from './recipes-redux/store/RecipesStore'
 
 ReactOnRails.register({ RecipesApp })
 
