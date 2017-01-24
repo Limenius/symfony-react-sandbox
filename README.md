@@ -122,7 +122,7 @@ Here we import our root component and expose it. The same goes for the client-si
 
 #### JavaScript code organization for isomorphic apps
 
-Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/js/recipes/serverRegistration.jsx` and `client/js/clientEntryPoint.jsx`.
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/js/recipes/serverRegistration.js` and `client/js/clientEntryPoint.js`.
 
 
 Configuration for Hot-Reloading
