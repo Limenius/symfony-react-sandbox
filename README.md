@@ -13,7 +13,7 @@ It has three main areas of interest:
 * The JavaScript and CSS (SCSS) code under `client/`.
 * The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
-Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs).
+Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if wee neeeded that setup.
 
 
 How to run it
@@ -142,7 +142,7 @@ And, in `paramters.yml` add an `assets_base_url` entry:
  
 So you can set this parameter to false in production.
 
-Then, note that we have modified `app/AppKernel.php` to make use of this parameter conditionally (credits to @weaverryan for this idea):
+Then, note that we have modified `app/AppKernel.php` to make use of this parameter conditionally (kudos to @weaverryan for this idea):
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {

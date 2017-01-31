@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5f4d637c92b7f56bcb0a1c226f43ab32",
-    "content-hash": "c6c7ca21aec0e0cf8e44ffbabad736aa",
+    "hash": "5490c194a97556341b06f956e2986945",
+    "content-hash": "d87c894270eed9b0b6151c6c2f0fcf5c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -286,16 +286,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.9",
+            "version": "v2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e"
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fc376f7a61498e18520cd6fa083752a4ca08072b",
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b",
                 "shasum": ""
             },
             "require": {
@@ -353,20 +353,20 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-01-19 13:27:33"
+            "time": "2017-01-23 23:17:10"
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "1.6.6",
+            "version": "1.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "0f0c4df366bd1d36d38a27e2f5ff128e118ac969"
+                "reference": "a01d99bc6c9a6c8a8ace0012690099dd957ce9b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/0f0c4df366bd1d36d38a27e2f5ff128e118ac969",
-                "reference": "0f0c4df366bd1d36d38a27e2f5ff128e118ac969",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a01d99bc6c9a6c8a8ace0012690099dd957ce9b9",
+                "reference": "a01d99bc6c9a6c8a8ace0012690099dd957ce9b9",
                 "shasum": ""
             },
             "require": {
@@ -434,7 +434,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-01-07 21:47:22"
+            "time": "2017-01-16 12:01:26"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -878,19 +878,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "e72b0ebb99ba94278bc12e1e8511735c2696fdcd"
+                "reference": "97c93502038abe3e8f967f3d5f14f82af2717ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/e72b0ebb99ba94278bc12e1e8511735c2696fdcd",
-                "reference": "e72b0ebb99ba94278bc12e1e8511735c2696fdcd",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/97c93502038abe3e8f967f3d5f14f82af2717ee4",
+                "reference": "97c93502038abe3e8f967f3d5f14f82af2717ee4",
                 "shasum": ""
             },
             "require": {
+                "limenius/react-renderer": "^0.11",
                 "nacmartin/phpexecjs": "^0.8",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6",
@@ -924,7 +925,55 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2016-11-21 18:59:55"
+            "time": "2017-01-31 16:41:22"
+        },
+        {
+            "name": "limenius/react-renderer",
+            "version": "v0.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Limenius/ReactRenderer.git",
+                "reference": "0d83b0b0f660f20b83540d74b74d3c686b762f40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/0d83b0b0f660f20b83540d74b74d3c686b762f40",
+                "reference": "0d83b0b0f660f20b83540d74b74d3c686b762f40",
+                "shasum": ""
+            },
+            "require": {
+                "nacmartin/phpexecjs": "^0.8",
+                "php": ">=5.5.0",
+                "twig/twig": "^1.20"
+            },
+            "require-dev": {
+                "escapestudios/symfony2-coding-standard": "^2.9",
+                "squizlabs/php_codesniffer": "^2.5",
+                "wimg/php-compatibility": "^7.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Limenius\\ReactRenderer\\": "src/Limenius/ReactRenderer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nacho",
+                    "email": "nacho@limenius.com"
+                }
+            ],
+            "description": "Client and Server-side React rendering",
+            "keywords": [
+                "isomorphic",
+                "react",
+                "twig"
+            ],
+            "time": "2017-01-31 16:19:44"
         },
         {
             "name": "monolog/monolog",
@@ -1857,16 +1906,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.1.9",
+            "version": "v3.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "8d80e330acaad0780028ecb93fa8e902eb1e9abb"
+                "reference": "96e7dede3ddc9e3b3392f5cc93e26eca77545a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/8d80e330acaad0780028ecb93fa8e902eb1e9abb",
-                "reference": "8d80e330acaad0780028ecb93fa8e902eb1e9abb",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/96e7dede3ddc9e3b3392f5cc93e26eca77545a89",
+                "reference": "96e7dede3ddc9e3b3392f5cc93e26eca77545a89",
                 "shasum": ""
             },
             "require": {
@@ -1948,6 +1997,7 @@
                 "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
                 "phpdocumentor/reflection-docblock": "^3.0",
                 "predis/predis": "~1.0",
+                "sensio/framework-extra-bundle": "^3.0.2",
                 "symfony/phpunit-bridge": "~3.2",
                 "symfony/polyfill-apcu": "~1.1",
                 "symfony/security-acl": "~2.8|~3.0"
@@ -1994,7 +2044,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-01-12 20:44:00"
+            "time": "2017-01-28 02:53:38"
         },
         {
             "name": "twig/twig",
