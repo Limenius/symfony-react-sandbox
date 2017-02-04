@@ -2,17 +2,21 @@ import React from 'react'
 
 import Recipes from '../containers/Recipes'
 import Recipe from '../containers/Recipe'
-import { BrowserRouter, Match } from 'react-router'
+import {
+      BrowserRouter as Router,
+      Route,
+      Link
+} from 'react-router-dom'
 
 export default (initialProps) => {
     return (
-        <BrowserRouter>
+        <Router>
             <div>
-                <Match pattern={initialProps.baseUrl + 'recipe/:slug'} render={(props) => <Recipe {...initialProps} {...props} />}/>
-                <Match pattern={initialProps.baseUrl} exactly render={(props) => {
+                <Route path={initialProps.baseUrl + 'recipe/:slug'} render={(props) => <Recipe {...initialProps} {...props} />}/>
+                <Route path={initialProps.baseUrl} exact render={(props) => {
                     return ( <Recipes {...initialProps} {...props} />)
-                }}></Match>
+                }}></Route>
             </div>
-        </BrowserRouter>
+        </Router>
     )
 }

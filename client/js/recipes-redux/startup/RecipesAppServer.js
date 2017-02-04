@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import Root from '../containers/root'
-import { ServerRouter, createServerRenderContext } from 'react-router'
+import { StaticRouter } from 'react-router'
 import ReactOnRails from 'react-on-rails'
 
 // See documentation for https://github.com/reactjs/react-redux.
@@ -12,13 +12,13 @@ const mainNode = () => {
 
     const { location } = store.getState().recipesState
 
-    const context = createServerRenderContext()
+    const context = {}
 
     const reactComponent = (
         <Provider store={store}>
-            <ServerRouter location={location} context={context}>
+            <StaticRouter location={location} context={context}>
                 <Root/>
-            </ServerRouter>
+            </StaticRouter>
         </Provider>
     )
     return reactComponent

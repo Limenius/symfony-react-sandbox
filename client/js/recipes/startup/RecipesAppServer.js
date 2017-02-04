@@ -1,18 +1,18 @@
 import React from 'react'
 import Recipes from '../containers/Recipes'
 import Recipe from '../containers/Recipe'
-import { ServerRouter, Match, createServerRenderContext } from 'react-router'
+import { StaticRouter, Route } from 'react-router'
 
 export default (initialProps) => {
-    const context = createServerRenderContext()
+    const context = {}
     return (
-        <ServerRouter location={initialProps.location} context={context} >
+        <StaticRouter location={initialProps.location} context={context} >
             <div>
-                <Match pattern={initialProps.baseUrl + 'recipe/:slug'} render={(props) => <Recipe {...initialProps} {...props} />}/>
-                <Match pattern={initialProps.baseUrl} exactly render={(props) => {
+                <Route path={initialProps.baseUrl + 'recipe/:slug'} render={(props) => <Recipe {...initialProps} {...props} />}/>
+                <Route path={initialProps.baseUrl} exact render={(props) => {
                     return ( <Recipes {...initialProps} {...props} />)
-                }}></Match>
+                }}></Route>
             </div>
-        </ServerRouter>
+        </StaticRouter>
     )
 }

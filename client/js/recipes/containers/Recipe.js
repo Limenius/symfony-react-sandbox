@@ -1,6 +1,6 @@
 import React from 'react'
 import RecipeWidget from '../../common/components/Recipe'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 // Simple example of a React "smart" component
 export default class Recipe extends React.Component {
@@ -10,7 +10,7 @@ export default class Recipe extends React.Component {
         //We check it there is no recipe (only client side)
         //Or our slug doesn't match the recipe that we received server-side
         //
-        if (!this.props.recipe || (this.props.params.slug && this.props.params.slug != this.props.recipe.slug)) {
+        if (!this.props.recipe || (this.props.match.params.slug && this.props.match.params.slug != this.props.recipe.slug)) {
             this.state = {
                 recipe: null,
                 loading: true
@@ -24,7 +24,7 @@ export default class Recipe extends React.Component {
     }
     componentWillMount() {
         if (this.state.loading) {
-            fetch(this.props.baseUrl + 'api/recipes/' + this.props.params.slug).then((response) => {
+            fetch(this.props.baseUrl + 'api/recipes/' + this.props.match.params.slug).then((response) => {
                 return response.json()
             }).then((data) => {
                 this.setState({

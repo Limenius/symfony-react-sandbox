@@ -2,13 +2,13 @@ import React              from 'react'
 import Actions from '../actions/recipesActions'
 import { connect } from 'react-redux'
 import RecipeWidget from '../../common/components/Recipe'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 class Recipe extends React.Component {
     componentDidMount() {
-        if ( !this.props.recipe || this.props.recipe.slug != this.props.params.slug) {
+        if ( !this.props.recipe || this.props.recipe.slug != this.props.match.params.slug) {
             const { dispatch } = this.props
-            dispatch(Actions.fetchRecipe(this.props.params.slug, this.props.baseUrl))
+            dispatch(Actions.fetchRecipe(this.props.match.params.slug, this.props.baseUrl))
         }
     }
 
@@ -18,7 +18,7 @@ class Recipe extends React.Component {
         // or we do not have a recipe
         !this.props.recipe ||
         // or the recipe we have is not the one we should have
-        this.props.recipe.slug != this.props.params.slug) {
+        this.props.recipe.slug != this.props.match.params.slug) {
             return (
                 <div>
                 Loading...

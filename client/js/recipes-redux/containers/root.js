@@ -1,4 +1,4 @@
-import { Match } from 'react-router'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import React from 'react'
 import Recipes from '../containers/recipes'
@@ -8,8 +8,8 @@ const Root = (props) => {
     const baseUrl = props.baseUrl + 'redux/'
     return (
         <div>
-            <Match pattern={baseUrl} exactly component={Recipes}/>
-            <Match pattern={baseUrl+'recipe/:slug'} component={Recipe}/>
+            <Route path={baseUrl} exact component={Recipes}/>
+            <Route path={baseUrl+'recipe/:slug'} component={Recipe}/>
         </div>
     )
 }
