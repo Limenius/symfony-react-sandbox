@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 use AppBundle\Entity\Task;
 use AppBundle\Form\Type\TaskType;
@@ -117,7 +118,7 @@ class RecipeController extends Controller
         return $this->render('liform/index.html.twig', [
             'props' => [
                 'schema' => $this->get('liform')->transform($form),
-                    'initialValues' => ['task' => $this->serializeForm($form)],
+                    'initialValues' => $this->serializeForm($form),
                     'location' => $request->getRequestUri()
                 ]
             ]);
@@ -138,11 +139,11 @@ class RecipeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($task);
             $em->flush();
+
+            return new Response(null, 201);
         }
         $serializer = $this->get('serializer');
         return new JsonResponse($serializer->normalize($form));
-
-        throw new \Exception('NOT!');
     }
 
     private function serializeForm($form)
