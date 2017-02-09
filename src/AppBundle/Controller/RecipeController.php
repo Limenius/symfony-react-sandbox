@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use AppBundle\Entity\Task;
+use AppBundle\Form\Type\TaskType;
+
 class RecipeController extends Controller
 {
     /**
@@ -101,5 +104,58 @@ class RecipeController extends Controller
     {
         $serializer = $this->get('serializer');
         return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->findOneBySlug($slug)));
+    }
+
+    /**
+     * @Route("/liform/", name="liform")
+     */
+    public function liformAction(Request $request)
+    {
+        $task = new Task();
+        $serializer = $this->get('serializer');
+        $form = $this->createForm(TaskType::Class, $task);
+        return $this->render('liform/index.html.twig', [
+            'props' => [
+                'schema' => $this->get('liform')->transform($form),
+                    'initialValues' => ['task' => $this->serializeForm($form)],
+                    'location' => $request->getRequestUri()
+                ]
+            ]);
+    }
+
+    /**
+     * @Route("/liform/tasks", methods={"POST"}, name="liform_post")
+     */
+    public function liformPostAction(Request $request)
+    {
+        $task = new Task();
+        $data = json_decode($request->getContent(), true);
+        $form = $this->createForm(TaskType::Class, $task,
+            array('csrf_protection' => false)
+        );
+        $form->submit($data['task']);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($task);
+            $em->flush();
+        }
+        $serializer = $this->get('serializer');
+        return new JsonResponse($serializer->normalize($form));
+
+        throw new \Exception('NOT!');
+    }
+
+    private function serializeForm($form)
+    {
+        if (! $form->all()) {
+            return $form->getViewData();
+        }
+        $data = array();
+        foreach ($form->all() as $child) {
+            $options = $child->getConfig()->getOptions();
+            $name    = $child->getName();
+            $data[$name] = $this->serializeForm($child);
+        }
+        return $data;
     }
 }
