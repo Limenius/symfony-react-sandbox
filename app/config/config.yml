@@ -93,3 +93,6 @@ limenius_react:
         # Such as the one in `Resources/node-server/server.js`
         # null will default to `%kernel.root_dir%/Resources/node-server/node.sock
         server_socket_path: null
+
+hautelook_alice:
+        fixtures_path: 'Resources/fixtures/orm' # Path to which to look for fixtures relative to the bundle path.

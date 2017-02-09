@@ -18,7 +18,7 @@ class RecipeController extends Controller
         return $this->render('recipe/home.html.twig', [
             // We pass an array as props
             'props' => $serializer->normalize(
-                ['recipes' => $this->get('recipe.manager')->findAll()->recipes,
+                ['recipes' => $this->get('recipes.repository.recipe')->findAll(),
                 // '/' or maybe '/app_dev.php/', so the React Router knows about the root
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
@@ -32,13 +32,13 @@ class RecipeController extends Controller
     public function recipeAction($slug, Request $request)
     {
         $serializer = $this->get('serializer');
-        if (!$recipe = $this->get('recipe.manager')->findOneBySlug($slug)) {
+        if (!$recipe = $this->get('recipes.repository.recipe')->findOneBySlug($slug)) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
         return $this->render('recipe/recipe.html.twig', [
             // A JSON string also works
             'props' => $serializer->serialize(
-                ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
+                ['recipe' => $recipe,
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
                 ], 'json')
@@ -54,7 +54,7 @@ class RecipeController extends Controller
         return $this->render('recipe-redux/home.html.twig', [
             // We pass an array as props
             'props' => $serializer->normalize(
-                ['recipes' => $this->get('recipe.manager')->findAll()->recipes,
+                ['recipes' => $this->get('recipes.repository.recipe')->findAll(),
                 // '/' or maybe '/app_dev.php/', so the React Router knows about the root
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
@@ -68,13 +68,13 @@ class RecipeController extends Controller
     public function recipeReduxAction($slug, Request $request)
     {
         $serializer = $this->get('serializer');
-        if (!$recipe = $this->get('recipe.manager')->findOneBySlug($slug)) {
+        if (!$recipe = $this->get('recipes.repository.recipe')->findOneBySlug($slug)) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
         return $this->render('recipe-redux/recipe.html.twig', [
             // A JSON string also works
             'props' => $serializer->serialize(
-                ['recipe' => $this->get('recipe.manager')->findOneBySlug($slug),
+                ['recipe' => $recipe,
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
                 ], 'json')
@@ -89,7 +89,7 @@ class RecipeController extends Controller
     public function apiRecipesAction(Request $request)
     {
         $serializer = $this->get('serializer');
-        return new JsonResponse($this->get('recipe.manager')->findAll()->recipes);
+        return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->findAll()));
     }
 
     /**
@@ -100,6 +100,6 @@ class RecipeController extends Controller
     public function apiRecipeAction($slug, Request $request)
     {
         $serializer = $this->get('serializer');
-        return new JsonResponse($this->get('recipe.manager')->findOneBySlug($slug));
+        return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->findOneBySlug($slug)));
     }
 }

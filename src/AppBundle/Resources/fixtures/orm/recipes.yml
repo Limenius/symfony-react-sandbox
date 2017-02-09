@@ -1,0 +1,17 @@
+AppBundle\Entity\Recipe:
+    paella:
+        name: 'Paella'
+        slug: 'paella'
+        image: 'paella.jpg'
+    carbonara:
+        name: 'Pasta carbonara'
+        slug: 'carbonara'
+        image: 'carbonara.jpg'
+    falavel:
+        name: 'Falafel'
+        slug: 'falafel'
+        image: 'falafel.jpg'
+    sushi:
+        name: 'Sushi'
+        slug: 'sushi'
+        image: 'sushi.jpg'

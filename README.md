@@ -26,10 +26,17 @@ Requirements: you need a recent version of node, like `v5.5.0`, and Webpack inst
     composer install
     npm install # or yarn install if you use yarn
 
+Configure your database editing `app/config/parameters.yml` and setting your database name, user and password. Then, create the schema and load fixtures:
+
+    bin/console doctrine:schema:create
+    bin/console hautelook:fixtures:load
+
+This should populate your database with some tasty sample data.
+
 And then, run a live server with Webpack hot-reloading of assets:
 
 * Building the server-side react Webpack bundle.
-    
+
     webpack --config webpack.config.serverside.js --watch
 
 or simply `npm run webpack-serverside`
@@ -82,7 +89,7 @@ When your client-side JavaScript runs, React will find this `<div>` tag and will
 Walkthrough
 ===========
 
-We have set-up a simple application. A recipes App with master-detail views. In the actions of the controller under `src/AppBundle/Controller/RecipeController.php` you will find two types of actions. 
+We have set-up a simple application. A recipes App with master-detail views. In the actions of the controller under `src/AppBundle/Controller/RecipeController.php` you will find two types of actions.
 
 ### Actions that render Twig templates.
 
@@ -110,14 +117,14 @@ Server side:
 
     import ReactOnRails from 'react-on-rails';
     import RecipesApp from './RecipesAppServer';
-    
+
     ReactOnRails.register({ RecipesApp });
 
 Here we import our root component and expose it. The same goes for the client-side part:
 
     import ReactOnRails from 'react-on-rails';
     import RecipesApp from './RecipesAppClient';
-    
+
     ReactOnRails.register({ RecipesApp });
 
 #### JavaScript code organization for isomorphic apps
@@ -139,7 +146,7 @@ And, in `paramters.yml` add an `assets_base_url` entry:
     parameters:
         # ...
         use_webpack_sev_server: true
- 
+
 So you can set this parameter to false in production.
 
 Then, note that we have modified `app/AppKernel.php` to make use of this parameter conditionally (kudos to @weaverryan for this idea):
