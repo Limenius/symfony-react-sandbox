@@ -10,5 +10,10 @@
 
             <argument type="string">AppBundle\Entity\Recipe</argument>
         </service>
+        <service id="recipes.repository.task" class="AppBundle\Repository\TaskRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository"/>
+
+            <argument type="string">AppBundle\Entity\Task</argument>
+        </service>
     </services>
 </container>

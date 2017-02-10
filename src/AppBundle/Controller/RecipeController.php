@@ -118,11 +118,12 @@ class RecipeController extends Controller
             array('csrf_protection' => false)
         );
         return $this->render('liform/index.html.twig', [
-            'props' => json_encode([
+            'props' => [
+                'tasks' => $serializer->normalize($this->get('recipes.repository.task')->findAll()),
                 'schema' => $this->get('liform')->transform($form),
                     'initialValues' => $serializer->normalize($form->createView()),
                     'location' => $request->getRequestUri()
-                ])
+                ]
             ]);
     }
 
@@ -131,6 +132,8 @@ class RecipeController extends Controller
      */
     public function liformPostAction(Request $request)
     {
+        $serializer = $this->get('serializer');
+
         $task = new Task();
         $data = json_decode($request->getContent(), true);
         $form = $this->createForm(TaskType::Class, $task,
@@ -142,9 +145,11 @@ class RecipeController extends Controller
             $em->persist($task);
             $em->flush();
 
-            return new Response(null, 201);
+            $response = new Response($serializer->serialize($task, 'json'), 201);
+            $response->headers->set('Location', 'We should provide a url here, but this is a dummy example and there is no location where you can retrieve a single task, so...');
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
         }
-        $serializer = $this->get('serializer');
         return new JsonResponse($serializer->normalize($form), 400);
     }
 

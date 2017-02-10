@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{{ redux_store('tasksStore', props) }}
 {{ react_component('LiformExample', {'props': props}) }}
 {% endblock %}
