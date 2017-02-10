@@ -1,7 +1,7 @@
 Symfony React Sandbox
 =====================
 
-This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup.
+This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup. It also provides an example of the usage of [LiformBundle](https://github.com/Limenius/LiformBundle) to generate a json-schema from Symofny forms and a forms and validation in React from that schema.
 
 You can see this example live at http://symfony-react.limenius.com/
 
@@ -71,11 +71,9 @@ Why Server-Side rendering?
 
 If you enable server-side rendering along with client-side rendering of components (this is the default) your React components will be rendered directly as HTML by Twig and then, when the client-side code is run, React will identify the already rendered HTML and it won't render it again until is needed. Instead, it will silently take control over it and re-render it only when it is needed.
 
-This is vital for some applications for SEO purposes, but also is great for quick page-loads and to provide the content to users with JavaScript disabled (if there is any left, but it is a nice-to-have).
+This can be vital for some applications for SEO purposes or where a bot has to scrape the content (Facebook bot scraping `og:` tags for instance), but also is great for quick page-loads and to provide the content to users with JavaScript disabled (if there is any left, or if you have plans to build progressive web applications).
 
 You can configure ReactBundle to have server-side, client-side or both. See the bundle documentation for more information.
-
-
 
 How it works
 ============
@@ -186,6 +184,13 @@ Redux example
 There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`.
 
 Note that the presentational components of both versions are shared, as they don't know about Redux.
+
+Liform example
+=============
+
+There is also an example of working with forms using [LiformBundle](https://github.com/Limenius/LiformBundle), so Symfony forms are serialized into [json-schema](http://json-schema.org/), and then generated automatically in React, and can be validated against the generated schema. The idea is similar as what `$form->createView()` does, but for APIs. 
+
+TThis example is at the URI `/liform/`.
 
 Server side rendering modes
 ===========================
