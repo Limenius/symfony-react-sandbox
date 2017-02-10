@@ -1,28 +1,39 @@
 import React from 'react'
 
 import { createStore, combineReducers } from 'redux'
-import { reducer as formReducer, Field } from 'redux-form'
+import { reducer as formReducer, SubmissionError } from 'redux-form'
 import { Provider } from 'react-redux'
-import Liform, { DefaultTheme } from 'liform-react'
-import Dropzone from 'react-dropzone'
+//import Liform, { processSubmitErrors } from 'liform-react'
+import Liform from 'liform-react'
 
-
-const submit = (values, _dispatch) =>
-{
-    return new Promise((resolve, reject) => {
-        fetch('/liform/tasks', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify( values )
-        }).then(function (response) {
-            if (response.status == 400) {
-                reject({ name: 'wrong values' })
+const processSubmitErrors = response => {
+    let errors = {}
+    if (response.hasOwnProperty('errors')) {
+        for (let field in response.errors.children) {
+            let value = response.errors.children[field]
+            if (value.hasOwnProperty('errors'))  {
+                errors[field] = value.errors[0]
             }
-            resolve()
-        })
+        }
+        throw new SubmissionError(errors)
+
+    }
+    return {}
+}
+
+const submit = (values) =>
+{
+    return fetch('/liform/tasks', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( values )
+    }).then( (response) => {
+        return response.json()
+    }).then( (json) => {
+        processSubmitErrors(json)
     })
 }
 

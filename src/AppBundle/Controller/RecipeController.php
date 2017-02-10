@@ -114,13 +114,15 @@ class RecipeController extends Controller
     {
         $task = new Task();
         $serializer = $this->get('serializer');
-        $form = $this->createForm(TaskType::Class, $task);
+        $form = $this->createForm(TaskType::Class, $task,
+            array('csrf_protection' => false)
+        );
         return $this->render('liform/index.html.twig', [
-            'props' => [
+            'props' => json_encode([
                 'schema' => $this->get('liform')->transform($form),
-                    'initialValues' => $this->serializeForm($form),
+                    'initialValues' => $serializer->normalize($form->createView()),
                     'location' => $request->getRequestUri()
-                ]
+                ])
             ]);
     }
 
@@ -134,7 +136,7 @@ class RecipeController extends Controller
         $form = $this->createForm(TaskType::Class, $task,
             array('csrf_protection' => false)
         );
-        $form->submit($data['task']);
+        $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($task);
@@ -143,20 +145,7 @@ class RecipeController extends Controller
             return new Response(null, 201);
         }
         $serializer = $this->get('serializer');
-        return new JsonResponse($serializer->normalize($form));
+        return new JsonResponse($serializer->normalize($form), 400);
     }
 
-    private function serializeForm($form)
-    {
-        if (! $form->all()) {
-            return $form->getViewData();
-        }
-        $data = array();
-        foreach ($form->all() as $child) {
-            $options = $child->getConfig()->getOptions();
-            $name    = $child->getName();
-            $data[$name] = $this->serializeForm($child);
-        }
-        return $data;
-    }
 }

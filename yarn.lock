@@ -2631,9 +2631,9 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-liform-react@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/liform-react/-/liform-react-0.5.3.tgz#c0d69344bf0c247fbf92e631f801a5f0451de3c8"
+liform-react@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/liform-react/-/liform-react-0.5.4.tgz#c9dfe2777a2cf7b3cefb60d31ad378fa450ac09b"
   dependencies:
     babel-plugin-transform-object-rest-spread "^6.22.0"
     classnames "^2.2.5"
