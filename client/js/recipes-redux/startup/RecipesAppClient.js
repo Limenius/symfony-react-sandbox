@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 require('../../../sass/layout.scss')
 import Root from '../containers/root'
-import { BrowserRouter } from 'react-router'
+import { BrowserRouter } from 'react-router-dom'
 import ReactOnRails from 'react-on-rails'
 
 // See documentation for https://github.com/reactjs/react-redux.
