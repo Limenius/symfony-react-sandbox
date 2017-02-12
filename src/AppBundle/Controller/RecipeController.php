@@ -121,9 +121,9 @@ class RecipeController extends Controller
             'props' => [
                 'tasks' => $serializer->normalize($this->get('recipes.repository.task')->findAll()),
                 'schema' => $this->get('liform')->transform($form),
-                    'initialValues' => $serializer->normalize($form->createView()),
-                    'location' => $request->getRequestUri()
-                ]
+                'initialValues' => $serializer->normalize($form->createView()),
+                'location' => $request->getRequestUri()
+            ]
             ]);
     }
 

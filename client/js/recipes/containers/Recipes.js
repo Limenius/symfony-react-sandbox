@@ -19,7 +19,7 @@ export default class Recipes extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         if (this.state.loading) {
             fetch(this.props.baseUrl + 'api/recipes').then((response) => {
                 return response.json()

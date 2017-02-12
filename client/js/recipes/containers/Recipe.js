@@ -22,7 +22,7 @@ export default class Recipe extends React.Component {
             }
         }
     }
-    componentWillMount() {
+    componentDidMount() {
         if (this.state.loading) {
             fetch(this.props.baseUrl + 'api/recipes/' + this.props.params.slug).then((response) => {
                 return response.json()
