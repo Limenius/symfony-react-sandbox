@@ -919,16 +919,16 @@
         },
         {
             "name": "limenius/liform-bundle",
-            "version": "v0.8.0",
+            "version": "v0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/LiformBundle.git",
-                "reference": "0a6325cd439f7125700ee1df0be2a49d1fb1ecc7"
+                "reference": "237908e9d4c92bd1ff450c23c0721914b57a48c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/LiformBundle/zipball/0a6325cd439f7125700ee1df0be2a49d1fb1ecc7",
-                "reference": "0a6325cd439f7125700ee1df0be2a49d1fb1ecc7",
+                "url": "https://api.github.com/repos/Limenius/LiformBundle/zipball/237908e9d4c92bd1ff450c23c0721914b57a48c6",
+                "reference": "237908e9d4c92bd1ff450c23c0721914b57a48c6",
                 "shasum": ""
             },
             "require": {
@@ -951,7 +951,7 @@
                 }
             ],
             "description": "Bundle for Liform: Transform Symfony Forms into Json Schema",
-            "time": "2017-01-31 19:10:01"
+            "time": "2017-02-09 21:33:24"
         },
         {
             "name": "limenius/react-bundle",
