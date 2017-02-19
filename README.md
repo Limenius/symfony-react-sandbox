@@ -1,7 +1,7 @@
 Symfony React Sandbox
 =====================
 
-This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup. It also provides an example of the usage of [LiformBundle](https://github.com/Limenius/LiformBundle) to generate a json-schema from Symofny forms and a forms and validation in React from that schema.
+This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a Webpack setup. It also provides an example of the usage of [LiformBundle](https://github.com/Limenius/LiformBundle) to generate a json-schema from Symfony forms and a forms and validation in React from that schema.
 
 You can see this example live at http://symfony-react.limenius.com/
 
@@ -14,6 +14,8 @@ It has three main areas of interest:
 * The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
 Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if wee neeeded that setup.
+
+If you are interested on this, please also check out **[React on Rails](https://github.com/shakacode/react_on_rails)** by Shakacode, as we are here basically replicating their fantastic job.
 
 
 How to run it
