@@ -57,7 +57,7 @@ class RecipeController extends Controller
         $serializer = $this->get('serializer');
         return $this->render('recipe-redux/home.html.twig', [
             // We pass an array as props
-            'props' => $serializer->normalize(
+            'initialState' => $serializer->normalize(
                 ['recipes' => $this->get('recipes.repository.recipe')->findAll(),
                 // '/' or maybe '/app_dev.php/', so the React Router knows about the root
                  'baseUrl' => $this->generateUrl('homepage'),
@@ -77,7 +77,7 @@ class RecipeController extends Controller
         }
         return $this->render('recipe-redux/recipe.html.twig', [
             // A JSON string also works
-            'props' => $serializer->serialize(
+            'initialState' => $serializer->serialize(
                 ['recipe' => $recipe,
                  'baseUrl' => $this->generateUrl('homepage'),
                  'location' => $request->getRequestUri()
