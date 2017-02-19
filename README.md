@@ -13,7 +13,7 @@ It has three main areas of interest:
 * The JavaScript and CSS (SCSS) code under `client/`.
 * The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
-Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if wee neeeded that setup.
+Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if we neeeded that setup.
 
 If you are interested on this, please also check out **[React on Rails](https://github.com/shakacode/react_on_rails)** by Shakacode, as we are here basically replicating their fantastic job.
 
