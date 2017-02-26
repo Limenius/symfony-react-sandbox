@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c178f78c87de92f93f037eade69bdc8f",
-    "content-hash": "2cf62dd4e6502e39719628bd2c99cbd2",
+    "hash": "4b0473526a415bd4a8693447afb08796",
+    "content-hash": "a1b04c302d66dbb568d07b1583db4dbf",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -877,6 +877,440 @@
             "time": "2014-01-12 16:20:24"
         },
         {
+            "name": "jeremykendall/php-domain-parser",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremykendall/php-domain-parser.git",
+                "reference": "896e7e70f02bd4fd77190052799bc61e4d779672"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremykendall/php-domain-parser/zipball/896e7e70f02bd4fd77190052799bc61e4d779672",
+                "reference": "896e7e70f02bd4fd77190052799bc61e4d779672",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-intl": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "jeremykendall/debug-die": "0.0.1.*",
+                "mikey179/vfsstream": "~1.4",
+                "phpunit/phpunit": "~4.4"
+            },
+            "bin": [
+                "bin/parse",
+                "bin/update-psl"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pdp\\": "src/"
+                },
+                "files": [
+                    "src/pdp-parse-url.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Kendall",
+                    "homepage": "http://about.me/jeremykendall",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/jeremykendall/php-domain-parser/graphs/contributors"
+                }
+            ],
+            "description": "Public Suffix List based URL parsing implemented in PHP.",
+            "homepage": "https://github.com/jeremykendall/php-domain-parser",
+            "keywords": [
+                "Public Suffix List",
+                "domain parsing",
+                "url parsing"
+            ],
+            "time": "2015-03-30 12:49:45"
+        },
+        {
+            "name": "league/uri",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri.git",
+                "reference": "ef6f413061bd4a9926c4c4394a5f5d384bfd8487"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/ef6f413061bd4a9926c4c4394a5f5d384bfd8487",
+                "reference": "ef6f413061bd4a9926c4c4394a5f5d384bfd8487",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-intl": "*",
+                "ext-mbstring": "*",
+                "league/uri-manipulations": "^1.0",
+                "league/uri-schemes": "^1.0",
+                "php": ">=7.0"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "URI manipulation library",
+            "homepage": "http://uri.thephpleague.com",
+            "keywords": [
+                "data-uri",
+                "file-uri",
+                "ftp",
+                "http",
+                "https",
+                "middleware",
+                "parse_url",
+                "psr-7",
+                "rfc3986",
+                "rfc3987",
+                "uri",
+                "url",
+                "ws"
+            ],
+            "time": "2017-02-06 08:50:02"
+        },
+        {
+            "name": "league/uri-components",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-components.git",
+                "reference": "84a5c0a58f028f3a81f6b8c655f8f5db7e4e66f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/84a5c0a58f028f3a81f6b8c655f8f5db7e4e66f6",
+                "reference": "84a5c0a58f028f3a81f6b8c655f8f5db7e4e66f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-intl": "*",
+                "ext-mbstring": "*",
+                "jeremykendall/php-domain-parser": "^3.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.0",
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\Components\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "URI components manipulation library",
+            "homepage": "http://uri.thephpleague.com",
+            "keywords": [
+                "authority",
+                "components",
+                "fragment",
+                "host",
+                "path",
+                "port",
+                "query",
+                "rfc3986",
+                "scheme",
+                "uri",
+                "url",
+                "userinfo"
+            ],
+            "time": "2017-02-06 08:35:30"
+        },
+        {
+            "name": "league/uri-interfaces",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-interfaces.git",
+                "reference": "dcc0be58e8b35a726274249e5eee053be1a56b66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/dcc0be58e8b35a726274249e5eee053be1a56b66",
+                "reference": "dcc0be58e8b35a726274249e5eee053be1a56b66",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\Interfaces\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "Common interface for URI representation",
+            "homepage": "http://github.com/thephpleague/uri-interfaces",
+            "keywords": [
+                "rfc3986",
+                "rfc3987",
+                "uri",
+                "url"
+            ],
+            "time": "2017-01-04 08:02:42"
+        },
+        {
+            "name": "league/uri-manipulations",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-manipulations.git",
+                "reference": "3db42474cb68546ec9180d76dbf9807a8e1bcf98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-manipulations/zipball/3db42474cb68546ec9180d76dbf9807a8e1bcf98",
+                "reference": "3db42474cb68546ec9180d76dbf9807a8e1bcf98",
+                "shasum": ""
+            },
+            "require": {
+                "league/uri-components": "^1.0",
+                "league/uri-interfaces": "^1.0",
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "guzzlehttp/psr7": "^1.2",
+                "league/uri-schemes": "^1.0",
+                "phpunit/phpunit": "^6.0"
+            },
+            "suggest": {
+                "league/uri-schemes": "Allow manipulating URI objects"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\Modifiers\\": "src"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "URI manipulation library",
+            "homepage": "http://url.thephpleague.com",
+            "keywords": [
+                "formatter",
+                "manipulation",
+                "manipulations",
+                "middlewares",
+                "modifiers",
+                "psr-7",
+                "references",
+                "rfc3986",
+                "rfc3987",
+                "uri",
+                "url"
+            ],
+            "time": "2017-02-06 07:57:03"
+        },
+        {
+            "name": "league/uri-parser",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-parser.git",
+                "reference": "129e088392cb80cf5431fe9d3b384fc0d06f3a2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-parser/zipball/129e088392cb80cf5431fe9d3b384fc0d06f3a2c",
+                "reference": "129e088392cb80cf5431fe9d3b384fc0d06f3a2c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "phpbench/phpbench": "^0.12.2",
+                "phpunit/phpunit": "^6.0"
+            },
+            "suggest": {
+                "league/uri-schemes": "Allow validating and normalizing URI parsing results"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "userland URI parser RFC 3986 compliant",
+            "homepage": "https://github.com/thephpleague/uri-parser",
+            "keywords": [
+                "parse_url",
+                "parser",
+                "rfc3986",
+                "uri",
+                "url"
+            ],
+            "time": "2017-02-06 08:25:03"
+        },
+        {
+            "name": "league/uri-schemes",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-schemes.git",
+                "reference": "1d0ad31f2e189491bfe051d250b887dd20d8fa77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-schemes/zipball/1d0ad31f2e189491bfe051d250b887dd20d8fa77",
+                "reference": "1d0ad31f2e189491bfe051d250b887dd20d8fa77",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-intl": "*",
+                "ext-mbstring": "*",
+                "league/uri-interfaces": "^1.0",
+                "league/uri-parser": "^1.0",
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.0",
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\Schemes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "URI manipulation library",
+            "homepage": "http://uri.thephpleague.com",
+            "keywords": [
+                "data-uri",
+                "file",
+                "ftp",
+                "http",
+                "https",
+                "parse_url",
+                "psr-7",
+                "rfc3986",
+                "uri",
+                "url",
+                "ws",
+                "wss"
+            ],
+            "time": "2017-01-16 14:09:02"
+        },
+        {
             "name": "limenius/liform",
             "version": "v0.8.1",
             "source": {
@@ -1259,6 +1693,56 @@
                 "psr-6"
             ],
             "time": "2016-08-06 20:24:11"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",

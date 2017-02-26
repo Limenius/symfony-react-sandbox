@@ -7,7 +7,7 @@ AppBundle\Entity\Recipe:
         name: 'Pasta carbonara'
         slug: 'carbonara'
         image: 'carbonara.jpg'
-    falavel:
+    falafel:
         name: 'Falafel'
         slug: 'falafel'
         image: 'falafel.jpg'

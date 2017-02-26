@@ -15,5 +15,13 @@
 
             <argument type="string">AppBundle\Entity\Task</argument>
         </service>
+        <service id="recipes.doctrine_image_listener"
+            class="AppBundle\EventListener\ImageUploadListener"
+            >
+            <argument>%kernel.root_dir%/../web/images/</argument>
+
+            <tag name="doctrine.event_listener" event="prePersist"/>
+            <tag name="doctrine.event_listener" event="preUpdate"/>
+        </service>
     </services>
 </container>

@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-use AppBundle\Entity\Task;
-use AppBundle\Form\Type\TaskType;
+use AppBundle\Entity\Recipe;
+use AppBundle\Form\Type\RecipeType;
 
 class RecipeController extends Controller
 {
@@ -112,9 +112,9 @@ class RecipeController extends Controller
      */
     public function liformAction(Request $request)
     {
-        $task = new Task();
+        $task = new Recipe();
         $serializer = $this->get('serializer');
-        $form = $this->createForm(TaskType::Class, $task,
+        $form = $this->createForm(RecipeType::Class, $task,
             array('csrf_protection' => false)
         );
         return $this->render('liform/index.html.twig', [
@@ -134,18 +134,18 @@ class RecipeController extends Controller
     {
         $serializer = $this->get('serializer');
 
-        $task = new Task();
+        $recipe = new Recipe();
         $data = json_decode($request->getContent(), true);
-        $form = $this->createForm(TaskType::Class, $task,
+        $form = $this->createForm(RecipeType::Class, $recipe,
             array('csrf_protection' => false)
         );
         $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($task);
+            $em->persist($recipe);
             $em->flush();
 
-            $response = new Response($serializer->serialize($task, 'json'), 201);
+            $response = new Response($serializer->serialize($recipe, 'json'), 201);
             $response->headers->set('Location', 'We should provide a url here, but this is a dummy example and there is no location where you can retrieve a single task, so...');
             $response->headers->set('Content-Type', 'application/json');
             return $response;
