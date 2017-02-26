@@ -7,7 +7,8 @@ use Doctrine\ORM\Event\PreUpdateEventArgs;
 use AppBundle\Entity\Recipe;
 use AppBundle\FileUploader;
 use Symfony\Component\Serializer\Normalizer\DataUriNormalizer;
-use League\Uri\Components\DataPath as Path;
+use League\Uri\Components\DataPath;
+use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
 
 class ImageUploadListener
@@ -35,33 +36,27 @@ class ImageUploadListener
 
     private function uploadFile($entity)
     {
-        // upload only works for Product entities
+        // upload only works for Recipe entities
         if (!$entity instanceof Recipe) {
             return;
         }
 
         $data = $entity->getImage();
 
-        $path = new Path($data);
-        //throw new \Exception( $path->isBinaryData()? 't':'f');
-        $fileName = md5(uniqid()).'.jpg';
-        $fileObject = $path->save($this->targetDir.$fileName, 'w');
-        // only upload new files
-        //if (!$file instanceof UploadedFile) {
-        //    return;
-        //}
-
-        //$fileName = $this->uploader->upload($file);
+        $fileName = $this->upload($data);
         $entity->setImage($fileName);
-    
     }
 
-    public function upload()
+    public function upload($data)
     {
-        //$fileName = md5(uniqid()).'.'.$file->guessExtension();
-        $fileName = md5(uniqid().'.jpg');
-
-        $file->move($this->targetDir, $fileName);
+        $path = new DataPath($data);
+        // We should probably use GuessExtension from Symfony File but
+        // that would mean to save a temporary file in disk and create a file
+        // from it
+        $guesser = ExtensionGuesser::getInstance();
+        $extension = $guesser->guess($path->getMimeType());
+        $fileName = md5(uniqid()).'.'.$extension;
+        $fileObject = $path->save($this->targetDir.$fileName, 'w');
 
         return $fileName;
     }
