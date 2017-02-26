@@ -49,6 +49,11 @@ class ImageUploadListener
 
     public function upload($data)
     {
+        // See https://github.com/thephpleague/uri-components/issues/2
+        $prefix = 'data:';
+        if (substr($data, 0, strlen($prefix)) == $prefix) {
+                $data = substr($data, strlen($prefix));
+        }
         $path = new DataPath($data);
         // We should probably use GuessExtension from Symfony File but
         // that would mean to save a temporary file in disk and create a file
