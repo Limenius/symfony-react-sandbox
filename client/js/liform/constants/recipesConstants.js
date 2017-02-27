@@ -1,5 +1,5 @@
 const Constants = {
-    TASK_ADDED: 'TASK_ADDED',
+    RECIPE_ADDED: 'RECIPE_ADDED',
 }
 
 export default Constants

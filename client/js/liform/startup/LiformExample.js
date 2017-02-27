@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactOnRails from 'react-on-rails'
 
-import { Provider } from 'react-redux'
-import Liform, { processSubmitErrors, DefaultTheme } from 'liform-react'
-import TaskList from '../components/TaskList'
-import Constants from '../constants/tasksConstants'
+import { Provider, connect } from 'react-redux'
+import Liform, { processSubmitErrors } from 'liform-react'
+import RecipeList from '../components/RecipeList'
+import Constants from '../constants/recipesConstants'
 
 const submit = (values, dispatch) =>
 {
-    return fetch('/liform/tasks', {
+    return fetch('/liform/recipes', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -19,19 +19,25 @@ const submit = (values, dispatch) =>
         return response.json()
     }).then( (data) => {
         processSubmitErrors(data)
-        dispatch({ type: Constants.TASK_ADDED, task: data })
+        dispatch({ type: Constants.RECIPE_ADDED, recipe: data })
     })
 }
 
 const mainNode = (props) => {
 
-    const store = ReactOnRails.getStore('tasksStore')
+    const store = ReactOnRails.getStore('recipesAdminStore')
+
+    const ConnectedRecipeList = connect((state) => (
+        {
+            recipes: state.recipesState.recipes,
+        }
+    ))(RecipeList)
 
     const reactComponent = (
         <Provider store={store}>
             <div>
                 <Liform schema={props.schema} onSubmit={submit} initialValues={props.initialValues}/>
-                <TaskList/>
+                <ConnectedRecipeList/>
             </div>
         </Provider>
     )

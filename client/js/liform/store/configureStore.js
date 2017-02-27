@@ -7,13 +7,13 @@ import { initialStates } from '../reducers'
 export default function configureStore(props) {
 
     // This is how we get initial props from Symfony into redux.
-    const { tasks } = props
-    const { tasksState } = initialStates
+    const { recipes } = props
+    const { recipesState } = initialStates
 
 
     // Redux expects to initialize the store using an Object
     const initialState = {
-        tasksState: { ...tasksState, tasks },
+        recipesState: { ...recipesState, recipes },
     }
 
     // use devtools if we are in a browser and the extension is enabled

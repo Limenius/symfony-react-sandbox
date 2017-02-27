@@ -1,7 +1,7 @@
 import React from 'react'
 import Actions from '../actions/recipesActions'
 import { connect } from 'react-redux'
-import RecipeList from '../../common/components/RecipeList'
+import RecipeSearchList from '../../common/components/RecipeSearchList'
 
 class Recipes extends React.Component {
     componentDidMount() {
@@ -24,7 +24,7 @@ class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeList recipes={this.props.recipes} routePrefix={this.props.baseUrl + 'redux/'}/>
+                    <RecipeSearchList recipes={this.props.recipes} routePrefix={this.props.baseUrl + 'redux/'}/>
                 </div>
             )
         }
