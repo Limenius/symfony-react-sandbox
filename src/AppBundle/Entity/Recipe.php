@@ -11,7 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RecipeRepository")
- * @UniqueEntity("slug")
  */
 class Recipe
 {
@@ -34,9 +33,9 @@ class Recipe
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     * @ORM\Column(name="description", type="text")
      */
-    private $slug;
+    private $description;
 
     /**
      * @var string
@@ -81,30 +80,6 @@ class Recipe
     }
 
     /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Recipe
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
      * Set image
      *
      * @param string $image
@@ -127,5 +102,28 @@ class Recipe
     {
         return $this->image;
     }
-}
 
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Recipe
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

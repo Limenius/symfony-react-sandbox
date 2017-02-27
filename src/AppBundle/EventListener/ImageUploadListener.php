@@ -1,14 +1,11 @@
 <?php
 namespace AppBundle\EventListener;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use AppBundle\Entity\Recipe;
-use AppBundle\FileUploader;
-use Symfony\Component\Serializer\Normalizer\DataUriNormalizer;
 use League\Uri\Components\DataPath;
-use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use AppBundle\Entity\Recipe;
 
 
 class ImageUploadListener
@@ -41,28 +38,23 @@ class ImageUploadListener
             return;
         }
 
-        $data = $entity->getImage();
+        $file = $entity->getImage();
 
-        $fileName = $this->upload($data);
+        if (!$file instanceof File) {
+            return;
+        }
+
+        $fileName = $this->upload($file);
         $entity->setImage($fileName);
     }
 
-    public function upload($data)
+    public function upload($file)
     {
-        // See https://github.com/thephpleague/uri-components/issues/2
-        $prefix = 'data:';
-        if (substr($data, 0, strlen($prefix)) == $prefix) {
-                $data = substr($data, strlen($prefix));
-        }
-        $path = new DataPath($data);
-        // We should probably use GuessExtension from Symfony File but
-        // that would mean to save a temporary file in disk and create a file
-        // from it
-        $guesser = ExtensionGuesser::getInstance();
-        $extension = $guesser->guess($path->getMimeType());
-        $fileName = md5(uniqid()).'.'.$extension;
-        $fileObject = $path->save($this->targetDir.$fileName, 'w');
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+        $file->move($this->targetDir, $fileName);
 
         return $fileName;
     }
+
 }

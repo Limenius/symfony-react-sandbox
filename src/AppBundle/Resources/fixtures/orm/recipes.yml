@@ -1,17 +1,17 @@
 AppBundle\Entity\Recipe:
     paella:
         name: 'Paella'
-        slug: 'paella'
+        description: <paragraph()>
         image: 'paella.jpg'
     carbonara:
         name: 'Pasta carbonara'
-        slug: 'carbonara'
+        description: <paragraph()>
         image: 'carbonara.jpg'
     falafel:
         name: 'Falafel'
-        slug: 'falafel'
+        description: <paragraph()>
         image: 'falafel.jpg'
     sushi:
         name: 'Sushi'
-        slug: 'sushi'
+        description: <paragraph()>
         image: 'sushi.jpg'

@@ -31,12 +31,12 @@ class RecipeController extends Controller
     }
 
     /**
-     * @Route("/recipe/{slug}", name="recipe")
+     * @Route("/recipe/{id}", name="recipe")
      */
-    public function recipeAction($slug, Request $request)
+    public function recipeAction($id, Request $request)
     {
         $serializer = $this->get('serializer');
-        if (!$recipe = $this->get('recipes.repository.recipe')->findOneBySlug($slug)) {
+        if (!$recipe = $this->get('recipes.repository.recipe')->find($id)) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
         return $this->render('recipe/recipe.html.twig', [
@@ -67,12 +67,12 @@ class RecipeController extends Controller
     }
 
     /**
-     * @Route("/redux/recipe/{slug}", name="recipe_redux")
+     * @Route("/redux/recipe/{id}", name="recipe_redux")
      */
-    public function recipeReduxAction($slug, Request $request)
+    public function recipeReduxAction($id, Request $request)
     {
         $serializer = $this->get('serializer');
-        if (!$recipe = $this->get('recipes.repository.recipe')->findOneBySlug($slug)) {
+        if (!$recipe = $this->get('recipes.repository.recipe')->find($id)) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
         return $this->render('recipe-redux/recipe.html.twig', [
@@ -97,14 +97,14 @@ class RecipeController extends Controller
     }
 
     /**
-     * @Route("/api/recipes/{slug}", name="api_recipe")
+     * @Route("/api/recipes/{id}", name="api_recipe")
      *
      * Needed for client-side navigation after initial page load
      */
-    public function apiRecipeAction($slug, Request $request)
+    public function apiRecipeAction($id, Request $request)
     {
         $serializer = $this->get('serializer');
-        return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->findOneBySlug($slug)));
+        return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->find($id)));
     }
 
     /**
