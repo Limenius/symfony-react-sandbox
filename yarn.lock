@@ -37,6 +37,13 @@ ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.0.tgz#c11e6859eafff83e0dafc416929472eca946aa2c"
 
+ajv@^4.11.3:
+  version "4.11.3"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.3.tgz#ce30bdb90d1254f762c75af915fb3a63e7183d22"
+  dependencies:
+    co "^4.6.0"
+    json-stable-stringify "^1.0.1"
+
 ajv@^4.7.0:
   version "4.10.4"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.10.4.tgz#c0974dd00b3464984892d6010aa9c2c945933254"
@@ -2635,10 +2642,11 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-liform-react@^0.5.7:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/liform-react/-/liform-react-0.5.7.tgz#23bc4f7a2198cff44a11b0b6232f5d50235f8650"
+liform-react@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/liform-react/-/liform-react-0.5.11.tgz#1eb497141ec078d5b702ea8a271cf26b679f3634"
   dependencies:
+    ajv "^4.11.3"
     babel-plugin-transform-object-rest-spread "^6.22.0"
     classnames "^2.2.5"
     cross-env "^3.1.4"
