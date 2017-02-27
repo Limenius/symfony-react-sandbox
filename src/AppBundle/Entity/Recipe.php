@@ -43,7 +43,7 @@ class Recipe
      *
      * @ORM\Column(name="image", type="string", length=255)
      * @Assert\Image(
-     *     maxWidth = 200,
+     *     minWidth = 200,
      *     minHeight = 200
      * )
      */

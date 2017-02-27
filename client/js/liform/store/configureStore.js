@@ -17,7 +17,7 @@ export default function configureStore(props) {
     }
 
     // use devtools if we are in a browser and the extension is enabled
-    let enhancer = typeof(window) !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  : null
+    let enhancer = typeof(window) !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  : undefined
 
     const store = createStore(
         reducers,
