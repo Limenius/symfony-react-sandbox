@@ -27,6 +27,7 @@ class Recipe
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotEqualTo("Beetlejuice")
      */
     private $name;
 
@@ -41,6 +42,10 @@ class Recipe
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\Image(
+     *     maxWidth = 200,
+     *     minHeight = 200
+     * )
      */
     private $image;
 

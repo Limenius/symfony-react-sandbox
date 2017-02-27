@@ -31,8 +31,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "limenius/react-bundle": "^0.11.0",
         "limenius/liform-bundle": "^0.8.3",
-        "league/uri": "^5.0",
-        "hshn/base64-encoded-file": "^1.2"
+        "league/uri": "^5.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
