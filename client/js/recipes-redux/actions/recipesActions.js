@@ -16,11 +16,11 @@ const Actions = {
         }
     },
 
-    fetchRecipe: (slug, baseUrl) => {
+    fetchRecipe: (id, baseUrl) => {
         return dispatch => {
             dispatch({ type: Constants.RECIPE_FETCHING })
 
-            fetch(baseUrl + 'api/recipes/' + slug).then((response) => {
+            fetch(baseUrl + 'api/recipes/' + id).then((response) => {
                 return response.json()
             }).then((data) => {
                 dispatch({

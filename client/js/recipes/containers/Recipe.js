@@ -8,9 +8,9 @@ export default class Recipe extends React.Component {
         super(props, context)
 
         //We check it there is no recipe (only client side)
-        //Or our slug doesn't match the recipe that we received server-side
+        //Or our id doesn't match the recipe that we received server-side
         //
-        if (!this.props.recipe || (this.props.match.params.slug && this.props.match.params.slug != this.props.recipe.slug)) {
+        if (!this.props.recipe || (this.props.match.params.id && this.props.match.params.id != this.props.recipe.id)) {
             this.state = {
                 recipe: null,
                 loading: true
@@ -24,7 +24,7 @@ export default class Recipe extends React.Component {
     }
     componentDidMount() {
         if (this.state.loading) {
-            fetch(this.props.baseUrl + 'api/recipes/' + this.props.match.params.slug).then((response) => {
+            fetch(this.props.baseUrl + 'api/recipes/' + this.props.match.params.id).then((response) => {
                 return response.json()
             }).then((data) => {
                 this.setState({

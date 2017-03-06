@@ -9,7 +9,7 @@ const Root = (props) => {
     return (
         <div>
             <Route path={baseUrl} exact component={Recipes}/>
-            <Route path={baseUrl+'recipe/:slug'} component={Recipe}/>
+            <Route path={baseUrl+'recipe/:id'} component={Recipe}/>
         </div>
     )
 }

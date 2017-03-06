@@ -32,7 +32,7 @@ export default class RecipeSearchList extends React.Component {
                     </div>
                 </div>
                 <h2>List of recipes</h2>
-                <RecipeList recipes={this.filterRecipes()} />
+                <RecipeList recipes={this.filterRecipes()} routePrefix={this.props.routePrefix}/>
             </div>
         )
     }
