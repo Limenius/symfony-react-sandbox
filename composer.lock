@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8179c2ea0144fb820102e624015d040",
-    "content-hash": "69f0fd468252c9894d79c2562c59c14d",
+    "hash": "8756fcf580f91c20e22dc012eb2d783e",
+    "content-hash": "0cd591b0b1e4de59460f55ab11d91eed",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1246,16 +1246,16 @@
         },
         {
             "name": "league/uri-schemes",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-schemes.git",
-                "reference": "158886cc6a272088104e23198631ee26d9d5721f"
+                "reference": "1be3f88cdc2b6e38d1492ce817f7314d998292d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-schemes/zipball/158886cc6a272088104e23198631ee26d9d5721f",
-                "reference": "158886cc6a272088104e23198631ee26d9d5721f",
+                "url": "https://api.github.com/repos/thephpleague/uri-schemes/zipball/1be3f88cdc2b6e38d1492ce817f7314d998292d1",
+                "reference": "1be3f88cdc2b6e38d1492ce817f7314d998292d1",
                 "shasum": ""
             },
             "require": {
@@ -1309,20 +1309,20 @@
                 "ws",
                 "wss"
             ],
-            "time": "2017-03-01 11:04:10"
+            "time": "2017-03-06 08:51:22"
         },
         {
             "name": "limenius/liform",
-            "version": "v0.8.3",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/Liform.git",
-                "reference": "75dc3b28a5ea5390e0dbc550817cd845ee978a6a"
+                "reference": "b7af6414fa537ba15799a794771d7d90b5820d67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/Liform/zipball/75dc3b28a5ea5390e0dbc550817cd845ee978a6a",
-                "reference": "75dc3b28a5ea5390e0dbc550817cd845ee978a6a",
+                "url": "https://api.github.com/repos/Limenius/Liform/zipball/b7af6414fa537ba15799a794771d7d90b5820d67",
+                "reference": "b7af6414fa537ba15799a794771d7d90b5820d67",
                 "shasum": ""
             },
             "require": {
@@ -1350,24 +1350,24 @@
                 }
             ],
             "description": "Library to transform Symfony Forms into Json Schema",
-            "time": "2017-02-27 16:29:01"
+            "time": "2017-03-09 18:48:49"
         },
         {
             "name": "limenius/liform-bundle",
-            "version": "v0.8.4",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/LiformBundle.git",
-                "reference": "717a34c449b316567bb642363a9118ba0f7410ca"
+                "reference": "24efa516fdf976b1a27bd61fafd753e1e509a402"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/LiformBundle/zipball/717a34c449b316567bb642363a9118ba0f7410ca",
-                "reference": "717a34c449b316567bb642363a9118ba0f7410ca",
+                "url": "https://api.github.com/repos/Limenius/LiformBundle/zipball/24efa516fdf976b1a27bd61fafd753e1e509a402",
+                "reference": "24efa516fdf976b1a27bd61fafd753e1e509a402",
                 "shasum": ""
             },
             "require": {
-                "limenius/liform": "^0.8.1"
+                "limenius/liform": "^0.9.0"
             },
             "type": "library",
             "autoload": {
@@ -1386,30 +1386,29 @@
                 }
             ],
             "description": "Bundle for Liform: Transform Symfony Forms into Json Schema",
-            "time": "2017-02-27 16:24:28"
+            "time": "2017-03-09 18:52:27"
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.11.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "97c93502038abe3e8f967f3d5f14f82af2717ee4"
+                "reference": "4546725e96dfaa70fda3b9d993de603d2eedff22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/97c93502038abe3e8f967f3d5f14f82af2717ee4",
-                "reference": "97c93502038abe3e8f967f3d5f14f82af2717ee4",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/4546725e96dfaa70fda3b9d993de603d2eedff22",
+                "reference": "4546725e96dfaa70fda3b9d993de603d2eedff22",
                 "shasum": ""
             },
             "require": {
-                "limenius/react-renderer": "^0.11",
+                "limenius/react-renderer": "^0.11.0",
                 "nacmartin/phpexecjs": "^0.8",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6",
                 "symfony/dependency-injection": "^2.7.0|^3.0.6",
-                "symfony/http-kernel": "^2.7.0|^3.0.6",
-                "twig/twig": "^1.20"
+                "symfony/http-kernel": "^2.7.0|^3.0.6"
             },
             "require-dev": {
                 "escapestudios/symfony2-coding-standard": "^2.9",
@@ -1437,7 +1436,7 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2017-01-31 16:41:22"
+            "time": "2017-03-04 09:46:39"
         },
         {
             "name": "limenius/react-renderer",
@@ -1917,16 +1916,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f"
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/f2ce0035fc512287978510ca1740cd111d60f89f",
-                "reference": "f2ce0035fc512287978510ca1740cd111d60f89f",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/56bded66985e22f6eac2cf86735fd21c625bff2f",
+                "reference": "56bded66985e22f6eac2cf86735fd21c625bff2f",
                 "shasum": ""
             },
             "require": {
@@ -1957,7 +1956,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-02-18 17:53:25"
+            "time": "2017-03-09 17:33:20"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2471,16 +2470,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.2.4",
+            "version": "v3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "141569be5b33a7cf0d141fb88422649fe11b0c47"
+                "reference": "463b6558cef064b8472779e79fc49a48af7b94d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/141569be5b33a7cf0d141fb88422649fe11b0c47",
-                "reference": "141569be5b33a7cf0d141fb88422649fe11b0c47",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/463b6558cef064b8472779e79fc49a48af7b94d1",
+                "reference": "463b6558cef064b8472779e79fc49a48af7b94d1",
                 "shasum": ""
             },
             "require": {
@@ -2497,7 +2496,8 @@
             },
             "conflict": {
                 "phpdocumentor/reflection-docblock": "<3.0",
-                "phpdocumentor/type-resolver": "<0.2.0"
+                "phpdocumentor/type-resolver": "<0.2.0",
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
             },
             "provide": {
                 "psr/cache-implementation": "1.0"
@@ -2610,24 +2610,25 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-02-17 00:00:43"
+            "time": "2017-03-09 02:03:55"
         },
         {
             "name": "twig/twig",
-            "version": "v1.32.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
+                "reference": "29bb02dde09ff56291d30f7687eb8696918023af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/29bb02dde09ff56291d30f7687eb8696918023af",
+                "reference": "29bb02dde09ff56291d30f7687eb8696918023af",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.7"
+                "php": "^7.0",
+                "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -2637,7 +2638,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.32-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
@@ -2672,7 +2673,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27 00:07:03"
+            "time": "2017-02-27 00:16:20"
         }
     ],
     "packages-dev": [
@@ -3018,20 +3019,23 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.2.4",
+            "version": "v3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "996374975357b569ea319ec1c98c5ca0f7dda610"
+                "reference": "6de70e232e8b60e4247ea49d6d51b04a943c4972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/996374975357b569ea319ec1c98c5ca0f7dda610",
-                "reference": "996374975357b569ea319ec1c98c5ca0f7dda610",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/6de70e232e8b60e4247ea49d6d51b04a943c4972",
+                "reference": "6de70e232e8b60e4247ea49d6d51b04a943c4972",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "conflict": {
+                "phpunit/phpunit": ">=6.0"
             },
             "suggest": {
                 "ext-zip": "Zip support is required when using bin/simple-phpunit",
@@ -3073,7 +3077,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21 17:06:35"
+            "time": "2017-03-06 16:08:22"
         },
         {
             "name": "theofidry/alice-data-fixtures",
