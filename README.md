@@ -21,7 +21,7 @@ If you are interested on this, please also check out **[React on Rails](https://
 How to run it
 =============
 
-Requirements: you need a recent version of node, like `v5.5.0`, and Webpack installed (you can install it with `npm install -g webpack webpack-dev-server`.
+Requirements: you need a recent version of node, and Webpack installed (you can install it with `npm install -g webpack webpack-dev-server`).
 
     git clone https://github.com/Limenius/symfony-react-sandbox.git
     cd symfony-react-sandbox
