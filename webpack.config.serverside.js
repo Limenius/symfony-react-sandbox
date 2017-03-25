@@ -4,6 +4,7 @@ const webpack = require('webpack')
 
 const devBuild = process.env.NODE_ENV !== 'production'
 const nodeEnv = devBuild ? 'development' : 'production'
+const path = require('path')
 
 module.exports = {
 
@@ -13,7 +14,7 @@ module.exports = {
         'server-bundle' : [ 'babel-polyfill', './client/js/serverRegistration.js' ],
     },
     output: {
-        path: './app/Resources/webpack/',
+        path: path.resolve(__dirname, 'app/Resources/webpack/'),
         filename: '[name].js'
     },
     resolve: {
