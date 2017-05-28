@@ -84,14 +84,14 @@ limenius_react:
         # or `"external_server"` (to rely on an external node.js server)
         # Default is `"phpexecjs"`
         mode: "phpexecjs"
-        # Location of the server bundle, that contains React and React on Rails.
-        # null will default to `%kernel.root_dir%/Resources/webpack/server-bundle.js`
         # Only used with mode `phpexecjs`
+        #  Location of the server bundle, that contains React and React on Rails.
+        #  null will default to `%kernel.root_dir%/Resources/webpack/server-bundle.js`
         server_bundle_path: null
         # Only used with mode `external`
-        # Location of the unix socket to communicate with a dummy node.js server
-        # Such as the one in `Resources/node-server/server.js`
-        # null will default to `%kernel.root_dir%/Resources/node-server/node.sock
+        #  Location of the unix socket to communicate with a dummy node.js server
+        #  Such as the one in `Resources/node-server/server.js`
+        #  null will default to `%kernel.root_dir%/Resources/node-server/node.sock
         server_socket_path: null
 
 hautelook_alice:
