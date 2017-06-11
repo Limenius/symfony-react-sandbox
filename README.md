@@ -162,7 +162,8 @@ Then, note that we have modified `app/AppKernel.php` to make use of this paramet
                     'assets' => [
                         'packages' => [
                             'webpack' => [
-                                'base_url' => 'http://localhost:8080'
+
+                                'base_url' => $container->getParameter('webpack_dev_server_base_url')
                             ]
                         ]
                     ]

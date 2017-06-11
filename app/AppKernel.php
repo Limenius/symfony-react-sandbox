@@ -57,7 +57,7 @@ class AppKernel extends Kernel
                     'assets' => [
                         'packages' => [
                             'webpack' => [
-                                'base_url' => 'http://localhost:8080'
+                                'base_url' => $container->getParameter('webpack_dev_server_base_url')
                             ]
                         ]
                     ]
