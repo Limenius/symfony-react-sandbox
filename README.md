@@ -49,6 +49,8 @@ or simply `npm run webpack-serverside`
 
 or simply `npm run webpack-dev`
 
+(Note that you need to load the resulting build bundle in your template, as we do [here](https://github.com/Limenius/symfony-react-sandbox/blob/132d5c716b8de21e2bbbeb457ccc80ea177660ea/app/Resources/views/base.html.twig#L54))
+
 * Also, you may want to run the Symfony server:
 
     bin/console server:start
@@ -179,6 +181,7 @@ or
     <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
 
 And if the parameter is enabled, Symfony will load these assets from `http://localhost:8080`.
+
 
 Redux example
 =============
