@@ -1,39 +1,16 @@
-// Webpack configuration for server bundle
+var Encore = require('@symfony/webpack-encore');
 
-const webpack = require('webpack')
+Encore
+    // directory where all compiled assets will be stored
+    .setOutputPath('app/Resources/webpack/')
+    // what's the public path to this directory (relative to your project's document root dir)
+    .setPublicPath('/')
+    // empty the outputPath dir before each build
+    .cleanupOutputBeforeBuild()
+    // will output as web/build/app.js
+    .addEntry('server-bundle', ['babel-polyfill', './client/js/serverRegistration.js'])
+    // allow legacy applications to use $/jQuery as a global variable
+    .autoProvidejQuery()
 
-const devBuild = process.env.NODE_ENV !== 'production'
-const nodeEnv = devBuild ? 'development' : 'production'
-const path = require('path')
-
-module.exports = {
-
-    // the project dir
-    context: __dirname,
-    entry: {
-        'server-bundle' : [ 'babel-polyfill', './client/js/serverRegistration.js' ],
-    },
-    output: {
-        path: path.resolve(__dirname, 'app/Resources/webpack/'),
-        filename: '[name].js'
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(nodeEnv),
-            },
-        }),
-        new webpack.ProvidePlugin({
-            _: 'lodash',
-            $: 'jquery',
-            'jQuery'              : 'jquery',
-            'window.jQuery'       : 'jquery',
-        })
-    ],
-    module: {
-        loaders: [
-            { test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery' },
-            { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
-        ],
-    },
-}
+// export the final configuration
+module.exports = Encore.getWebpackConfig()

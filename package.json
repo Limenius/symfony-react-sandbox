@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack-serverside": "webpack --config webpack.config.serverside.js --watch",
+    "webpack-serverside": "encore dev --config webpack.config.serverside.js --watch",
     "webpack-dev": "webpack-dev-server --hot --inline --progress --colors --config webpack.config.js --port 8080 --output-public-path=http://localhost:8080/assets/build/",
     "lint": "eslint client/js"
   },
@@ -58,6 +58,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "child_process": "^1.0.2",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.0.0",
@@ -67,6 +68,7 @@
     "expose-loader": "^0.7.3",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "fs": "^0.0.1-security",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",

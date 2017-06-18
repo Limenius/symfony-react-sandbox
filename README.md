@@ -11,7 +11,7 @@ It has three main areas of interest:
 
 * The server-side code under `src/` and `app/config` configuration.
 * The JavaScript and CSS (SCSS) code under `client/`.
-* The Webpack configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
+* The Webpack Encore configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
 Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if we neeeded that setup.
 
@@ -39,13 +39,13 @@ And then, run a live server with Webpack hot-reloading of assets:
 
 * Building the server-side react Webpack bundle.
 
-    webpack --config webpack.config.serverside.js --watch
+    ./node_modules/.bin/encore dev --config webpack.config.serverside.js --watch
 
 or simply `npm run webpack-serverside`
 
 * And, In a different terminal/screen/tmux, the hot-reloading webpack server for the client assets:
 
-    webpack-dev-server --progress --colors --config webpack.config.js
+    ./node_modules/.bin/encore dev-server
 
 or simply `npm run webpack-dev`
 
@@ -132,56 +132,6 @@ Here we import our root component and expose it. The same goes for the client-si
 #### JavaScript code organization for isomorphic apps
 
 Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/js/recipes/serverRegistration.js` and `client/js/clientEntryPoint.js`.
-
-
-Configuration for Hot-Reloading
-===============================
-
-In the development environment it is nice to have Webpack with hot-reloading. This means that you run a Webpack server that serves your assets and, if you change something on them, Webpack makes your server reload the page automatically. To run the hot-reloading server run Webpack with:
-
-    webpack-dev-server --inline --hot --progress --colors --config webpack.config.js --port 8080
-
-Or simply `yarn webpack-dev`
-
-And, in `paramters.yml` add an `assets_base_url` entry:
-
-    parameters:
-        # ...
-        use_webpack_sev_server: true
-
-So you can set this parameter to false in production.
-
-Then, note that we have modified `app/AppKernel.php` to make use of this parameter conditionally (kudos to @weaverryan for this idea):
-
-    public function registerContainerConfiguration(LoaderInterface $loader)
-    {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
-        $loader->load(function($container) {
-            if ($container->getParameter('use_webpack_dev_server')) {
-                $container->loadFromExtension('framework', [
-                    'assets' => [
-                        'packages' => [
-                            'webpack' => [
-
-                                'base_url' => $container->getParameter('webpack_dev_server_base_url')
-                            ]
-                        ]
-                    ]
-                ]);
-            }
-        });
-    }
-
-
-This allows us to use the Webpack server when loading assets in Twig, like:
-
-    <link href="{{asset('assets/build/stylesheets/main.css', 'webpack')}}" rel="stylesheet">
-
-or
-
-    <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
-
-And if the parameter is enabled, Symfony will load these assets from `http://localhost:8080`.
 
 
 Redux example
