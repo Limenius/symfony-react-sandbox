@@ -17,9 +17,6 @@ module.exports = {
         path: path.resolve(__dirname, 'app/Resources/webpack/'),
         filename: '[name].js'
     },
-    resolve: {
-        extensions: [ '.js', '.jsx' ],
-    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {

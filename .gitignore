@@ -14,9 +14,10 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
-/web/assets/
+/web/build/
 /node_modules/
 /app/Resources/webpack/*
 !/app/Resources/webpack/.gitkeep
 composer-dev.json
 composer-dev.lock
+webpack-old.js
