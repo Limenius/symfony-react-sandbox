@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f137be767af3b24fa4640928b5d519c3",
+    "content-hash": "0cadb1663d6e01515d5e73e2b52c41cd",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1304,16 +1304,16 @@
         },
         {
             "name": "league/uri-schemes",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-schemes.git",
-                "reference": "8aff19a2ea687e94869616349af43deb910ebfd3"
+                "reference": "964d24dcd9dbd2be0c00004344220cff51948f6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-schemes/zipball/8aff19a2ea687e94869616349af43deb910ebfd3",
-                "reference": "8aff19a2ea687e94869616349af43deb910ebfd3",
+                "url": "https://api.github.com/repos/thephpleague/uri-schemes/zipball/964d24dcd9dbd2be0c00004344220cff51948f6d",
+                "reference": "964d24dcd9dbd2be0c00004344220cff51948f6d",
                 "shasum": ""
             },
             "require": {
@@ -1326,8 +1326,11 @@
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.0",
+                "friendsofphp/php-cs-fixer": "^2.0",
                 "phpunit/phpunit": "^6.0"
+            },
+            "suggest": {
+                "league/uri-manipulations": "Needed to easily manipulate URI objects"
             },
             "type": "library",
             "extra": {
@@ -1367,7 +1370,7 @@
                 "ws",
                 "wss"
             ],
-            "time": "2017-04-19T08:51:53+00:00"
+            "time": "2017-06-12T07:03:49+00:00"
         },
         {
             "name": "limenius/liform",
@@ -1449,20 +1452,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.12.0",
+            "version": "v0.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "b83e91bc011e7934c5d07a5095cfed5d7d4d7999"
+                "reference": "3530ed47bf89f5396cdf68a9e0f69df2cd43f297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/b83e91bc011e7934c5d07a5095cfed5d7d4d7999",
-                "reference": "b83e91bc011e7934c5d07a5095cfed5d7d4d7999",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/3530ed47bf89f5396cdf68a9e0f69df2cd43f297",
+                "reference": "3530ed47bf89f5396cdf68a9e0f69df2cd43f297",
                 "shasum": ""
             },
             "require": {
-                "limenius/react-renderer": "^0.12.0",
+                "limenius/react-renderer": "^0.13.0",
                 "nacmartin/phpexecjs": "^0.8",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6",
@@ -1495,20 +1498,20 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2017-04-08T14:24:55+00:00"
+            "time": "2017-06-18T17:30:18+00:00"
         },
         {
             "name": "limenius/react-renderer",
-            "version": "v0.12.0",
+            "version": "v0.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactRenderer.git",
-                "reference": "4e7df60ad6b87f4da3bf5f65ccc132417ce7061b"
+                "reference": "283102cca6a317aabb84f10abeb569116f2f75c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/4e7df60ad6b87f4da3bf5f65ccc132417ce7061b",
-                "reference": "4e7df60ad6b87f4da3bf5f65ccc132417ce7061b",
+                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/283102cca6a317aabb84f10abeb569116f2f75c9",
+                "reference": "283102cca6a317aabb84f10abeb569116f2f75c9",
                 "shasum": ""
             },
             "require": {
@@ -1544,7 +1547,7 @@
                 "reactjs",
                 "twig"
             ],
-            "time": "2017-04-08T14:21:38+00:00"
+            "time": "2017-06-18T17:28:39+00:00"
         },
         {
             "name": "monolog/monolog",
