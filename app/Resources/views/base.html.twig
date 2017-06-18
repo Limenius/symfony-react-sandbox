@@ -11,7 +11,7 @@
 
     <title>Symfony React</title>
     {% block stylesheets %}
-        <link href="{{asset('build/css/main.css', 'webpack')}}" rel="stylesheet">
+        <link href="{{asset('build/css/main.css')}}" rel="stylesheet">
     {% endblock %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -51,7 +51,7 @@
 
 
     {% block javascripts %}
-        <script src="{{ asset('build/app.js', 'webpack') }}"></script>
+        <script src="{{ asset('build/app.js') }}"></script>
     {% endblock %}
   </body>
 </html>

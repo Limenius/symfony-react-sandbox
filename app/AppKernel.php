@@ -53,18 +53,5 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
-        $loader->load(function($container) {
-            if ($container->getParameter('use_webpack_dev_server')) {
-                $container->loadFromExtension('framework', [
-                    'assets' => [
-                        'packages' => [
-                            'webpack' => [
-                                'base_url' => $container->getParameter('webpack_dev_server_base_url')
-                            ]
-                        ]
-                    ]
-                ]);
-            }
-        });
     }
 }

@@ -15,6 +15,8 @@ Encore
     .enableSassLoader()
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
+    // create hashed filenames (e.g. app.abc123.css)
+    .enableVersioning()
     .enableSourceMaps(!Encore.isProduction())
 
 // export the final configuration
