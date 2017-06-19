@@ -146,7 +146,7 @@ Liform example
 
 There is also an example of working with forms using [LiformBundle](https://github.com/Limenius/LiformBundle), so Symfony forms are serialized into [json-schema](http://json-schema.org/), and then generated automatically in React, and can be validated against the generated schema. The idea is similar as what `$form->createView()` does, but for APIs. 
 
-TThis example is at the URI `/liform/`.
+This example can be accessed at the URI `/liform/`.
 
 Server side rendering modes
 ===========================
