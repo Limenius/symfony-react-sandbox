@@ -4,12 +4,20 @@ import React from 'react'
 import Recipes from '../containers/recipes'
 import Recipe from '../containers/recipe'
 
+const NoMatch = (props) => {
+    console.log(props)
+    return (<h1>Mal</h1>)
+}
+
 const Root = (props) => {
-    const baseUrl = props.baseUrl + 'redux/'
+    console.log(props)
+    const baseUrl = props.baseUrl
+    console.log(baseUrl + '/redux/')
     return (
         <div>
-            <Route path={baseUrl} exact component={Recipes}/>
-            <Route path={baseUrl+'recipe/:id'} component={Recipe}/>
+            <Route path="/redux/" exact component={Recipes}/>
+            <Route path="/recipe/:id" component={Recipe}/>
+            <Route component={NoMatch}/>
         </div>
     )
 }

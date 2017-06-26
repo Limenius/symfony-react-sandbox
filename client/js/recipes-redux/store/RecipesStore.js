@@ -8,17 +8,19 @@ import reducers from '../reducers'
 import { initialStates } from '../reducers'
 
 
-export default function configureStore(props) {
+export default function configureStore(props, context) {
 
     // This is how we get initial props from Symfony into redux.
-    const { recipes, recipe, baseUrl, location } = props
+    const { recipes, recipe } = props
+    const { base, location } = context
     const { recipesState } = initialStates
 
 
     // Redux expects to initialize the store using an Object
     const initialState = {
-        recipesState: { ...recipesState, recipe, recipes, baseUrl, location },
+        recipesState: { ...recipesState, recipe, recipes, baseUrl: base, location },
     }
+    console.log(initialState)
 
     // use devtools if we are in a browser and the extension is enabled
     let composeEnhancers = typeof(window) !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

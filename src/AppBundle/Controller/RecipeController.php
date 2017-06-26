@@ -23,9 +23,6 @@ class RecipeController extends Controller
             // We pass an array as props
             'props' => $serializer->normalize(
                 ['recipes' => $this->get('recipes.repository.recipe')->findAll(),
-                // '/' or maybe '/app_dev.php/', so the React Router knows about the root
-                 'baseUrl' => $this->generateUrl('homepage'),
-                 'location' => $request->getRequestUri()
                 ])
         ]);
     }
@@ -43,8 +40,6 @@ class RecipeController extends Controller
             // A JSON string also works
             'props' => $serializer->serialize(
                 ['recipe' => $recipe,
-                 'baseUrl' => $this->generateUrl('homepage'),
-                 'location' => $request->getRequestUri()
                 ], 'json')
         ]);
     }
@@ -59,9 +54,6 @@ class RecipeController extends Controller
             // We pass an array as props
             'initialState' => $serializer->normalize(
                 ['recipes' => $this->get('recipes.repository.recipe')->findAll(),
-                // '/' or maybe '/app_dev.php/', so the React Router knows about the root
-                 'baseUrl' => $this->generateUrl('homepage'),
-                 'location' => $request->getRequestUri()
                 ])
         ]);
     }
@@ -79,8 +71,6 @@ class RecipeController extends Controller
             // A JSON string also works
             'initialState' => $serializer->serialize(
                 ['recipe' => $recipe,
-                 'baseUrl' => $this->generateUrl('homepage'),
-                 'location' => $request->getRequestUri()
                 ], 'json')
         ]);
     }
@@ -122,7 +112,6 @@ class RecipeController extends Controller
                 'recipes' => $serializer->normalize($this->get('recipes.repository.recipe')->findAll()),
                 'schema' => $this->get('liform')->transform($form),
                 'initialValues' => $serializer->normalize($form->createView()),
-                'location' => $request->getRequestUri()
             ]
             ]);
     }

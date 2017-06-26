@@ -7,6 +7,7 @@ export default class Recipe extends React.Component {
     constructor(props, context) {
         super(props, context)
 
+        console.log(this.props)
         //We check it there is no recipe (only client side)
         //Or our id doesn't match the recipe that we received server-side
         //
@@ -24,7 +25,7 @@ export default class Recipe extends React.Component {
     }
     componentDidMount() {
         if (this.state.loading) {
-            fetch(this.props.baseUrl + 'api/recipes/' + this.props.match.params.id).then((response) => {
+            fetch(this.props.base + '/api/recipes/' + this.props.match.params.id).then((response) => {
                 return response.json()
             }).then((data) => {
                 this.setState({
@@ -45,7 +46,7 @@ export default class Recipe extends React.Component {
             return (
                 <div>
                     <ol className="breadcrumb">
-                    <li><Link to={this.props.baseUrl}>Recipes</Link></li>
+                    <li><Link to={this.props.base}>Recipes</Link></li>
                     <li className="active">{this.state.recipe.name}</li>
                     </ol>
                     <RecipeWidget recipe={this.state.recipe}/>

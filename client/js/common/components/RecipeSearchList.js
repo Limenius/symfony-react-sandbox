@@ -24,6 +24,7 @@ export default class RecipeSearchList extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="container">
                 <div id="search-box" className="pull-right">

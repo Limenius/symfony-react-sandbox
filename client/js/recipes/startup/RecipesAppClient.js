@@ -8,13 +8,13 @@ import {
       Link
 } from 'react-router-dom'
 
-export default (initialProps) => {
+export default (initialProps, context) => {
     return (
-        <Router>
+        <Router base={context.base}>
             <div>
-                <Route path={initialProps.baseUrl + 'recipe/:id'} render={(props) => <Recipe {...initialProps} {...props} />}/>
-                <Route path={initialProps.baseUrl} exact render={(props) => {
-                    return ( <Recipes {...initialProps} {...props} />)
+                <Route path={context.base + '/recipe/:id'} render={(props) => <Recipe {...initialProps.props} base={context.base} {...props} />}/>
+                <Route path={context.base} exact render={(props) => {
+                    return ( <Recipes {...initialProps.props} base={context.base} {...props} />)
                 }}></Route>
             </div>
         </Router>

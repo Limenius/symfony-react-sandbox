@@ -13,7 +13,6 @@ class Recipe extends React.Component {
     }
 
     getRecipe() {
-        console.log(this.props)
         // if we know that we are loading thata
         if (this.props.fetching ||
         // or we do not have a recipe
@@ -29,7 +28,7 @@ class Recipe extends React.Component {
             return (
                 <div>
                     <ol className="breadcrumb">
-                        <li><Link to={this.props.baseUrl + 'redux/'}>Recipes</Link></li>
+                        <li><Link to={this.props.baseUrl + '/redux/'}>Recipes</Link></li>
                         <li className="active">{this.props.recipe.name}</li>
                     </ol>
                     <RecipeWidget recipe={this.props.recipe}/>

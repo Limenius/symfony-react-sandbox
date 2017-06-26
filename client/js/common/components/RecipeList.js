@@ -6,7 +6,7 @@ const RecipeList = (props) => (
     <div>
         {props.recipes.map((recipe, idx) => (
             <div key={idx}>
-                <Link to={props.routePrefix + 'recipe/' + recipe.id}>
+                <Link to={props.routePrefix + '/recipe/' + recipe.id}>
                     <Recipe key={idx} recipe={recipe} id={idx}/>
                 </Link>
             </div>

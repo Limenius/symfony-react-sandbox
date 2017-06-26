@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "643d01cd92e9034b2a71ebf7e237ce2e",
+    "content-hash": "a2e57426629afa993392ab4304ec0ed9",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1563,20 +1563,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "3530ed47bf89f5396cdf68a9e0f69df2cd43f297"
+                "reference": "91130acf54bb35472edb71802ac22c324e694de7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/3530ed47bf89f5396cdf68a9e0f69df2cd43f297",
-                "reference": "3530ed47bf89f5396cdf68a9e0f69df2cd43f297",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/91130acf54bb35472edb71802ac22c324e694de7",
+                "reference": "91130acf54bb35472edb71802ac22c324e694de7",
                 "shasum": ""
             },
             "require": {
-                "limenius/react-renderer": "^0.13.0",
+                "limenius/react-renderer": "^0.13.1",
                 "nacmartin/phpexecjs": "^0.8",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6",
@@ -1609,20 +1609,20 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2017-06-18T17:30:18+00:00"
+            "time": "2017-06-20T20:22:26+00:00"
         },
         {
             "name": "limenius/react-renderer",
-            "version": "v0.13.0",
+            "version": "v0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactRenderer.git",
-                "reference": "283102cca6a317aabb84f10abeb569116f2f75c9"
+                "reference": "362b55f98e154f06eff63c56358a61868ce8f498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/283102cca6a317aabb84f10abeb569116f2f75c9",
-                "reference": "283102cca6a317aabb84f10abeb569116f2f75c9",
+                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/362b55f98e154f06eff63c56358a61868ce8f498",
+                "reference": "362b55f98e154f06eff63c56358a61868ce8f498",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
                 "reactjs",
                 "twig"
             ],
-            "time": "2017-06-18T17:28:39+00:00"
+            "time": "2017-06-18T20:10:41+00:00"
         },
         {
             "name": "monolog/monolog",

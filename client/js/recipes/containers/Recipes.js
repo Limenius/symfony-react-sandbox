@@ -20,8 +20,9 @@ export default class Recipes extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props.base)
         if (this.state.loading) {
-            fetch(this.props.baseUrl + 'api/recipes').then((response) => {
+            fetch(this.props.base + '/api/recipes').then((response) => {
                 return response.json()
             }).then((data) => {
                 this.setState({
@@ -45,7 +46,7 @@ export default class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeSearchList recipes={this.state.recipes} routePrefix={this.props.baseUrl}/>
+                    <RecipeSearchList recipes={this.state.recipes} routePrefix={this.props.base}/>
                 </div>
             )
         }
