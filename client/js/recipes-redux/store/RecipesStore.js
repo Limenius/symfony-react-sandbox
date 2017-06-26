@@ -20,7 +20,6 @@ export default function configureStore(props, context) {
     const initialState = {
         recipesState: { ...recipesState, recipe, recipes, baseUrl: base, location },
     }
-    console.log(initialState)
 
     // use devtools if we are in a browser and the extension is enabled
     let composeEnhancers = typeof(window) !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

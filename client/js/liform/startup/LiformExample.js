@@ -6,9 +6,9 @@ import Liform, { processSubmitErrors } from 'liform-react'
 import RecipeList from '../components/RecipeList'
 import Constants from '../constants/recipesConstants'
 
-const submit = (values, dispatch) =>
+const submit = (baseUrl, values, dispatch) =>
 {
-    return fetch('/liform/recipes', {
+    return fetch(baseUrl + '/liform/recipes', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -23,7 +23,8 @@ const submit = (values, dispatch) =>
     })
 }
 
-const mainNode = (props) => {
+const mainNode = (initialProps, context) => {
+    const { props } = initialProps
 
     const store = ReactOnRails.getStore('recipesAdminStore')
 
@@ -36,7 +37,7 @@ const mainNode = (props) => {
     const reactComponent = (
         <Provider store={store}>
             <div>
-                <Liform schema={props.schema} onSubmit={submit} initialValues={props.initialValues}/>
+                <Liform schema={props.schema} onSubmit={submit.bind(this, context.base)} initialValues={props.initialValues}/>
                 <ConnectedRecipeList/>
             </div>
         </Provider>

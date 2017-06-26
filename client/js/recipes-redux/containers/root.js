@@ -5,7 +5,6 @@ import Recipes from '../containers/recipes'
 import Recipe from '../containers/recipe'
 
 const NoMatch = (props) => {
-    console.log(props)
     return (<h1>Mal</h1>)
 }
 

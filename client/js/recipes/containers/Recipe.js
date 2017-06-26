@@ -7,7 +7,6 @@ export default class Recipe extends React.Component {
     constructor(props, context) {
         super(props, context)
 
-        console.log(this.props)
         //We check it there is no recipe (only client side)
         //Or our id doesn't match the recipe that we received server-side
         //
