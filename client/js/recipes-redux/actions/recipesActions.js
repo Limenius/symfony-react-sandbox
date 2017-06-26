@@ -2,10 +2,11 @@ import Constants from '../constants/recipesConstants'
 
 const Actions = {
     fetchRecipes: (baseUrl) => {
+        console.log(baseUrl)
         return dispatch => {
             dispatch({ type: Constants.RECIPES_FETCHING })
 
-            fetch(baseUrl + 'api/recipes').then((response) => {
+            fetch(baseUrl + '/api/recipes').then((response) => {
                 return response.json()
             }).then((data) => {
                 dispatch({
@@ -17,10 +18,12 @@ const Actions = {
     },
 
     fetchRecipe: (id, baseUrl) => {
+        console.log(id)
+        console.log(baseUrl)
         return dispatch => {
             dispatch({ type: Constants.RECIPE_FETCHING })
 
-            fetch(baseUrl + 'api/recipes/' + id).then((response) => {
+            fetch(baseUrl + '/api/recipes/' + id).then((response) => {
                 return response.json()
             }).then((data) => {
                 dispatch({

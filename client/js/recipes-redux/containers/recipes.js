@@ -24,7 +24,7 @@ class Recipes extends React.Component {
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
-                    <RecipeSearchList recipes={this.props.recipes} routePrefix={this.props.baseUrl + '/redux'}/>
+                    <RecipeSearchList recipes={this.props.recipes} routePrefix={''}/>
                 </div>
             )
         }

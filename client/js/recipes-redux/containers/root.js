@@ -10,22 +10,13 @@ const NoMatch = (props) => {
 }
 
 const Root = (props) => {
-    console.log(props)
     const baseUrl = props.baseUrl
-    console.log(baseUrl + '/redux/')
     return (
         <div>
-            <Route path="/redux/" exact component={Recipes}/>
-            <Route path="/recipe/:id" component={Recipe}/>
-            <Route component={NoMatch}/>
+            <Route path={'/'} exact component={Recipes}/>
+            <Route path={'/recipe/:id'} component={Recipe}/>
         </div>
     )
 }
 
-const mapStateToProps = (state) => (
-    {
-        baseUrl: state.recipesState.baseUrl,
-    }
-)
-
-export default connect(mapStateToProps)(Root)
+export default Root

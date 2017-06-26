@@ -10,10 +10,10 @@ import {
 
 export default (initialProps, context) => {
     return (
-        <Router base={context.base}>
+        <Router basename={context.base}>
             <div>
-                <Route path={context.base + '/recipe/:id'} render={(props) => <Recipe {...initialProps.props} base={context.base} {...props} />}/>
-                <Route path={context.base} exact render={(props) => {
+                <Route path={'/recipe/:id'} render={(props) => <Recipe {...initialProps.props} base={context.base} {...props} />}/>
+                <Route path={'/'} exact render={(props) => {
                     return ( <Recipes {...initialProps.props} base={context.base} {...props} />)
                 }}></Route>
             </div>
