@@ -1,4 +1,5 @@
 import Constants from '../constants/recipesConstants'
+import jwtDecode from 'jwt-decode';
 
 export function login(username, password, baseUrl) {
     return dispatch => {
@@ -17,7 +18,9 @@ export function login(username, password, baseUrl) {
             }
             return response.json()
         }).then( (data) => {
-            document.cookie = 'BEARER='+data.token+'; expires=Fri, 3 Aug 2021 20:47:11 UTC; path=/'
+            const payload = jwtDecode(data.token)
+            let d = new Date(payload.exp * 1000)
+            document.cookie = 'BEARER='+data.token+'; expires='+d.toUTCString()+'; path=/'
             dispatch({ type: Constants.LOGIN_TOKEN_RECEIVED, token: data.token })
         }).catch( () => {
             dispatch({ type: Constants.LOGIN_ERROR })
