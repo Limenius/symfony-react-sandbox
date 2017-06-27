@@ -153,7 +153,7 @@ Usage with JWT
 
 This sandbox uses [LexikJWTAuthenticationBundle](https://github.com/lexik/LexikJWTAuthenticationBundle) to handle authentication in the admin area.
 
-If you don't plan to use server side rendering in private areas, using JWT is straightforward. However, as this is a sandbox, so a place to try things, we have provided an example that works also with server side rendering. This involves setting the JWT token in a cookie after the login and extracting the token and validating itthe controller that loads the admin panel.
+If you don't plan to use server side rendering in private areas, using JWT is straightforward. However, as this is a sandbox, so a place to try things, we have provided an example that works also with server side rendering. This involves setting the JWT token in a cookie after the login and extracting the token and validating it in the controller that loads the admin panel.
 
 The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/tree/master/client/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/master/src/AppBundle/Controller/AdminController.php).
 
