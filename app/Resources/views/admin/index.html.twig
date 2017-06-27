@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ redux_store('recipesAdminStore', {'authToken': authToken, 'schema': schema, 'initialValues': initialValues, 'recipes': recipes}) }}
+{{ react_component('Admin') }}
+{% endblock %}

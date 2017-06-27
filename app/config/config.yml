@@ -74,8 +74,8 @@ swiftmailer:
 # These are the default configuration options for the React Bundle
 limenius_react:
     # Other options are "server_side" and "client_side"
-    default_rendering: "both"
-    #default_rendering: "client_side"
+    #default_rendering: "both"
+    default_rendering: "client_side"
     serverside_rendering:
         # In case of error in server-side rendering, throw exception
         fail_loud: false
@@ -99,3 +99,9 @@ limenius_react:
 
 hautelook_alice:
         fixtures_path: 'Resources/fixtures/orm' # Path to which to look for fixtures relative to the bundle path.
+
+lexik_jwt_authentication:
+    private_key_path: '%jwt_private_key_path%'
+    public_key_path:  '%jwt_public_key_path%'
+    pass_phrase:      '%jwt_key_pass_phrase%'
+    token_ttl:        '%jwt_token_ttl%'

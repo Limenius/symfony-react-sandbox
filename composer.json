@@ -31,7 +31,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "limenius/react-bundle": "^0.14.0",
         "limenius/liform-bundle": "^0.10.1",
-        "league/uri": "^5.0"
+        "league/uri": "^5.0",
+        "lexik/jwt-authentication-bundle": "^2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

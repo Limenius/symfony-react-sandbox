@@ -1,8 +1,8 @@
 import ReactOnRails from 'react-on-rails'
-import LiformExample from './LiformExample'
+import Admin from './Admin'
 import configureStore from '../store/configureStore'
 
 const recipesStore = configureStore
 
-ReactOnRails.register({ LiformExample })
+ReactOnRails.register({ Admin })
 ReactOnRails.registerStore({ recipesAdminStore: recipesStore })
