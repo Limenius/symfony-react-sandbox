@@ -8,7 +8,7 @@ Encore
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
     // will output as web/build/app.js
-    .addEntry('app', ['babel-polyfill', 'whatwg-fetch', './client/js/clientEntryPoint.js'])
+    .addEntry('app', ['babel-polyfill', 'whatwg-fetch', './client/js/entryPoint.js'])
     // will output as web/build/app.css
     .addStyleEntry('css/main', './client/sass/layout.scss')
     // allow sass/scss files to be processed
