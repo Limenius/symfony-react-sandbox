@@ -24,7 +24,6 @@ const submit = (baseUrl, values, dispatch) =>
 }
 
 const mainNode = (initialProps, context) => {
-    const { props } = initialProps
 
     const store = ReactOnRails.getStore('recipesAdminStore')
 
@@ -37,7 +36,7 @@ const mainNode = (initialProps, context) => {
     const reactComponent = (
         <Provider store={store}>
             <div>
-                <Liform schema={props.schema} onSubmit={submit.bind(this, context.base)} initialValues={props.initialValues}/>
+                <Liform schema={initialProps.schema} onSubmit={submit.bind(this, context.base)} initialValues={initialProps.initialValues}/>
                 <ConnectedRecipeList/>
             </div>
         </Provider>

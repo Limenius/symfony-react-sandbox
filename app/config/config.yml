@@ -74,14 +74,14 @@ swiftmailer:
 # These are the default configuration options for the React Bundle
 limenius_react:
     # Other options are "server_side" and "client_side"
-    default_rendering: "client_side"
+    default_rendering: "both"
     serverside_rendering:
         # In case of error in server-side rendering, throw exception
-        fail_loud: true
+        fail_loud: false
         # Replay every console.log message produced during server-side rendering
         # in the JavaScript console
         # Note that if enabled it will throw a (harmless) React warning
-        trace: true
+        trace: false
         # Mode can be `"phpexecjs"` (to execute Js from PHP using PhpExecJs),
         # or `"external_server"` (to rely on an external node.js server)
         # Default is `"phpexecjs"`

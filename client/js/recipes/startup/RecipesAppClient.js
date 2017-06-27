@@ -12,9 +12,9 @@ export default (initialProps, context) => {
     return (
         <Router basename={context.base}>
             <div>
-                <Route path={'/recipe/:id'} render={(props) => <Recipe {...initialProps.props} base={context.base} {...props} />}/>
+                <Route path={'/recipe/:id'} render={(props) => <Recipe {...initialProps} base={context.base} {...props} />}/>
                 <Route path={'/'} exact render={(props) => {
-                    return ( <Recipes {...initialProps.props} base={context.base} {...props} />)
+                    return ( <Recipes {...initialProps} base={context.base} {...props} />)
                 }}></Route>
             </div>
         </Router>

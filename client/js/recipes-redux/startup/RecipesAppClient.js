@@ -6,11 +6,12 @@ import ReactOnRails from 'react-on-rails'
 
 // See documentation for https://github.com/reactjs/react-redux.
 // This code here binds your smart component to the redux store.
-const mainNode = (_initialProps, _context) => {
+const mainNode = (_initialProps, context) => {
     const store = ReactOnRails.getStore('recipesStore')
+    const { location, base } = context
     const reactComponent = (
         <Provider store={store}>
-            <BrowserRouter basename={store.getState().recipesState.baseUrl + '/redux'}>
+            <BrowserRouter basename={base + '/redux'}>
                 <Root/>
             </BrowserRouter>
         </Provider>

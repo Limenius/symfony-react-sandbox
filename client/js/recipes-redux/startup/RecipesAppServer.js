@@ -5,18 +5,15 @@ import { StaticRouter } from 'react-router'
 import ReactOnRails from 'react-on-rails'
 
 // See documentation for https://github.com/reactjs/react-redux.
-// This is how you get props from the Rails view into the redux store.
 // This code here binds your smart component to the redux store.
-const mainNode = () => {
+const mainNode = (_initialProps, context) => {
     const store = ReactOnRails.getStore('recipesStore')
 
-    const { location } = store.getState().recipesState
-
-    const context = {}
+    const { location, base } = context
 
     const reactComponent = (
         <Provider store={store}>
-            <StaticRouter location={location} context={context}>
+            <StaticRouter basename={base + '/redux'} location={location} context={{}}>
                 <Root/>
             </StaticRouter>
         </Provider>

@@ -4,10 +4,6 @@ import React from 'react'
 import Recipes from '../containers/recipes'
 import Recipe from '../containers/recipe'
 
-const NoMatch = (props) => {
-    return (<h1>Mal</h1>)
-}
-
 const Root = (props) => {
     const baseUrl = props.baseUrl
     return (
