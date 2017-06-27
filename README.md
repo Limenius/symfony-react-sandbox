@@ -146,7 +146,18 @@ Liform example
 
 There is also an example of working with forms using [LiformBundle](https://github.com/Limenius/LiformBundle), so Symfony forms are serialized into [json-schema](http://json-schema.org/), and then generated automatically in React, and can be validated against the generated schema. The idea is similar as what `$form->createView()` does, but for APIs. 
 
-This example can be accessed at the URI `/liform/`.
+This example can be accessed at the URI `/admin/liform/`.
+
+Usage with JWT
+=============
+
+This sandbox uses [LexikJWTAuthenticationBundle](https://github.com/lexik/LexikJWTAuthenticationBundle) to handle authentication in the admin area. 
+
+If you don't plan to use server side rendering in private areas, using JWT is straightforward. However, as this is a sandbox, so a place to try things, we have provided an example that works also with server side rendering. This involves setting the JWT token in a cookie after the login and extracting the token and validating itthe controller that loads the admin panel.
+
+The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/tree/master/client/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/tree/master/src/Controller/AdminController.php).
+
+Note that if you plan to copy and paste this sandbox and use it for something serious, you **should** regenerate the crypto keys following the documentation of LexikJWTAuthenticationBundle.
 
 Server side rendering modes
 ===========================
