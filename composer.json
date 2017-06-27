@@ -29,10 +29,9 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "limenius/react-bundle": "^0.13.1",
+        "limenius/react-bundle": "^0.14.0",
         "limenius/liform-bundle": "^0.10.1",
-        "league/uri": "^5.0",
-        "limenius/react-renderer": "^0.13.1"
+        "league/uri": "^5.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
