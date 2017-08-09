@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import AdminForm from './AdminForm'
 
-const App = ({authToken}) => {
+const App = ({ authToken }) => {
     if (!authToken) {
         return <Login/>
     } else {

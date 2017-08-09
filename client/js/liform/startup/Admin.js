@@ -3,7 +3,7 @@ import ReactOnRails from 'react-on-rails'
 import { Provider } from 'react-redux'
 import App from '../components/App'
 
-const mainNode = (initialProps, context) => {
+const mainNode = () => {
 
     const store = ReactOnRails.getStore('recipesAdminStore')
 

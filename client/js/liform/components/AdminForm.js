@@ -42,7 +42,7 @@ class AdminForm extends React.Component {
         }
     }
 
-    render () {
+    render() {
         const { schema, initialValues, baseUrl, authToken } = this.props
         if (schema) {
             return (

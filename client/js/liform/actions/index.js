@@ -1,9 +1,9 @@
 import Constants from '../constants/recipesConstants'
-import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode'
 
 export function login(username, password, baseUrl) {
     return dispatch => {
-        var data = new FormData()
+        let data = new FormData()
         data.append('_username', username)
         data.append('_password', password)
 
@@ -12,11 +12,10 @@ export function login(username, password, baseUrl) {
             body: data
         }).then( (response) => {
             if (response.ok) {
-                return response.json();
+                return response.json()
             } else {
-                throw Error(response.statusText);
+                throw Error(response.statusText)
             }
-            return response.json()
         }).then( (data) => {
             const payload = jwtDecode(data.token)
             let d = new Date(payload.exp * 1000)
@@ -31,7 +30,6 @@ export function login(username, password, baseUrl) {
 export function fetchForm(baseUrl, token) {
 
     return dispatch => {
-        var data = new FormData()
         fetch(baseUrl + '/admin/api/form', {
             method: 'GET',
             headers: {
@@ -48,7 +46,6 @@ export function fetchForm(baseUrl, token) {
 
 export function fetchRecipes(baseUrl) {
     return dispatch => {
-        var data = new FormData()
         fetch(baseUrl + '/api/recipes', {
             method: 'GET',
             headers: {

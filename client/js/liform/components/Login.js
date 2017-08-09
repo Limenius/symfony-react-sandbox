@@ -15,20 +15,20 @@ class Login extends React.Component {
 
     }
 
-    submit (e) {
-        e.preventDefault();
+    submit(e) {
+        e.preventDefault()
         this.props.dispatch(login(this.state.username, this.state.password, this.props.baseUrl))
     }
 
-    setUsername (e) {
-        this.setState({username: e.target.value})
+    setUsername(e) {
+        this.setState({ username: e.target.value })
     }
 
-    setPassword (e) {
-        this.setState({password: e.target.value})
+    setPassword(e) {
+        this.setState({ password: e.target.value })
     }
 
-    render () {
+    render() {
         const { loginError } = this.props
         return (
             <form onSubmit={this.submit}>

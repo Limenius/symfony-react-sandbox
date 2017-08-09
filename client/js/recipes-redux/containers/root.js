@@ -1,11 +1,9 @@
 import { Route } from 'react-router-dom'
-import { connect } from 'react-redux'
 import React from 'react'
 import Recipes from '../containers/recipes'
 import Recipe from '../containers/recipe'
 
-const Root = (props) => {
-    const baseUrl = props.baseUrl
+const Root = () => {
     return (
         <div>
             <Route path={'/'} exact component={Recipes}/>
