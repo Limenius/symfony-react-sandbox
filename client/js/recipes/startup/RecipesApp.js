@@ -11,7 +11,7 @@ export default (initialProps, context) => {
     let Router
 
     // We render a different router depending on whether we are rendering server side
-    // or client side. 
+    // or client side.
     if (context.serverSide) {
         Router = (props) => (
             <StaticRouter basename={context.base} location={context.location} context={{}} >

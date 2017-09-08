@@ -113,26 +113,29 @@ To simplify things we don't use FOSRestBundle here, but feel free to use it to b
 
 In order to make your React components accessible to ReactBundle, you need to register them. We are using for this purpose the npm package of the React On Rails, (that can be used outside the Ruby world).
 
-Take a look at the `client/js/serverRegistration.js` and `client/js/clientEntryPoint.js` entries:
+Take a look at the `client/js/recipes/startup/registration.js` file:
 
 Server side:
 
-    import ReactOnRails from 'react-on-rails';
-    import RecipesApp from './RecipesAppServer';
+    import ReactOnRails from 'react-on-rails'
+    import RecipesApp from './RecipesApp'
 
-    ReactOnRails.register({ RecipesApp });
-
-Here we import our root component and expose it. The same goes for the client-side part:
-
-    import ReactOnRails from 'react-on-rails';
-    import RecipesApp from './RecipesAppClient';
-
-    ReactOnRails.register({ RecipesApp });
+    ReactOnRails.register({ RecipesApp })
 
 #### JavaScript code organization for isomorphic apps
 
-Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the files `client/js/recipes/serverRegistration.js` and `client/js/clientEntryPoint.js`.
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the file `client/js/recipes/RecipesApp.js`.
 
+Note that React on Rails passes a second `context` parameter to the root container that includes the property `serverSide`:
+
+
+    export default (initialProps, context) => {
+
+        if (context.serverSide) {
+            /...
+        } else {
+            /...
+        }
 
 Redux example
 =============
