@@ -97,9 +97,6 @@ limenius_react:
         #  null will default to `%kernel.root_dir%/Resources/node-server/node.sock
         server_socket_path: null
 
-hautelook_alice:
-        fixtures_path: 'Resources/fixtures/orm' # Path to which to look for fixtures relative to the bundle path.
-
 lexik_jwt_authentication:
     private_key_path: '%jwt_private_key_path%'
     public_key_path:  '%jwt_public_key_path%'
