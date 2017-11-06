@@ -7,7 +7,7 @@ Encore
     .setPublicPath('/')
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
-    // will output as web/build/app.js
+    // will output as app/Resources/webpack/server-bundle.js
     .addEntry('server-bundle', ['babel-polyfill', './client/js/entryPoint.js'])
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
