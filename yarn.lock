@@ -3049,7 +3049,7 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.9.1:
+js-yaml@^3.10.0, js-yaml@^3.9.1:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
   dependencies:
@@ -4400,9 +4400,12 @@ react-dom@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-on-rails@^8.0.6:
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-8.0.6.tgz#b0f30772a850dca6fa2c508576455557a2dd40ea"
+react-on-rails@^10.0.0, react-on-rails@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-10.0.1.tgz#5abd1835109dcf7f362f2e4ccd08fca316eec87e"
+  dependencies:
+    react-on-rails "^10.0.0"
+    react-redux "^5.0.6"
 
 react-redux@^5.0.6:
   version "5.0.6"
