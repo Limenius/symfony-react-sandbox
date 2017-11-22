@@ -5,7 +5,7 @@ This sandbox provides an example of usage of [ReactBundle](https://github.com/li
 
 **This version uses Symfony3.3. If you want to start using Symfony 4 use [this branch](https://github.com/Limenius/symfony-react-sandbox/tree/symfony4) instead**
 
-**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This shocases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
+**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This showcases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
 
 You can see this example live at http://symfony-react.limenius.com/
 
