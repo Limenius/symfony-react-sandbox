@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "626b9c827db7778889a258eb45004256",
+    "content-hash": "e0837b8373d39c1511633e5e69934607",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1733,7 +1733,7 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
@@ -4912,7 +4912,6 @@
         "league/uri": 20,
         "lexik/jwt-authentication-bundle": 20,
         "limenius/liform-bundle": 20,
-        "limenius/react-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "symfony/asset": 20,
         "symfony/form": 20,
