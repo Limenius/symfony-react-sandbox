@@ -12,7 +12,7 @@ It is also a fully functional Symfony application that you can use as skeleton f
 It has three main areas of interest:
 
 * The server-side code under `src/` and `app/config` configuration.
-* The JavaScript and CSS (SCSS) code under `client/`.
+* The JavaScript and CSS (SCSS) code under `assets/`.
 * The Webpack Encore configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
 Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if we neeeded that setup.
@@ -115,7 +115,7 @@ To simplify things we don't use FOSRestBundle here, but feel free to use it to b
 
 In order to make your React components accessible to ReactBundle, you need to register them. We are using for this purpose the npm package of the React On Rails, (that can be used outside the Ruby world).
 
-Take a look at the `client/js/recipes/startup/registration.js` file:
+Take a look at the `assets/js/recipes/startup/registration.js` file:
 
 Server side:
 
@@ -126,7 +126,7 @@ Server side:
 
 #### JavaScript code organization for isomorphic apps
 
-Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the file `client/js/recipes/RecipesApp.js`.
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the file `assets/js/recipes/RecipesApp.js`.
 
 Note that React on Rails passes a second `context` parameter to the root container that includes the property `serverSide`:
 
@@ -142,7 +142,7 @@ Note that React on Rails passes a second `context` parameter to the root contain
 Redux example
 =============
 
-There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`.
+There is a working example using Redux at `assets/js/recipes-redux/`, and available at the URI `/redux/`.
 
 Note that the presentational components of both versions are shared, as they don't know about Redux.
 
