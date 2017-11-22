@@ -33,7 +33,7 @@ Requirements: you need a recent version of node, and Webpack installed (you can 
 Configure your database editing `app/config/parameters.yml` and setting your database name, user and password. Then, create the schema and load fixtures:
 
     bin/console doctrine:schema:create
-    bin/console hautelook:fixtures:load
+    bin/console doctrine:fixtures:load
 
 This should populate your database with some tasty sample data.
 
