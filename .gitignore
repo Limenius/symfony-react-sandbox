@@ -23,3 +23,5 @@ composer-dev.json
 composer-dev.lock
 webpack-old.js
 .web-server-pid
+.env
+public/
