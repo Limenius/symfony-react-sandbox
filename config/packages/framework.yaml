@@ -1,0 +1,19 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    #default_locale: en
+    #csrf_protection: ~
+    #http_method_override: true
+    #trusted_hosts: ~
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    session:
+        # The native PHP session handler will be used
+        handler_id: ~
+    #esi: ~
+    #fragments: ~
+    serializer: { enable_annotations: true }
+    php_errors:
+        log: true
+
+    assets:
+        # feature is supported in Symfony 3.3 and higher
+        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
