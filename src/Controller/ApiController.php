@@ -33,8 +33,11 @@ class ApiController extends Controller
      */
     public function apiRecipeAction($id, Request $request)
     {
+        $recipe = $this->getDoctrine()
+            ->getRepository(Recipe::class)
+            ->find($id);
         $serializer = $this->get('serializer');
-        return new JsonResponse($serializer->normalize($this->get('recipes.repository.recipe')->find($id)));
+        return new JsonResponse($serializer->normalize($recipe));
     }
 
 }

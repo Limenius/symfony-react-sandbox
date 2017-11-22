@@ -32,7 +32,7 @@ class RecipeController extends Controller
     public function recipeAction($id, Request $request)
     {
         $serializer = $this->get('serializer');
-        $recipes = $this->getDoctrine()
+        $recipe = $this->getDoctrine()
             ->getRepository(Recipe::class)
             ->find($id);
         if (!$recipe) {
@@ -66,7 +66,7 @@ class RecipeController extends Controller
      */
     public function recipeReduxAction($id, Request $request)
     {
-        $recipes = $this->getDoctrine()
+        $recipe = $this->getDoctrine()
             ->getRepository(Recipe::class)
             ->find($id);
         $serializer = $this->get('serializer');
