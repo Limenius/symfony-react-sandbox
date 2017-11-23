@@ -179,12 +179,12 @@ Currently, the best option is to have [V8rjs](https://github.com/phpv8/v8js), an
 
 if in your config.prod.yaml or `config/packages/prod/limenius_react.yaml` you add the following configuration, and you have V8js installed, this bundle will be much faster:
 
-limenius_react:
-    serverside_rendering:
-        cache:
-            enabled: true
-            # name of your app, it is the key of the cache where the snapshot will be stored.
-            key: "recipes_app"
+    limenius_react:
+        serverside_rendering:
+            cache:
+                enabled: true
+                # name of your app, it is the key of the cache where the snapshot will be stored.
+                key: "recipes_app"
 
 After the first page render, this will store a snapshot of the JS virtual machine V8js in the cache, so in subsequent visits, your whole JavaScript app doesn't need to be processed again, just the particular component that you want to render.
 
