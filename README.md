@@ -167,11 +167,28 @@ Note that if you plan to copy and paste this sandbox and use it for something se
 Server side rendering modes
 ===========================
 
-* Using [PhpExecJs](https://github.com/nacmartin/phpexecjs) to auto-detect a JavaScript environment (call node.js via terminal command or use V8Js PHP) and run JavaScript code through it. This is more friendly for development, as every time you change your code it will have effect immediatly, but it is also more slow, because for every request the server bundle containing React must be copied either to a file (if your runtime is node.js) or via memcpy (if you have the V8Js PHP extension enabled) and re-interpreted. It is more **suited for development**, or in environments where you can cache everything.
+This library supports two modes of using server-side rendering:
 
-* Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. This is faster but introduces more operational complexity (you have to keep the node server running). For this reason it is more **suited for production**.
+* Using [PhpExecJs](https://github.com/nacmartin/phpexecjs) to auto-detect a JavaScript environment (call node.js via terminal command or use V8Js PHP) and run JavaScript code through it.
 
-Check [the annotated configuration](https://github.com/Limenius/symfony-react-sandbox/blob/master/app/config/config.yml) how to set these options.
+* Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. Introduces more operational complexity (you have to keep the node server running).
+
+Currently, the best option is to have [V8rjs](https://github.com/phpv8/v8js), and enablign Cache in production, as we will see in the next section.
+
+### Cache
+
+if in your config.prod.yaml or `config/packages/prod/limenius_react.yaml` you add the following configuration, and you have V8js installed, this bundle will be much faster:
+
+limenius_react:
+    serverside_rendering:
+        cache:
+            enabled: true
+            # name of your app, it is the key of the cache where the snapshot will be stored.
+            key: "recipes_app"
+
+After the first page render, this will store a snapshot of the JS virtual machine V8js in the cache, so in subsequent visits, your whole JavaScript app doesn't need to be processed again, just the particular component that you want to render.
+
+With the cache enabled, if you change code of your JS app, you will need to clear the cache.
 
 Credits
 =======
