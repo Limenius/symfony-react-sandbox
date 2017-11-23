@@ -8,7 +8,7 @@
         "league/uri": "^5.1@dev",
         "lexik/jwt-authentication-bundle": "^2.0@dev",
         "limenius/liform-bundle": "dev-master",
-        "limenius/react-bundle": "^1.0",
+        "limenius/react-bundle": "^2.0@dev",
         "sensio/framework-extra-bundle": "^5.0@dev",
         "symfony/asset": "^4.1@dev",
         "symfony/console": "^4.0",

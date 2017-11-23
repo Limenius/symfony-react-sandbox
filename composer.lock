@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0837b8373d39c1511633e5e69934607",
+    "content-hash": "ed0e644df668dfc538d4ba7aab480aa3",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -967,12 +967,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "a82f6c5725cb31348eae0b4414e8992b1400ba30"
+                "reference": "24408b42d36540bde2c3f456f925fffecb84f1ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a82f6c5725cb31348eae0b4414e8992b1400ba30",
-                "reference": "a82f6c5725cb31348eae0b4414e8992b1400ba30",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/24408b42d36540bde2c3f456f925fffecb84f1ba",
+                "reference": "24408b42d36540bde2c3f456f925fffecb84f1ba",
                 "shasum": ""
             },
             "require": {
@@ -1039,7 +1039,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-10-31T19:46:02+00:00"
+            "time": "2017-11-23T10:08:52+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1232,16 +1232,16 @@
         },
         {
             "name": "league/uri-hostname-parser",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-hostname-parser.git",
-                "reference": "e8d579d0349f5898f26eff379da202d1db2b00f5"
+                "reference": "ffa93a040a828ae2624ace377eb9a5306c6bb234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-hostname-parser/zipball/e8d579d0349f5898f26eff379da202d1db2b00f5",
-                "reference": "e8d579d0349f5898f26eff379da202d1db2b00f5",
+                "url": "https://api.github.com/repos/thephpleague/uri-hostname-parser/zipball/ffa93a040a828ae2624ace377eb9a5306c6bb234",
+                "reference": "ffa93a040a828ae2624ace377eb9a5306c6bb234",
                 "shasum": ""
             },
             "require": {
@@ -1297,7 +1297,7 @@
                 "domain parsing",
                 "icann"
             ],
-            "time": "2017-11-22T11:45:37+00:00"
+            "time": "2017-11-22T15:50:50+00:00"
         },
         {
             "name": "league/uri-interfaces",
@@ -1733,21 +1733,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v1.0.0",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "afa0bdd39dbfcdc12518013bbbf7b7b4326afbfc"
+                "reference": "a718791479a1fe2c65fb6aabefec79d471008628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/afa0bdd39dbfcdc12518013bbbf7b7b4326afbfc",
-                "reference": "afa0bdd39dbfcdc12518013bbbf7b7b4326afbfc",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/a718791479a1fe2c65fb6aabefec79d471008628",
+                "reference": "a718791479a1fe2c65fb6aabefec79d471008628",
                 "shasum": ""
             },
             "require": {
-                "limenius/react-renderer": "^0.14.0",
-                "nacmartin/phpexecjs": "^0.8",
+                "limenius/react-renderer": "^2.0@dev",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6|^4.0",
                 "symfony/dependency-injection": "^2.7.0|^3.0.6|^4.0",
@@ -1779,24 +1778,24 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2017-11-22T11:08:06+00:00"
+            "time": "2017-11-23T10:14:00+00:00"
         },
         {
             "name": "limenius/react-renderer",
-            "version": "v0.14.3",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactRenderer.git",
-                "reference": "a6a16654d7c44947abc128da69b1f69fbc6586ae"
+                "reference": "8b2d1f3af3bb1d900280e699705943150954c302"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/a6a16654d7c44947abc128da69b1f69fbc6586ae",
-                "reference": "a6a16654d7c44947abc128da69b1f69fbc6586ae",
+                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/8b2d1f3af3bb1d900280e699705943150954c302",
+                "reference": "8b2d1f3af3bb1d900280e699705943150954c302",
                 "shasum": ""
             },
             "require": {
-                "nacmartin/phpexecjs": "^0.8",
+                "nacmartin/phpexecjs": "^2.0@dev",
                 "php": ">=5.5.0",
                 "twig/twig": "^1.20|^2.0"
             },
@@ -1828,20 +1827,20 @@
                 "reactjs",
                 "twig"
             ],
-            "time": "2017-11-06T16:49:25+00:00"
+            "time": "2017-11-23T10:07:12+00:00"
         },
         {
             "name": "nacmartin/phpexecjs",
-            "version": "v0.8.8",
+            "version": "v2.0.0-beta.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nacmartin/phpexecjs.git",
-                "reference": "dc42f9dd48235a042ae8de758c73e79fe658f875"
+                "reference": "abb8566e4e5d079e30312e72b33bcf01e09990d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/dc42f9dd48235a042ae8de758c73e79fe658f875",
-                "reference": "dc42f9dd48235a042ae8de758c73e79fe658f875",
+                "url": "https://api.github.com/repos/nacmartin/phpexecjs/zipball/abb8566e4e5d079e30312e72b33bcf01e09990d9",
+                "reference": "abb8566e4e5d079e30312e72b33bcf01e09990d9",
                 "shasum": ""
             },
             "require": {
@@ -1864,7 +1863,7 @@
                 }
             ],
             "description": "Run JavaScript code from PHP",
-            "time": "2017-11-22T11:12:15+00:00"
+            "time": "2017-11-22T20:17:42+00:00"
         },
         {
             "name": "namshi/jose",
@@ -4912,6 +4911,7 @@
         "league/uri": 20,
         "lexik/jwt-authentication-bundle": 20,
         "limenius/liform-bundle": 20,
+        "limenius/react-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "symfony/asset": 20,
         "symfony/form": 20,
