@@ -32,12 +32,21 @@ Requirements: you need a recent version of node, and Webpack installed (you can 
     composer install
     npm install # or yarn install if you use yarn
 
-Configure your database editing `app/config/parameters.yml` and setting your database name, user and password. Then, create the schema and load fixtures:
+Configure your database editing `.env` and setting your database name, user and password. Then, create the schema and load fixtures:
 
     bin/console doctrine:schema:create
     bin/console doctrine:fixtures:load
 
 This should populate your database with some tasty sample data.
+
+For convenience, we have included public and private encryption keys in `config/jwt` directory. Their password is "potato". Of course, if you plan to use this in a production environment, please generate new keys with a different password :). If for the time being you want to use these, edit `.env` to use them:
+
+```
+JWT_PRIVATE_KEY_PATH=config/jwt/private.pem
+JWT_PUBLIC_KEY_PATH=config/jwt/public.pem
+JWT_PASSPHRASE=potato
+```
+
 
 And then, run a live server with Webpack hot-reloading of assets:
 
