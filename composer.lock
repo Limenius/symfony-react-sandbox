@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "07562f699f550cbcad7085bd89363a8f",
+    "content-hash": "cd1209c80c8c82a563c34aaf5be4f40c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1084,16 +1084,16 @@
         },
         {
             "name": "league/uri",
-            "version": "dev-master",
+            "version": "5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri.git",
-                "reference": "71c6c85f8c14de41519827d8fe2110ac0ff651b3"
+                "reference": "872194ac1ca5e51fbb9e0e5ba4d27f91aa783e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/71c6c85f8c14de41519827d8fe2110ac0ff651b3",
-                "reference": "71c6c85f8c14de41519827d8fe2110ac0ff651b3",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/872194ac1ca5e51fbb9e0e5ba4d27f91aa783e82",
+                "reference": "872194ac1ca5e51fbb9e0e5ba4d27f91aa783e82",
                 "shasum": ""
             },
             "require": {
@@ -1147,7 +1147,7 @@
                 "url",
                 "ws"
             ],
-            "time": "2017-12-05T11:42:38+00:00"
+            "time": "2017-12-01T13:36:42+00:00"
         },
         {
             "name": "league/uri-components",
@@ -3531,7 +3531,7 @@
         },
         {
             "name": "symfony/orm-pack",
-            "version": "dev-master",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/orm-pack.git",
@@ -4895,10 +4895,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "league/uri": 20,
-        "symfony/orm-pack": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

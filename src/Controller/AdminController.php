@@ -13,6 +13,7 @@ use Lexik\Bundle\JWTAuthenticationBundle\Exception\ExpiredTokenException;
 use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\CookieTokenExtractor;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Authentication\Token\PreAuthenticationJWTUserToken;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Serializer\SerializerInterface;
 use Limenius\Liform\Liform;
 
 use App\Entity\Recipe;
@@ -24,12 +25,11 @@ class AdminController extends Controller
     /**
      * @Route("/admin/liform/", name="liform")
      */
-    public function liformAction(Request $request)
+    public function liformAction(SerializerInterface $serializer, Request $request)
     {
         try {
             $token = $this->getValidToken($request);
             $recipe = new Recipe();
-            $serializer = $this->get('serializer');
             $form = $this->createForm(RecipeType::Class, $recipe,
                 array('csrf_protection' => false)
               );
@@ -37,11 +37,12 @@ class AdminController extends Controller
             $recipes = $this->getDoctrine()
               ->getRepository(Recipe::class)
               ->findAll();
+            $liform = $this->get('liform');
 
             return $this->render('admin/index.html.twig', [
                 'authToken' => $token,
                 'recipes' => $serializer->normalize($recipes),
-                'schema' => $this->get('liform')->transform($form),
+                'schema' => $liform->transform($form),
                 'initialValues' => $serializer->normalize($form->createView()),
             ]);
         } catch (\Exception $e) {
@@ -58,13 +59,13 @@ class AdminController extends Controller
     /**
      * @Route("/admin/api/form", methods={"GET"}, name="admin_form")
      */
-    public function getFormAction(Request $request)
+    public function getFormAction(Request $request, SerializerInterface $serializer)
     {
         $recipe = new Recipe();
-        $serializer = $this->get('serializer');
         $form = $this->createForm(RecipeType::Class, $recipe);
+        $liform = $this->get('liform');
         return new JsonResponse([
-            'schema' => $this->get('liform')->transform($form),
+            'schema' => $liform->transform($form),
             'initialValues' => $serializer->normalize($form->createView()),
         ]);
     }
@@ -72,10 +73,8 @@ class AdminController extends Controller
     /**
      * @Route("/admin/api/recipes", methods={"POST"}, name="liform_post")
      */
-    public function liformPostAction(Request $request)
+    public function liformPostAction(Request $request, SerializerInterface $serializer)
     {
-        $serializer = $this->get('serializer');
-
         $recipe = new Recipe();
         $data = json_decode($request->getContent(), true);
         $form = $this->createForm(RecipeType::Class, $recipe);
