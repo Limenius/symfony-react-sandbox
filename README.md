@@ -39,7 +39,7 @@ Configure your database editing `.env` and setting your database name, user and 
 
 This should populate your database with some tasty sample data.
 
-For convenience, we have included public and private encryption keys in `config/jwt` directory. Their password is "potato". Of course, if you plan to use this in a production environment, please generate new keys with a different password :). If for the time being you want to use these, edit `.env` to use them:
+For convenience, we have included public and private encryption keys in `config/jwt` directory. Their password is "potato". Of course, if you plan to use this in a production environment, please generate new keys with a different password :). There is a file called `.env.dist` that you can rename to `.env`, or copy the relevant parts to your `.env`:
 
 ```
 JWT_PRIVATE_KEY_PATH=config/jwt/private.pem
