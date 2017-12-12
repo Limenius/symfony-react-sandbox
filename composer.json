@@ -1,6 +1,8 @@
 {
+    "name": "limenius/symfony-react-sandbox",
+    "license": "MIT",
+    "description": "Symfony React Sandbox, where to explore the integration with React and isomorphic or universal react rendering in Symfony and have profit with Webpack",
     "type": "project",
-    "license": "proprietary",
     "require": {
         "php": "^7.1.3",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
