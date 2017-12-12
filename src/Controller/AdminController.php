@@ -14,9 +14,9 @@ use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\CookieTokenExtractor;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Authentication\Token\PreAuthenticationJWTUserToken;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Serializer\SerializerInterface;
-use Limenius\Liform\Liform;
 
 use App\Entity\Recipe;
+use Limenius\Liform\Liform;
 use App\Form\Type\RecipeType;
 
 class AdminController extends Controller
@@ -25,7 +25,7 @@ class AdminController extends Controller
     /**
      * @Route("/admin/liform/", name="liform")
      */
-    public function liformAction(SerializerInterface $serializer, Request $request)
+    public function liformAction(Liform $liform, SerializerInterface $serializer, Request $request)
     {
         try {
             $token = $this->getValidToken($request);
@@ -37,7 +37,6 @@ class AdminController extends Controller
             $recipes = $this->getDoctrine()
               ->getRepository(Recipe::class)
               ->findAll();
-            $liform = $this->get('liform');
 
             return $this->render('admin/index.html.twig', [
                 'authToken' => $token,
@@ -59,11 +58,10 @@ class AdminController extends Controller
     /**
      * @Route("/admin/api/form", methods={"GET"}, name="admin_form")
      */
-    public function getFormAction(Request $request, SerializerInterface $serializer)
+    public function getFormAction(Liform $liform, Request $request, SerializerInterface $serializer)
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::Class, $recipe);
-        $liform = $this->get('liform');
         return new JsonResponse([
             'schema' => $liform->transform($form),
             'initialValues' => $serializer->normalize($form->createView()),

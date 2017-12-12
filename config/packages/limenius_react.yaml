@@ -1,4 +1,3 @@
-# These are the default configuration options for the React Bundle
 limenius_react:
     # Other options are "server_side" and "client_side"
     #default_rendering: "both"

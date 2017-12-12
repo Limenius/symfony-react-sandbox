@@ -6,7 +6,7 @@ use App\Entity\Recipe;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class Fixtures extends Fixture
+class Recipes extends Fixture
 {
     public function load(ObjectManager $manager)
     {
