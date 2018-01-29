@@ -1,4 +1,4 @@
-import ReactOnRails from 'react-on-rails'
-import RecipesApp from './RecipesApp'
+import ReactOnRails from "react-on-rails";
+import Entry from "./Entry";
 
-ReactOnRails.register({ RecipesApp })
+ReactOnRails.register({ RecipesApp: Entry });

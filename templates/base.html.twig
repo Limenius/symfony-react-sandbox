@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{asset('favicon.ico')}}">
 
-    <title>Symfony React</title>
+    {% block title %}<title>Symfony React</title>{% endblock title %}
     {% block stylesheets %}
         <link href="{{asset('build/css/main.css')}}" rel="stylesheet">
     {% endblock %}

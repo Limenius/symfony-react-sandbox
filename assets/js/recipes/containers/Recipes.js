@@ -1,5 +1,6 @@
 import React from 'react'
 import RecipeSearchList from '../../common/components/RecipeSearchList'
+import { Helmet } from "react-helmet";
 
 // Simple example of a React "smart" component
 export default class Recipes extends React.Component {
@@ -42,6 +43,9 @@ export default class Recipes extends React.Component {
         } else {
             return (
                 <div>
+                    <Helmet>
+                      <title>Recipes List</title>
+                    </Helmet>
                     <ol className="breadcrumb">
                         <li className="active">Recipes</li>
                     </ol>
