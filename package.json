@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-serverside": "encore dev --config webpack.config.serverside.js --watch",
     "webpack-dev": "encore dev-server",
-    "lint": "eslint client/js"
+    "lint": "eslint client/js",
+    "node-ssr-server": "(cd app/Resources/node-server && node server.js)"
   },
   "keywords": [
     "symfony",
