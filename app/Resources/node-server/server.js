@@ -3,6 +3,7 @@ var fs = require('fs');
 
 var bundlePath = '../webpack/';
 var bundleFileName = 'server-bundle.js';
+var unixSocketPath = 'node.sock'
 
 var currentArg;
 
@@ -15,8 +16,7 @@ Handler.prototype.handle = function (connection) {
     var callback = function () {
         connection.setEncoding('utf8');
         connection.on('data', (data)=> {
-            console.log('Processing request: ' + data);
-            var result = eval(data);
+            var result = eval(data.slice(0, -1));
             connection.write(result);
             connection.end();
         });
@@ -63,26 +63,28 @@ require(bundlePath + bundleFileName);
 console.log('Loaded server bundle: ' + bundlePath + bundleFileName);
 handler.initialize();
 
-fs.watchFile(bundlePath + bundleFileName, (curr) => {
-    if (curr && curr.blocks && curr.blocks > 0) {
-        if (handler.initialized) {
-            console.log('Reloading server bundle must be implemented by restarting the node process!');
-            return;
+fs.stat(unixSocketPath, function (err) {
+    fs.watchFile(bundlePath + bundleFileName, (curr) => {
+        if (curr && curr.blocks && curr.blocks > 0) {
+            if (handler.initialized) {
+                console.log('Reloading server bundle must be implemented by restarting the node process!');
+                return;
+            }
+
+            require(bundlePath + bundleFileName);
+            console.log('Loaded server bundle: ' + bundlePath + bundleFileName);
+            handler.initialize();
         }
+    });
 
-        require(bundlePath + bundleFileName);
-        console.log('Loaded server bundle: ' + bundlePath + bundleFileName);
-        handler.initialize();
-    }
-});
+    var unixServer = net.createServer(function (connection) {
+        handler.handle(connection);
+    });
 
-var unixServer = net.createServer(function (connection) {
-    handler.handle(connection);
-});
+    unixServer.listen('node.sock');
 
-unixServer.listen('node.sock');
-
-process.on('SIGINT', () => {
-    unixServer.close();
-    process.exit();
+    process.on('SIGINT', () => {
+        unixServer.close();
+        process.exit();
+    });
 });
