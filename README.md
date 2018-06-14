@@ -184,7 +184,7 @@ This library supports two modes of using server-side rendering:
 
 * Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. Introduces more operational complexity (you have to keep the node server running).
 
-Currently, the best option is to have [V8rjs](https://github.com/phpv8/v8js), and enablign Cache in production, as we will see in the next section.
+Currently, the best option is to have [V8rs](https://github.com/phpv8/v8js), and enablign Cache in production, as we will see in the next section.
 
 ### Cache
 
