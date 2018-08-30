@@ -30,8 +30,9 @@ Requirements: you need a recent version of node, and Webpack installed (you can 
     composer install
     npm install # or yarn install if you use yarn
 
-Configure your database editing `app/config/parameters.yml` and setting your database name, user and password. Then, create the schema and load fixtures:
+Configure your database editing `.env` and setting your database name, user and password. Then, create the schema and load fixtures:
 
+    bin/console doctrine:database:create --if-not-exists
     bin/console doctrine:schema:create
     bin/console doctrine:fixtures:load
 
@@ -160,7 +161,7 @@ This sandbox uses [LexikJWTAuthenticationBundle](https://github.com/lexik/LexikJ
 
 If you don't plan to use server side rendering in private areas, using JWT is straightforward. However, as this is a sandbox, so a place to try things, we have provided an example that works also with server side rendering. This involves setting the JWT token in a cookie after the login and extracting the token and validating it in the controller that loads the admin panel.
 
-The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/tree/master/client/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/master/src/AppBundle/Controller/AdminController.php).
+The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/blob/symfony4/assets/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/symfony4/src/Controller/AdminController.php).
 
 Note that if you plan to copy and paste this sandbox and use it for something serious, you **should** regenerate the crypto keys following the documentation of LexikJWTAuthenticationBundle.
 
