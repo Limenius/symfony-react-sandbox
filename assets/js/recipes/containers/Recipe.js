@@ -27,6 +27,7 @@ export default class Recipe extends React.Component {
       };
     }
   }
+
   componentDidMount() {
     if (this.state.loading) {
       fetch(this.props.base + "/api/recipes/" + this.props.match.params.id)
@@ -39,6 +40,7 @@ export default class Recipe extends React.Component {
         });
     }
   }
+
   render() {
     if (this.state.loading) {
       return <div>Loading...</div>;

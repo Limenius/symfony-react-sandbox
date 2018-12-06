@@ -8,7 +8,7 @@ class Recipe extends React.Component {
   componentDidMount() {
     if (
       !this.props.recipe ||
-      this.props.recipe.id !== this.props.match.params.id
+      this.props.recipe.id.toString() !== this.props.match.params.id
     ) {
       const { dispatch } = this.props;
       dispatch(
@@ -24,7 +24,7 @@ class Recipe extends React.Component {
       // or we do not have a recipe
       !this.props.recipe ||
       // or the recipe we have is not the one we should have
-      this.props.recipe.id !== this.props.match.params.id
+      this.props.recipe.id.toString() !== this.props.match.params.id
     ) {
       return <div>Loading...</div>;
     } else {
@@ -43,7 +43,7 @@ class Recipe extends React.Component {
   }
 
   render() {
-    return <div>{this.getRecipe()}</div>;
+    return this.getRecipe();
   }
 }
 
