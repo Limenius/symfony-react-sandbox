@@ -6,7 +6,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Recipe;
 
 class ApiController extends Controller
@@ -23,6 +22,7 @@ class ApiController extends Controller
         $recipes = $this->getDoctrine()
             ->getRepository(Recipe::class)
             ->findAll();
+
         return new JsonResponse($serializer->normalize($recipes));
     }
 
@@ -37,6 +37,7 @@ class ApiController extends Controller
             ->getRepository(Recipe::class)
             ->find($id);
         $serializer = $this->get('serializer');
+
         return new JsonResponse($serializer->normalize($recipe));
     }
 

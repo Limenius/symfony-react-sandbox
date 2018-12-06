@@ -347,13 +347,13 @@
             "ref": "c72d107d077f1654428edaed69415d0228c1aefe"
         }
     },
-    "symfony/webpack-encore-pack": {
+    "symfony/webpack-encore-bundle": {
         "version": "1.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.0",
-            "ref": "9954e3835ce82fee2682be8501ce0511bb867812"
+            "ref": "dd76e869a5d10fac29f4c0c02f8feaac613471ff"
         }
     },
     "symfony/yaml": {

@@ -7,12 +7,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\TokenExtractorInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Exception\InvalidTokenException;
 use Lexik\Bundle\JWTAuthenticationBundle\Exception\ExpiredTokenException;
 use Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\CookieTokenExtractor;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Authentication\Token\PreAuthenticationJWTUserToken;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Serializer\SerializerInterface;
 
 use App\Entity\Recipe;
@@ -45,6 +43,7 @@ class AdminController extends Controller
                 'initialValues' => $serializer->normalize($form->createView()),
             ]);
         } catch (\Exception $e) {
+
             return $this->render('admin/index.html.twig', [
                 'authToken' => null,
                 'schema' => null,
@@ -62,6 +61,7 @@ class AdminController extends Controller
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::Class, $recipe);
+
         return new JsonResponse([
             'schema' => $liform->transform($form),
             'initialValues' => $serializer->normalize($form->createView()),
@@ -87,6 +87,7 @@ class AdminController extends Controller
             $response->headers->set('Content-Type', 'application/json');
             return $response;
         }
+
         return new JsonResponse($serializer->normalize($form), 400);
     }
 
@@ -109,6 +110,7 @@ class AdminController extends Controller
             }
             throw new InvalidTokenException('Invalid JWT Token', 0, $e);
         }
+
         return $preAuthToken;
     }
 }

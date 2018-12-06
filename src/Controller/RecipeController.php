@@ -5,7 +5,6 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 
 use App\Entity\Recipe;
@@ -20,6 +19,7 @@ class RecipeController extends Controller
         $recipes = $this->getDoctrine()
             ->getRepository(Recipe::class)
             ->findAll();
+
         return $this->render('recipe/home.html.twig', [
             // We pass an array as props
             'props' => $serializer->normalize(['recipes' => $recipes]),
@@ -38,6 +38,7 @@ class RecipeController extends Controller
         if (!$recipe) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
+
         return $this->render('recipe/recipe.html.twig', [
             // A JSON string also works
             'props' => $serializer->serialize(
@@ -54,6 +55,7 @@ class RecipeController extends Controller
             ->getRepository(Recipe::class)
             ->findAll();
         $serializer = $this->get('serializer');
+
         return $this->render('recipe-redux/home.html.twig', [
             // We pass an array as props
             'initialState' => $serializer->normalize(
@@ -73,6 +75,7 @@ class RecipeController extends Controller
         if (!$recipe) {
             throw $this->createNotFoundException('The recipe does not exist');
         }
+
         return $this->render('recipe-redux/recipe.html.twig', [
             // A JSON string also works
             'initialState' => $serializer->serialize(
