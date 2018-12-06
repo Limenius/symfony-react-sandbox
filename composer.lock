@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7442b1eff0812ca66d5a4c8d59ba17fc",
+    "content-hash": "efa1de07750040273ff3ac06d6a572ff",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2061,20 +2061,20 @@
         },
         {
             "name": "limenius/react-bundle",
-            "version": "v2.1.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactBundle.git",
-                "reference": "c56b762dcca06dca269d8b267ba6fd4991b87b10"
+                "reference": "a263459147832511fbf810840b86b7e9727f07e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/c56b762dcca06dca269d8b267ba6fd4991b87b10",
-                "reference": "c56b762dcca06dca269d8b267ba6fd4991b87b10",
+                "url": "https://api.github.com/repos/Limenius/ReactBundle/zipball/a263459147832511fbf810840b86b7e9727f07e2",
+                "reference": "a263459147832511fbf810840b86b7e9727f07e2",
                 "shasum": ""
             },
             "require": {
-                "limenius/react-renderer": "^2.1.0",
+                "limenius/react-renderer": "^3.0.0",
                 "php": ">=5.5.0",
                 "symfony/config": "^2.7.0|^3.0.6|^4.0",
                 "symfony/dependency-injection": "^2.7.0|^3.0.6|^4.0",
@@ -2106,20 +2106,20 @@
                 "isomorphic",
                 "react"
             ],
-            "time": "2018-01-29T20:35:51+00:00"
+            "time": "2018-12-06T16:45:26+00:00"
         },
         {
             "name": "limenius/react-renderer",
-            "version": "v2.2.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Limenius/ReactRenderer.git",
-                "reference": "076761664476fefba594e2d64164ebf606d319f2"
+                "reference": "3387be293f19a6e3ca1ac88f12bffa41a101bac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/076761664476fefba594e2d64164ebf606d319f2",
-                "reference": "076761664476fefba594e2d64164ebf606d319f2",
+                "url": "https://api.github.com/repos/Limenius/ReactRenderer/zipball/3387be293f19a6e3ca1ac88f12bffa41a101bac0",
+                "reference": "3387be293f19a6e3ca1ac88f12bffa41a101bac0",
                 "shasum": ""
             },
             "require": {
@@ -2155,7 +2155,7 @@
                 "reactjs",
                 "twig"
             ],
-            "time": "2018-12-06T14:53:50+00:00"
+            "time": "2018-12-06T16:30:50+00:00"
         },
         {
             "name": "nacmartin/phpexecjs",
