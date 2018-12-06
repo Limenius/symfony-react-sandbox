@@ -15,11 +15,9 @@ const RecipesApp = ({ initialProps, appContext }) => {
       <Route
         path={"/"}
         exact
-        render={props => {
-          return (
-            <Recipes {...initialProps} base={appContext.base} {...props} />
-          );
-        }}
+        render={props => (
+          <Recipes {...initialProps} base={appContext.base} {...props} />
+        )}
       />
     </div>
   );

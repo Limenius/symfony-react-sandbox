@@ -5,8 +5,8 @@ import RecipeList from "../components/RecipeList";
 import Constants from "../constants/recipesConstants";
 import { fetchForm, fetchRecipes } from "../actions";
 
-const submit = (baseUrl, token, values, dispatch) => {
-  return fetch(baseUrl + "/admin/api/recipes", {
+const submit = (baseUrl, token, values, dispatch) =>
+  fetch(baseUrl + "/admin/api/recipes", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -16,24 +16,17 @@ const submit = (baseUrl, token, values, dispatch) => {
     },
     body: JSON.stringify(values)
   })
-    .then(response => {
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       processSubmitErrors(data);
       dispatch({ type: Constants.RECIPE_ADDED, recipe: data });
     });
-};
 
 const ConnectedRecipeList = connect(state => ({
   recipes: state.recipesState.recipes
 }))(RecipeList);
 
 class AdminForm extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   componentDidMount() {
     const { schema, initialValues, baseUrl, dispatch, authToken } = this.props;
     if (!schema || !initialValues) {

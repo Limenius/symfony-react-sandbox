@@ -14,7 +14,7 @@ export default class Recipe extends React.Component {
     if (
       !this.props.recipe ||
       (this.props.match.params.id &&
-        this.props.match.params.id != this.props.recipe.id)
+        this.props.match.params.id !== this.props.recipe.id)
     ) {
       this.state = {
         recipe: null,
@@ -30,9 +30,7 @@ export default class Recipe extends React.Component {
   componentDidMount() {
     if (this.state.loading) {
       fetch(this.props.base + "/api/recipes/" + this.props.match.params.id)
-        .then(response => {
-          return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
           this.setState({
             recipe: data,
