@@ -1,7 +1,7 @@
 framework:
     secret: '%env(APP_SECRET)%'
     #default_locale: en
-    #csrf_protection: ~
+    csrf_protection: false
     #http_method_override: true
 
     # uncomment this entire section to enable sessions
