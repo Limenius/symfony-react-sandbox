@@ -1,8 +1,8 @@
-import ReactOnRails from 'react-on-rails'
-import RecipesAppRedux from './RecipesApp'
-import configureStore from '../store/RecipesStore'
+import ReactOnRails from "react-on-rails";
+import RecipesAppRedux from "./RecipesApp";
+import configureStore from "../store/RecipesStore";
 
-const recipesStore = configureStore
+const recipesStore = configureStore;
 
-ReactOnRails.registerStore({ recipesStore })
-ReactOnRails.register({ RecipesAppRedux })
+ReactOnRails.registerStore({ recipesStore });
+ReactOnRails.register({ RecipesAppRedux });

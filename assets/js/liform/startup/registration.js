@@ -1,8 +1,8 @@
-import ReactOnRails from 'react-on-rails'
-import Admin from './Admin'
-import configureStore from '../store/configureStore'
+import ReactOnRails from "react-on-rails";
+import Admin from "./Admin";
+import configureStore from "../store/configureStore";
 
-const recipesStore = configureStore
+const recipesStore = configureStore;
 
-ReactOnRails.register({ Admin })
-ReactOnRails.registerStore({ recipesAdminStore: recipesStore })
+ReactOnRails.register({ Admin });
+ReactOnRails.registerStore({ recipesAdminStore: recipesStore });
