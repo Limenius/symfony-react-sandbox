@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% set recipes = react_component_array('RecipesApp', {'props': props}) %}
+{% block title %}
+{{ recipes.title is defined ? recipes.title | raw : '' }}
+{% endblock title %}
+
+{% block body %}
+{{ recipes.componentHtml | raw }}
+{% endblock %}

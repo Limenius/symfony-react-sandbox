@@ -1,0 +1,18 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    #default_locale: en
+    csrf_protection: false
+    #http_method_override: true
+
+    # uncomment this entire section to enable sessions
+    session:
+    #    # With this config, PHP's native session handling is used
+        handler_id: ~
+
+    #esi: ~
+    #fragments: ~
+    php_errors:
+        log: true
+    assets:
+        # feature is supported in Symfony 3.3 and higher
+        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'

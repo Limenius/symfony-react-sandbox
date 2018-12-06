@@ -3,7 +3,7 @@ Symfony React Sandbox
 
 This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a fitting Webpack Encore setup. It also provides an example of the usage of [LiformBundle](https://github.com/Limenius/LiformBundle) to generate a json-schema from Symfony forms and a forms and validation in React from that schema.
 
-**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This shocases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
+-**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This shocases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
 
 You can see this example live at http://symfony-react.limenius.com/
 
@@ -12,7 +12,7 @@ It is also a fully functional Symfony application that you can use as skeleton f
 It has three main areas of interest:
 
 * The server-side code under `src/` and `app/config` configuration.
-* The JavaScript and CSS (SCSS) code under `client/`.
+* The JavaScript and CSS (SCSS) code under `assets/`.
 * The Webpack Encore configuration for client and server-side rendering at `webpack.config.js` and `webpack.config.serverside.js`.
 
 Note that you won't need to run an external node server to do server-side rendering, as we are using [PhpExecJs](https://github.com/nacmartin/phpexecjs) although ReactBundle would make it possible if we neeeded that setup.
@@ -30,12 +30,22 @@ Requirements: you need a recent version of node, and Webpack installed (you can 
     composer install
     npm install # or yarn install if you use yarn
 
-Configure your database editing `app/config/parameters.yml` and setting your database name, user and password. Then, create the schema and load fixtures:
+Configure your database editing `.env` and setting your database name, user and password. Then, create the schema and load fixtures:
 
+    bin/console doctrine:database:create --if-not-exists
     bin/console doctrine:schema:create
-    bin/console hautelook:fixtures:load
+    bin/console doctrine:fixtures:load
 
 This should populate your database with some tasty sample data.
+
+For convenience, we have included public and private encryption keys in `config/jwt` directory. Their password is "potato". Of course, if you plan to use this in a production environment, please generate new keys with a different password :). There is a file called `.env.dist` that you can rename to `.env`, or copy the relevant parts to your `.env`:
+
+```
+JWT_PRIVATE_KEY_PATH=config/jwt/private.pem
+JWT_PUBLIC_KEY_PATH=config/jwt/public.pem
+JWT_PASSPHRASE=potato
+```
+
 
 And then, run a live server with Webpack hot-reloading of assets:
 
@@ -115,7 +125,7 @@ To simplify things we don't use FOSRestBundle here, but feel free to use it to b
 
 In order to make your React components accessible to ReactBundle, you need to register them. We are using for this purpose the npm package of the React On Rails, (that can be used outside the Ruby world).
 
-Take a look at the `client/js/recipes/startup/registration.js` file:
+Take a look at the `assets/js/recipes/startup/registration.js` file:
 
 Server side:
 
@@ -126,7 +136,7 @@ Server side:
 
 #### JavaScript code organization for isomorphic apps
 
-Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the file `client/js/recipes/RecipesApp.js`.
+Note that in most cases you will be sharing almost all of your code between your client-side component and its server-side homologous, but while your client-code comes with no surprises, in the server side you will probably have to play a bit with `react-router` in order to let it know the location and set up the routing history. This is a common issue in isomorphic applications. You can find examples on how to do this all along the Internet, but also in the file `assets/js/recipes/RecipesApp.js`.
 
 Note that React on Rails passes a second `context` parameter to the root container that includes the property `serverSide`:
 
@@ -142,7 +152,7 @@ Note that React on Rails passes a second `context` parameter to the root contain
 Redux example
 =============
 
-There is a working example using Redux at `client/js/recipes-redux/`, and available at the URI `/redux/`.
+There is a working example using Redux at `assets/js/recipes-redux/`, and available at the URI `/redux/`.
 
 Note that the presentational components of both versions are shared, as they don't know about Redux.
 
@@ -160,18 +170,35 @@ This sandbox uses [LexikJWTAuthenticationBundle](https://github.com/lexik/LexikJ
 
 If you don't plan to use server side rendering in private areas, using JWT is straightforward. However, as this is a sandbox, so a place to try things, we have provided an example that works also with server side rendering. This involves setting the JWT token in a cookie after the login and extracting the token and validating it in the controller that loads the admin panel.
 
-The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/tree/master/client/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/master/src/AppBundle/Controller/AdminController.php).
+The relevant pieces of code involved are [here](https://github.com/Limenius/symfony-react-sandbox/blob/symfony4/assets/js/liform/actions/index.js) and [here](https://github.com/Limenius/symfony-react-sandbox/blob/symfony4/src/Controller/AdminController.php).
 
 Note that if you plan to copy and paste this sandbox and use it for something serious, you **should** regenerate the crypto keys following the documentation of LexikJWTAuthenticationBundle.
 
 Server side rendering modes
 ===========================
 
-* Using [PhpExecJs](https://github.com/nacmartin/phpexecjs) to auto-detect a JavaScript environment (call node.js via terminal command or use V8Js PHP) and run JavaScript code through it. This is more friendly for development, as every time you change your code it will have effect immediatly, but it is also more slow, because for every request the server bundle containing React must be copied either to a file (if your runtime is node.js) or via memcpy (if you have the V8Js PHP extension enabled) and re-interpreted. It is more **suited for development**, or in environments where you can cache everything.
+This library supports two modes of using server-side rendering:
 
-* Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. This is faster but introduces more operational complexity (you have to keep the node server running). For this reason it is more **suited for production**.
+* Using [PhpExecJs](https://github.com/nacmartin/phpexecjs) to auto-detect a JavaScript environment (call node.js via terminal command or use V8Js PHP) and run JavaScript code through it.
 
-Check [the annotated configuration](https://github.com/Limenius/symfony-react-sandbox/blob/master/app/config/config.yml) how to set these options.
+* Using an external node.js server ([Example](https://github.com/Limenius/symfony-react-sandbox/tree/master/app/Resources/node-server/server.js)). It will use a dummy server, that knows nothing about your logic to render React for you. Introduces more operational complexity (you have to keep the node server running).
+
+Currently, the best option is to have [V8rs](https://github.com/phpv8/v8js), and enabling Cache in production, as we will see in the next section.
+
+### Cache
+
+if in your config.prod.yaml or `config/packages/prod/limenius_react.yaml` you add the following configuration, and you have V8js installed, this bundle will be much faster:
+
+    limenius_react:
+        serverside_rendering:
+            cache:
+                enabled: true
+                # name of your app, it is the key of the cache where the snapshot will be stored.
+                key: "recipes_app"
+
+After the first page render, this will store a snapshot of the JS virtual machine V8js in the cache, so in subsequent visits, your whole JavaScript app doesn't need to be processed again, just the particular component that you want to render.
+
+With the cache enabled, if you change code of your JS app, you will need to clear the cache.
 
 Credits
 =======

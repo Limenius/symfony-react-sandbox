@@ -1,0 +1,13 @@
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+index:
+    path: /
+    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+api_login_check:
+    path: /api/login_check

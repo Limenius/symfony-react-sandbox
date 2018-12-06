@@ -1,25 +1,18 @@
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/jwt
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/var/
 /vendor/
-/web/bundles/
-/web/build/
-/node_modules/
-/app/Resources/webpack/*
-!/app/Resources/webpack/.gitkeep
-composer-dev.json
-composer-dev.lock
-webpack-old.js
+###< symfony/framework-bundle ###
+###> symfony/web-server-bundle ###
 .web-server-pid
+###< symfony/web-server-bundle ###
+
+/public/images
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

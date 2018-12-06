@@ -1,0 +1,10 @@
+{
+  "build/app.css": "http://localhost:8080/build/app.css",
+  "build/app.js": "http://localhost:8080/build/app.js",
+  "build/runtime.js": "http://localhost:8080/build/runtime.js",
+  "build/fonts/glyphicons-halflings-regular.woff2": "http://localhost:8080/build/fonts/glyphicons-halflings-regular.448c34a5.woff2",
+  "build/fonts/glyphicons-halflings-regular.ttf": "http://localhost:8080/build/fonts/glyphicons-halflings-regular.e18bbf61.ttf",
+  "build/fonts/glyphicons-halflings-regular.eot": "http://localhost:8080/build/fonts/glyphicons-halflings-regular.f4769f9b.eot",
+  "build/fonts/glyphicons-halflings-regular.woff": "http://localhost:8080/build/fonts/glyphicons-halflings-regular.fa277232.woff",
+  "build/images/glyphicons-halflings-regular.svg": "http://localhost:8080/build/images/glyphicons-halflings-regular.89889688.svg"
+}
