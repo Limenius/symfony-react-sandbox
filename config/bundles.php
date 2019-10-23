@@ -12,6 +12,6 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     Limenius\LiformBundle\LimeniusLiformBundle::class => ['all' => true],
-    Limenius\ReactBundle\LimeniusReactBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Limenius\ReactBundle\LimeniusReactBundle::class => ['all' => true],
 ];
