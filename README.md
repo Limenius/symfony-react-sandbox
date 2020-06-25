@@ -3,7 +3,7 @@ Symfony React Sandbox
 
 This sandbox provides an example of usage of [ReactBundle](https://github.com/limenius/ReactBundle) with server and client-side React rendering (universal/isomorphical) and its integration with a fitting Webpack Encore setup. It also provides an example of the usage of [LiformBundle](https://github.com/Limenius/LiformBundle) to generate a json-schema from Symfony forms and a forms and validation in React from that schema.
 
--**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This shocases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
+**Note**: If you are new to React.js, please note that this sandbox or the bundle are not by any means required to use React with Symfony. This showcases how to do some advanced features such as Server Side Rendering, a better integration with forms, injecting components directly from Twig tags, that may be difficult.
 
 You can see this example live at http://symfony-react.limenius.com/
 
